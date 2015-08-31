@@ -1,0 +1,2 @@
+character = wolverine = class
+class = badger = character

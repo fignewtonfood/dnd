@@ -14,7 +14,7 @@
         private $speed;
         private $ac;
         private $proficiency;
-        private $stats;
+        private $stat_gen;
 
         function setStr
         {

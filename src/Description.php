@@ -137,6 +137,10 @@
             $GLOBALS["DB"]->exec("DELETE FROM description;");
         }
 
+        function deleteThis() {
+            $GLOBALS["DB"]->exec("DELETE FROM description WHERE id = {$this->getId()};");
+        }
+
 
 
 

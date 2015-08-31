@@ -47,8 +47,24 @@
             $this->assertEquals($test_description2, $result);
         }
 
+        function test_deleteThis() {
+            $gender1 = "male";
+            $test_description = new Description($gender1);
+            $test_description->save();
+
+            $gender2 = "female";
+            $test_description2 = new Description($gender2);
+            $test_description2->save();
+
+            $test_description2->deleteThis();
+
+            $result = Description::getAll();
+
+            $this->assertEquals([$test_description], $result);
+        }
 
 
+        // Database needs to be changed to reflect changes in class.
 
 
     }

@@ -1,5 +1,6 @@
 <?php
     class Description {
+        private $id;
         private $gender;
         private $age;
         private $alignment;
@@ -8,12 +9,12 @@
         private $hair_color;
         private $skin_tone;
         private $other;
-        private $id;
 
-        function __construct($gender = "male", $age = "25",
+        function __construct($id = null, $gender = "male", $age = "25",
         $alignment = "neutral", $height = "5 feet", $eye_color = "brown",
         $hair_color = "brown", $skin_tone = "nondescript",
-        $other = "no other details", $id = null) {
+        $other = "no other details") {
+            $this->id = $id;
             $this->gender = $gender;
             $this->age = $age;
             $this->alignment = $alignment;
@@ -22,10 +23,13 @@
             $this->hair_color = $hair_color;
             $this->skin_tone = $skin_tone;
             $this->other = $other;
-            $this->id = $id;
         }
 
         // GETTERS AND SETTERS:
+
+        function getId() {
+            return $this->id;
+        }
 
         function setGender($gender) {
             $this->gender = (string) $gender;
@@ -91,14 +95,10 @@
             return $this->other;
         }
 
-        function getId() {
-            return $this->id;
-        }
-
         // OTHER FUNCTIONS:
 
         function save() {
-            $GLOBALS['DB']->exec("INSERT INTO description (gender, age,
+            $GLOBALS['DB']->exec("INSERT INTO descriptions (gender, age,
             alignment, height, eye_color, hair_color, skin_tone, other)
             VALUES ('{$this->getGender()}', '{$this->getAge()}',
             '{$this->getAlignment()}', '{$this->getHeight()}',
@@ -108,9 +108,10 @@
         }
 
         static function getAll() {
-            $raw_info = $GLOBALS["DB"]->query("SELECT * FROM description;");
+            $raw_info = $GLOBALS["DB"]->query("SELECT * FROM descriptions;");
             $all = array();
             foreach($raw_info as $details) {
+                $id = $details["id"];
                 $gender = $details["gender"];
                 $age = $details["age"];
                 $alignment = $details["alignment"];
@@ -119,10 +120,9 @@
                 $hair_color = $details["hair_color"];
                 $skin_tone = $details["skin_tone"];
                 $other = $details["other"];
-                $id = $details["id"];
-                $full_description = new Description($gender, $age,
+                $full_description = new Description($id, $gender, $age,
                 $alignment, $height, $eye_color, $hair_color, $skin_tone,
-                $other, $id);
+                $other);
                 array_push($all, $full_description);
             }
             return $all;
@@ -141,11 +141,11 @@
         }
 
         static function deleteAll() {
-            $GLOBALS["DB"]->exec("DELETE FROM description;");
+            $GLOBALS["DB"]->exec("DELETE FROM descriptions;");
         }
 
         function deleteThis() {
-            $GLOBALS["DB"]->exec("DELETE FROM description WHERE id =
+            $GLOBALS["DB"]->exec("DELETE FROM descriptions WHERE id =
             {$this->getId()};");
         }
 

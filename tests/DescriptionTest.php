@@ -18,12 +18,13 @@
         }
 
         function test_save_and_getAll() {
+            $id = null;
             $gender1 = "male";
-            $test_description = new Description($gender1);
+            $test_description = new Description($id, $gender1);
             $test_description->save();
 
             $gender2 = "female";
-            $test_description2 = new Description($gender2);
+            $test_description2 = new Description($id, $gender2);
             $test_description2->save();
 
             $result = Description::getAll();
@@ -32,12 +33,13 @@
         }
 
         function test_find() {
+            $id = null;
             $gender1 = "male";
-            $test_description = new Description($gender1);
+            $test_description = new Description($id, $gender1);
             $test_description->save();
 
             $gender2 = "female";
-            $test_description2 = new Description($gender2);
+            $test_description2 = new Description($id, $gender2);
             $test_description2->save();
 
             $id = $test_description2->getId();
@@ -48,12 +50,13 @@
         }
 
         function test_deleteThis() {
+            $id = null;
             $gender1 = "male";
-            $test_description = new Description($gender1);
+            $test_description = new Description($id, $gender1);
             $test_description->save();
 
             $gender2 = "female";
-            $test_description2 = new Description($gender2);
+            $test_description2 = new Description($id, $gender2);
             $test_description2->save();
 
             $test_description2->deleteThis();

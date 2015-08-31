@@ -1,0 +1,95 @@
+SPEC SHEET FOR LIBRARY
+
+SAVES/GETS/DELETEALLS
+
+// Test Character::save()
+1) Save a character
+    Input: 1, 1, 1
+    Output: [1, 1, 1]
+// Test Character::getAll()
+2) Get all characters
+    Input: 1, 1, 1
+    Input2: 2, 2, 2
+    Output: [[1, 1, 1], [2, 2, 2]]
+// Test Character::deleteAll()
+3) Delete all characters
+    Input: 1, 1, 1
+    Input2: 2, 2, 2
+    Output: []
+
+// Test Class::save()
+4) Save a class
+    Input: "Fighter"
+    Output: ["Fighter"]
+// Test Class::getAll()
+5) Get all classs
+    Input: "Fighter"
+    Input2: "Wizard"
+    Output: [["Fighter"], ["Wizard"]]
+// Test Class::deleteAll()
+6) Delete all classs
+    Input: "Fighter"
+    Input2: "Wizard"
+    Output: []
+
+
+RETURN IDS
+
+// Test Character::getId()
+7) Return id for a character object
+    Input name: 1, 1, 1
+    Input id: {auto-incremented id}
+    Output: {same auto-incremented id}
+
+// Test Class::getId()
+8) Return id for a class object
+    Input class: "Fighter"
+    Input id: {auto-incremented id}
+    Output: {same auto-incremented id}
+
+
+FIND IDS
+
+// Test Character::find($id)
+9) Find characters by id
+    Input name: 1, 1, 1
+    Input id: {auto-incremented id1}
+    Input name2: 2, 2, 2
+    Input id2: {auto-incremented id2}
+    Output: [{auto-incremented id2}, 2, 2, 2]
+
+// Test Class::find($id)
+10) Find classs by id
+    Input name: 1, 1, 1
+    Input id: {auto-incremented id1}
+    Input name2: 2, 2, 2
+    Input id2: {auto-incremented id2}
+    Output: [{auto-incremented id2}, 2, 2, 2]
+
+
+ADDS
+
+// Test Character::addClass($class)
+11) Associate a character and class at the same time to join table
+    Input name: 1, 1, 1
+    Input class: "Fighter"
+    Output: ["Fighter"]
+
+
+GET [OTHERS]
+
+// Test Character::getClasss()
+12) Get Classs from Character method using join statement
+    Input class: "Fighter"
+    Input character: 1, 1, 1
+    Input class2: "Wizard"
+    Output: ["Fighter", "Wizard"]
+
+
+UPDATE
+
+// Test Character::update()
+13) Update a character's name
+    Input: 1, 1, 1
+    Input new author: "Boots and More"
+    Output: "Boots and More"

@@ -37,7 +37,7 @@
     <type label="SET" length="1" sql="SET" quote=""/>
     <type label="Bit" length="0" sql="bit" quote=""/>
   </group>
-</datatypes><table x="380" y="155" name="sign_in">
+</datatypes><table x="411" y="74" name="sign_in">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -51,11 +51,10 @@
 <part>id</part>
 </key>
 </table>
-<table x="787" y="139" name="campaign">
+<table x="749" y="33" name="campaign">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="npc" row="id" />
-</row>
+<default>NULL</default></row>
 <row name="name" null="1" autoincrement="0">
 <datatype>VARCHAR(255)</datatype>
 <default>NULL</default></row>
@@ -70,7 +69,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="981" y="393" name="location">
+<table x="1246" y="302" name="location">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -88,7 +87,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="240" y="64" name="player">
+<table x="277" y="28" name="player">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -110,7 +109,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="547" y="52" name="player_campaign">
+<table x="962" y="61" name="player_campaign">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -126,11 +125,10 @@
 <part>id</part>
 </key>
 </table>
-<table x="279" y="297" name="character">
+<table x="331" y="240" name="character">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="campaign" row="id" />
-</row>
+<default>NULL</default></row>
 <row name="race_id" null="1" autoincrement="0">
 <datatype>INT</datatype>
 <default>NULL</default><relation table="race" row="id" />
@@ -145,12 +143,13 @@
 </row>
 <row name="campaign_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default></row>
+<default>NULL</default><relation table="campaign" row="id" />
+</row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
 </table>
-<table x="944" y="10" name="adventure">
+<table x="1231" y="32" name="adventure">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -168,7 +167,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1361" y="136" name="adventure_location">
+<table x="1563" y="242" name="adventure_location">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -184,7 +183,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="78" y="362" name="race">
+<table x="82" y="40" name="race">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -198,7 +197,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="687" y="342" name="class">
+<table x="830" y="264" name="class">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -212,7 +211,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="465" y="340" name="character_class">
+<table x="605" y="242" name="character_class">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -231,7 +230,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="72" y="503" name="description">
+<table x="67" y="193" name="description">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -263,7 +262,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="693" y="454" name="weapon">
+<table x="1113" y="481" name="weapon">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -289,7 +288,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="452" y="479" name="character_weapon">
+<table x="718" y="389" name="character_weapon">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -305,7 +304,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="669" y="646" name="equipment">
+<table x="1105" y="688" name="equipment">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -319,7 +318,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="437" y="603" name="character_equipment">
+<table x="717" y="513" name="character_equipment">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -335,7 +334,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1072" y="252" name="npc">
+<table x="1381" y="155" name="npc">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -347,7 +346,8 @@
 <default>NULL</default></row>
 <row name="campaign_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default></row>
+<default>NULL</default><relation table="campaign" row="id" />
+</row>
 <row name="location_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="location" row="id" />
@@ -356,7 +356,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="531" y="150" name="gm">
+<table x="960" y="191" name="gm">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -368,7 +368,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="681" y="750" name="spell">
+<table x="1099" y="802" name="spell">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -397,7 +397,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="263" y="558" name="stat">
+<table x="91" y="501" name="stat">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -438,7 +438,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="441" y="745" name="character_spell">
+<table x="732" y="684" name="character_spell">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -454,7 +454,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1142" y="132" name="adventure_npc">
+<table x="1589" y="108" name="adventure_npc">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -465,6 +465,84 @@
 <row name="npc_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="npc" row="id" />
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="391" y="656" name="skill">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="acrobatics" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="arcana" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="animal_handling" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="athletics" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="deception" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="history" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="insight" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="intimidation" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="investigation" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="medicine" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="nature" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="perception" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="performance" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="persuasion" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="religion" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="sleight_of_hand" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="stealth" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="survival" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="302" y="471" name="character_skill">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="character_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="character" row="id" />
+</row>
+<row name="skill_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="skill" row="id" />
 </row>
 <key type="PRIMARY" name="">
 <part>id</part>

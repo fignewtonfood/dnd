@@ -2,7 +2,9 @@
 
 ##### Epicodus D&D Campaign Manager, started 8/29/2015
 
-#### By Tim White, Ike Mattice
+
+#### By Tim White, Ike Mattice & Charles Moss
+
 
 ## Description
 

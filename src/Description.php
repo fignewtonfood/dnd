@@ -98,7 +98,12 @@
         // OTHER FUNCTIONS:
 
         function save() {
-            $GLOBALS['DB']->exec("INSERT INTO description (gender, age, alignment, height, eye_color, hair_color, skin_tone, other) VALUES ('{$this->getGender()}', '{$this->getAge()}', '{$this->getAlignment()}', '{$this->getHeight()}', '{$this->getEyeColor()}', '{$this->getHairColor()}', '{$this->getSkinTone()}',  '{$this->getOther()}');");
+            $GLOBALS['DB']->exec("INSERT INTO description (gender, age,
+            alignment, height, eye_color, hair_color, skin_tone, other)
+            VALUES ('{$this->getGender()}', '{$this->getAge()}',
+            '{$this->getAlignment()}', '{$this->getHeight()}',
+            '{$this->getEyeColor()}', '{$this->getHairColor()}',
+            '{$this->getSkinTone()}',  '{$this->getOther()}');");
             $this->id = $GLOBALS["DB"]->lastInsertId();
         }
 
@@ -115,7 +120,9 @@
                 $skin_tone = $details["skin_tone"];
                 $other = $details["other"];
                 $id = $details["id"];
-                $full_description = new Description($gender, $age, $alignment, $height, $eye_color, $hair_color, $skin_tone, $other, $id);
+                $full_description = new Description($gender, $age,
+                $alignment, $height, $eye_color, $hair_color, $skin_tone,
+                $other, $id);
                 array_push($all, $full_description);
             }
             return $all;
@@ -138,7 +145,8 @@
         }
 
         function deleteThis() {
-            $GLOBALS["DB"]->exec("DELETE FROM description WHERE id = {$this->getId()};");
+            $GLOBALS["DB"]->exec("DELETE FROM description WHERE id =
+            {$this->getId()};");
         }
 
 

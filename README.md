@@ -2,7 +2,7 @@
 
 ##### Epicodus D&D Campaign Manager, started 8/29/2015
 
-#### By Tim White
+#### By Tim White, Ike Mattice
 
 ## Description
 
@@ -32,7 +32,7 @@ CREATE TABLE `brands_stores` (`id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL, `br
 ### Legal
 
 
-Copyright (c) 2015 Tim White
+Copyright (c) 2015 Tim White, Ike Mattice
 
 This software is licensed under the MIT license.
 

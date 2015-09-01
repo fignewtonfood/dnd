@@ -63,16 +63,17 @@
                 JOIN classes ON (characters_classes.class_id = classes.id)
                 WHERE characters.id = {$this->getId()};");
             $classes = array();
+
             foreach ($returned_classes as $class) {
                 $name = $class['name'];
                 $description = $class['description'];
                 $id = $class['id'];
                 $new_class = new CharClass($name, $description, $id);
+
                 array_push($classes, $new_class);
             }
             return $classes;
         }
-
 
         function save() {
             $GLOBALS['DB']->exec("INSERT INTO characters (description_id, race_id, stat_id) VALUES ({$this->getDescriptionId()}, {$this->getRaceId()}, {$this->getStatId()})");
@@ -80,9 +81,9 @@
         }
 
 //Save a character and class at the same time to join table
-        // function addCharClass($class) {
-        //     $GLOBALS['DB']->exec("INSERT INTO characters_classes (character_id, class_id) VALUES ({$this->getId()}, {$class->getId()});");
-        // }
+        function addCharClass($class) {
+            $GLOBALS['DB']->exec("INSERT INTO characters_classes (character_id, class_id) VALUES ({$this->getId()}, {$class->getId()});");
+        }
 
         static function getAll() {
             $returned_characters = $GLOBALS['DB']->query("SELECT * FROM characters;");
@@ -91,28 +92,27 @@
                 $description_id = $character['description_id'];
                 $race_id = $character['race_id'];
                 $stat_id = $character['stat_id'];
-                $campaign_id = $character['campaign_id'];
                 $id = $character['id'];
-                $new_character = new Character($description_id, $race_id, $stat_id, $campaign_id, $id);
+                $new_character = new Character($description_id, $race_id, $stat_id, $campaign_id= null, $id);
                 array_push($characters, $new_character);
             }
             return $characters;
         }
 
-        // static function deleteAll() {
-        //     $GLOBALS['DB']->exec("DELETE FROM characters;");
-        // }
-        //
-        // static function find($search_id){
-        //     $found_character = null;
-        //     $characters = Character::getAll();
-        //     foreach($characters as $character) {
-        //         $character_id = $character->getId();
-        //         if ($character_id == $search_id) {
-        //             $found_character = $character;
-        //         }
-        //     }
-        //     return $found_character;
-        // }
+        static function deleteAll() {
+            $GLOBALS['DB']->exec("DELETE FROM characters;");
+        }
+
+        static function find($search_id){
+            $found_character = null;
+            $characters = Character::getAll();
+            foreach($characters as $character) {
+                $character_id = $character->getId();
+                if ($character_id == $search_id) {
+                    $found_character = $character;
+                }
+            }
+            return $found_character;
+        }
     }
 ?>

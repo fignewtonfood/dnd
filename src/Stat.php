@@ -69,35 +69,37 @@
 
         }
 
-        // function setStr($new_str)
-        // {
-        //     $this->str = $new_str;
-        // }
-        //
-        // function setDex($new_dex)
-        // {
-        //     $this->dex = $new_dex;
-        // }
-        //
-        // function setCon($new_con)
-        // {
-        //     $this->con = $new_con;
-        // }
-        //
-        // function setint($new_int)
-        // {
-        //     $this->int = $new_int;
-        // }
-        //
-        // function setWis($new_wis)
-        // {
-        //     $this->wis = $new_wis;
-        // }
-        //
-        // function setCha($new_cha)
-        // {
-        //     $this->cha = $new_cha;
-        // }
+        function setStr($new_str)
+        {
+            $this->str = $new_str;
+        }
+
+        function setDex($new_dex)
+        {
+            $this->dex = $new_dex;
+        }
+
+        function setCon($new_con)
+        {
+            $this->con = $new_con;
+        }
+
+        function setIntel($new_int)
+        {
+            $this->int = $new_int;
+        }
+
+        function setWis($new_wis)
+        {
+            $this->wis = $new_wis;
+        }
+
+        function setCha($new_cha)
+        {
+            $this->cha = $new_cha;
+        }
+
+
         //
         // function setInit($new_init)
         // {
@@ -336,5 +338,128 @@
             }
             return $found_stat;
         }
+        // UPDATE STAT FUNCTIONS:
+        function updateStr($number) {
+            $GLOBALS["DB"]->exec("UPDATE stats SET str = {$number} WHERE id = {$this->getId()};");
+            $this->setStr($number);
+        }
+
+        function updateIntel($number) {
+            $GLOBALS["DB"]->exec("UPDATE stats SET intel = {$number} WHERE id = {$this->getId()};");
+            $this->setIntel($number);
+        }
+
+        function updateCon($number) {
+            $GLOBALS["DB"]->exec("UPDATE stats SET con = {$number} WHERE id = {$this->getId()};");
+            $this->setCon($number);
+        }
+
+        function updateWis($number) {
+            $GLOBALS["DB"]->exec("UPDATE stats SET wis = {$number} WHERE id = {$this->getId()};");
+            $this->setWis($number);
+        }
+
+        function updateCha($number) {
+            $GLOBALS["DB"]->exec("UPDATE stats SET cha = {$number} WHERE id = {$this->getId()};");
+            $this->setCha($number);
+        }
+
+        function updateDex($number) {
+            $GLOBALS["DB"]->exec("UPDATE stats SET dex = {$number} WHERE id = {$this->getId()};");
+            $this->setDex($number);
+        }
+
+        function updateInit() {
+            $number = $this->getDex;
+            if ($number == 3) {
+                $mod = -4;
+            } elseif ($number == 4 | 5) {
+                $mod = -3;
+            } elseif ($number == 6 | 7) {
+                $mod = -2;
+            } elseif ($number == 8 | 9) {
+                $mod = -1;
+            } elseif ($number == 10 | 11) {
+                $mod = 0;
+            } elseif ($number == 12 | 13) {
+                $mod = 1;
+            } elseif ($number == 14 | 15) {
+                $mod = 2;
+            } elseif ($number == 16 | 17) {
+                $mod = 3;
+            } else {
+                $mod = 4;
+            }
+            $GLOBALS["DB"]->exec("UPDATE stats SET init = {$mod} WHERE id = {$this->getId()};");
+            $this->setDex($mod);
+        }
+
+        // DICE ROLL ASSIGN FUNCTION:
+        function assignRolls($six_rolls, $classname) {
+            $classname = strtolower ($classname);
+            if ($classname == "fighter") {
+                $this->updateStr($six_rolls[0]);
+                $this->updateCon($six_rolls[1]);
+                $this->updateDex($six_rolls[2]);
+                $this->updateCha($six_rolls[3]);
+                $this->updateWis($six_rolls[4]);
+                $this->updateIntel($six_rolls[5]);
+            }
+            elseif ($classname == "rogue") {
+                $this->updateDex($six_rolls[0]);
+                $this->updateCon($six_rolls[1]);
+                $this->updateCha($six_rolls[2]);
+                $this->updateIntel($six_rolls[3]);
+                $this->updateStr($six_rolls[4]);
+                $this->updateWis($six_rolls[5]);
+            }
+            elseif ($classname == "wizard") {
+                $this->updateIntel($six_rolls[0]);
+                $this->updateCon($six_rolls[1]);
+                $this->updateDex($six_rolls[2]);
+                $this->updateWis($six_rolls[3]);
+                $this->updateCha($six_rolls[4]);
+                $this->updateStr($six_rolls[5]);
+            }
+            elseif ($classname == "cleric") {
+                $this->updateWis($six_rolls[0]);
+                $this->updateCon($six_rolls[1]);
+                $this->updateStr($six_rolls[2]);
+                $this->updateCha($six_rolls[3]);
+                $this->updateIntel($six_rolls[4]);
+                $this->updateDex($six_rolls[5]);
+            }
+            else {
+                var_dump("ERROR");
+            }
+
+
+        }
+
+    }
+
+    function statRoll()
+    {
+        $stats = array();
+        $statcounter = 0;
+        while($statcounter < 6)
+        {
+            $numbers = array();
+            $counter = 0;
+            while($counter < 4)
+            {
+                $number = rand(1, 6);
+                array_push($numbers, $number);
+                $counter++;
+            }
+            asort($numbers);
+            unset($numbers[0]);
+            $number_sum = array_sum($numbers);
+            array_push($stats, $number_sum);
+            $statcounter++;
+        }
+        arsort($stats);
+        return $stats;
+
     }
  ?>

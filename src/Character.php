@@ -71,13 +71,14 @@
             return $classes;
         }
 
-        function getBackground()
+        function getBackgrounds()
         {
             $returned_backgrounds = $GLOBALS['DB']->query("SELECT backgrounds.* FROM characters
-                JOIN characters_backgrounds ON (characters.id = characters_backgrounds.character_id)
-                JOIN backgrounds ON (characters_backgrounds.background_id = backgrounds.id)
+                JOIN backgrounds_characters ON (characters.id = backgrounds_characters.character_id)
+                JOIN backgrounds ON (backgrounds_characters.background_id = backgrounds.id)
                 WHERE characters.id = {$this->getId()};");
-            $classes = array();
+
+            $backgrounds = array();
             foreach ($returned_backgrounds as $background) {
                 $name = $background['name'];
                 $description = $background['description'];
@@ -105,12 +106,10 @@
             return $skills;
         }
 
-
         function save() {
             $GLOBALS['DB']->exec("INSERT INTO characters (description_id, race_id, stat_id) VALUES ({$this->getDescriptionId()}, {$this->getRaceId()}, {$this->getStatId()})");
             $this->id = $GLOBALS['DB']->lastInsertId();
         }
-
 
 //Save a character and class at the same time to join table
         function addCharClass($class) {
@@ -118,7 +117,7 @@
         }
 
         function addBackground($background) {
-            $GLOBALS['DB']->exec("INSERT INTO characters_backgrounds (character_id, background_id) VALUES ({$this->getId()}, {$background->getId()});");
+            $GLOBALS['DB']->exec("INSERT INTO backgrounds_characters (character_id, background_id) VALUES ({$this->getId()}, {$background->getId()});");
         }
 
         function addSkill($skill) {

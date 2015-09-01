@@ -68,6 +68,5 @@
             }
             return $found_race;
         }
-
     }
 ?>

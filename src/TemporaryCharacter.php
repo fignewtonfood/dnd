@@ -145,8 +145,6 @@
         return $this->skill_two;
     }
 
-    }
-
 
 //save to cookies
     function sessionSave()

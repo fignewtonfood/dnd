@@ -4,13 +4,13 @@
     </head>
     <body>
 
-        <form action = '/class' method='post'>
+        <form action = '/class' method='get'>
 
             {% for race in races %}
 
                 <label for = '{{ race.getId }}'>
                     <div class='race_select'>
-                        <input type='radio' name = 'race_id' value = '{{ race.getId }}' required>
+                        <input type='radio' id = 'race_id' name = 'race_id' value = '{{ race.getId }}' required>
                             <h3>{{ race.getName }}</h3>
                             <p>{{ race.getDescription }}</p>
                     </div>

@@ -48,23 +48,29 @@
     });
 
     //carry race id to class page
-    $app->post('/class', function() use ($app)
+    $app->get('/class', function() use ($app)
     {
-        $race_id = $_POST['race_id'];
-        var_dump($race_id);
-        return $app['twig']->render('class.html.twig', array('races' => Race::getAll(), 'classes' => CharClass::getAll()));
+        setcookie($race, time() + 1800);
+
+        // $new_temporary_character = new TemporaryCharacter ($_POST['race_id'])
+        // $new_temporary_character->sessionSave();
+        var_dump($race);
+        return $app['twig']->render('class.html.twig', array('races' => Race::getAll(), 'race_id' => $_GET['race_id'], 'classes' => CharClass::getAll()));
     });
 
 
 //class page
     //carry race id and class id to background page
-    $app->post('/background', function() use ($app)
+    $app->get('/background', function() use ($app)
     {
-        $race_id = $_POST['race_id'];
-        $class_id = $_POST['class_id'];
-        var_dump($race_id);
+        $race = $_GET['race_id'];
+        var_dump($_COOKIE[$race]);
+        // http://www.pontikis.net/blog/create-cookies-php-javascript
+        // $race= $_POST['race_id'];
+        // $class_id = $_POST['class_id'];
+        var_dump($race);
         var_dump($class_id);
-        return $app['twig']->render('background.html.twig', array('races' => Race::getAll(), 'classes' => CharClass::getAll(), 'backgrounds' => Background::getAll()));
+        return $app['twig']->render('background.html.twig', array('races' => Race::getAll(), 'race_id' => $_GET['race_id'], 'classes' => CharClass::getAll(), 'backgrounds' => Background::getAll()));
     });
 
 

@@ -66,7 +66,7 @@
             foreach($returned_classes as $class) {
                 $description = $class['description'];
                 $id = $class['id'];
-                $new_class = new Class($description, $id);
+                $new_class = new CharClass($description, $id);
                 array_push($classes, $new_class);
             }
             return $classes;
@@ -78,7 +78,7 @@
 
         static function find($search_id){
             $found_class = null;
-            $classes = Class::getAll();
+            $classes = CharClass::getAll();
             foreach($classes as $class) {
                 $class_id = $class->getId();
                 if ($class_id == $search_id) {

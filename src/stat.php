@@ -369,6 +369,31 @@
             $this->setDex($number);
         }
 
+        function updateInit() {
+            $number = $this->getDex;
+            if ($number == 3) {
+                $mod = -4;
+            } elseif ($number == 4 | 5) {
+                $mod = -3;
+            } elseif ($number == 6 | 7) {
+                $mod = -2;
+            } elseif ($number == 8 | 9) {
+                $mod = -1;
+            } elseif ($number == 10 | 11) {
+                $mod = 0;
+            } elseif ($number == 12 | 13) {
+                $mod = 1;
+            } elseif ($number == 14 | 15) {
+                $mod = 2;
+            } elseif ($number == 16 | 17) {
+                $mod = 3;
+            } else {
+                $mod = 4;
+            }
+            $GLOBALS["DB"]->exec("UPDATE stats SET init = {$mod} WHERE id = {$this->getId()};");
+            $this->setDex($mod);
+        }
+
         // DICE ROLL ASSIGN FUNCTION:
         function assignRolls($six_rolls, $classname) {
             $classname = strtolower ($classname);

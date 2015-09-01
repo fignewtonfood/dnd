@@ -73,7 +73,7 @@
 //         }
 
         function save() {
-            $GLOBALS['DB']->exec("INSERT INTO characters (description_id, race_id, stat_id, campaign_id) VALUES ({$this->getDescriptionId()}, {$this->getRaceId()}, {$this->getStatId()}, {$this->getCampaignId()})");
+            $GLOBALS['DB']->exec("INSERT INTO characters (description_id, race_id, stat_id) VALUES ({$this->getDescriptionId()}, {$this->getRaceId()}, {$this->getStatId()})");
             $this->id = $GLOBALS['DB']->lastInsertId();
         }
 

@@ -1371,5 +1371,12 @@
             $result = Stat::getAll();
             $this->assertEquals($test_stat, $result[0]);
         }
+
+        function teststatRoll()
+        {
+            $result = statRoll();
+            $this->assertEquals(6, count($result));
+        }
+
     }
 ?>

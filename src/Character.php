@@ -54,6 +54,7 @@
             return $this->id;
         }
 //Get Classes from Character method using join statement
+
         function getCharClasses()
         {
 //Join statement saved into returned_classes; query selects all classes columns and joins data across tables to return all matching classes that fit a specific character id

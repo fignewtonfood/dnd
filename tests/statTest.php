@@ -1372,105 +1372,111 @@
             $this->assertEquals($test_stat, $result[0]);
         }
 
-// Test for Dice Roll Assign function:
-    function test_assignRolls_fighter() {
+        function testStatRoll()
+        {
+            $result = statRoll();
+            $this->assertEquals(6, count($result));
+        }
 
-            $str = 2;
-            $dex = 2;
-            $con = 2;
-            $intel = 2;
-            $wis = 2;
-            $cha = 2;
-            $init = 2;
-            $max_hp = 2;
-            $speed = 2;
-            $ac = 2;
-            $acrobatics = 2;
-            $arcana = 2;
-            $animal_handling = 2;
-            $athletics = 2;
-            $deception = 2;
-            $history = 2;
-            $insight = 2;
-            $intimidation = 2;
-            $investigation = 2;
-            $medicine = 2;
-            $nature = 2;
-            $perception = 2;
-            $performance = 2;
-            $persuasion = 2;
-            $proficiency = 2;
-            $religion = 2;
-            $sleight_of_hand = 2;
-            $stealth = 2;
-            $survival = 2;
-            $test_stat = new Stat($ac, $acrobatics, $animal_handling,
-                $arcana, $athletics, $cha, $con, $deception, $dex,
-                $history, $init, $insight, $intel, $intimidation,
-                $investigation, $max_hp, $medicine, $nature, $perception,
-                $performance, $persuasion, $proficiency, $religion,
-                $speed, $sleight_of_hand, $stealth, $str, $survival, $wis);
+        // Test for Dice Roll Assign function:
+        function test_assignRolls_fighter() {
 
-            $test_stat->save();
+           $str = 2;
+           $dex = 2;
+           $con = 2;
+           $intel = 2;
+           $wis = 2;
+           $cha = 2;
+           $init = 2;
+           $max_hp = 2;
+           $speed = 2;
+           $ac = 2;
+           $acrobatics = 2;
+           $arcana = 2;
+           $animal_handling = 2;
+           $athletics = 2;
+           $deception = 2;
+           $history = 2;
+           $insight = 2;
+           $intimidation = 2;
+           $investigation = 2;
+           $medicine = 2;
+           $nature = 2;
+           $perception = 2;
+           $performance = 2;
+           $persuasion = 2;
+           $proficiency = 2;
+           $religion = 2;
+           $sleight_of_hand = 2;
+           $stealth = 2;
+           $survival = 2;
+           $test_stat = new Stat($ac, $acrobatics, $animal_handling,
+               $arcana, $athletics, $cha, $con, $deception, $dex,
+               $history, $init, $insight, $intel, $intimidation,
+               $investigation, $max_hp, $medicine, $nature, $perception,
+               $performance, $persuasion, $proficiency, $religion,
+               $speed, $sleight_of_hand, $stealth, $str, $survival, $wis);
 
-            $six_rolls = [18, 16, 14, 12, 10, 8];
-            $classname = "fighter";
+           $test_stat->save();
 
-            $test_stat->assignRolls($six_rolls, $classname);
-            $strength = $test_stat->getStr();
-            $result = 18;
+           $six_rolls = [18, 16, 14, 12, 10, 8];
+           $classname = "fighter";
 
-            $this->assertEquals($strength, $result);
+           $test_stat->assignRolls($six_rolls, $classname);
+           $strength = $test_stat->getStr();
+           $result = 18;
+
+           $this->assertEquals($strength, $result);
         }
 
     function test_assignRolls_cleric() {
 
-            $str = 2;
-            $dex = 2;
-            $con = 2;
-            $intel = 2;
-            $wis = 2;
-            $cha = 2;
-            $init = 2;
-            $max_hp = 2;
-            $speed = 2;
-            $ac = 2;
-            $acrobatics = 2;
-            $arcana = 2;
-            $animal_handling = 2;
-            $athletics = 2;
-            $deception = 2;
-            $history = 2;
-            $insight = 2;
-            $intimidation = 2;
-            $investigation = 2;
-            $medicine = 2;
-            $nature = 2;
-            $perception = 2;
-            $performance = 2;
-            $persuasion = 2;
-            $proficiency = 2;
-            $religion = 2;
-            $sleight_of_hand = 2;
-            $stealth = 2;
-            $survival = 2;
-            $test_stat = new Stat($ac, $acrobatics, $animal_handling,
-                $arcana, $athletics, $cha, $con, $deception, $dex,
-                $history, $init, $insight, $intel, $intimidation,
-                $investigation, $max_hp, $medicine, $nature, $perception,
-                $performance, $persuasion, $proficiency, $religion,
-                $speed, $sleight_of_hand, $stealth, $str, $survival, $wis);
+           $str = 2;
+           $dex = 2;
+           $con = 2;
+           $intel = 2;
+           $wis = 2;
+           $cha = 2;
+           $init = 2;
+           $max_hp = 2;
+           $speed = 2;
+           $ac = 2;
+           $acrobatics = 2;
+           $arcana = 2;
+           $animal_handling = 2;
+           $athletics = 2;
+           $deception = 2;
+           $history = 2;
+           $insight = 2;
+           $intimidation = 2;
+           $investigation = 2;
+           $medicine = 2;
+           $nature = 2;
+           $perception = 2;
+           $performance = 2;
+           $persuasion = 2;
+           $proficiency = 2;
+           $religion = 2;
+           $sleight_of_hand = 2;
+           $stealth = 2;
+           $survival = 2;
+           $test_stat = new Stat($ac, $acrobatics, $animal_handling,
+               $arcana, $athletics, $cha, $con, $deception, $dex,
+               $history, $init, $insight, $intel, $intimidation,
+               $investigation, $max_hp, $medicine, $nature, $perception,
+               $performance, $persuasion, $proficiency, $religion,
+               $speed, $sleight_of_hand, $stealth, $str, $survival, $wis);
 
-            $test_stat->save();
+           $test_stat->save();
 
-            $six_rolls = [18, 16, 14, 12, 10, 8];
-            $classname = "cleric";
+           $six_rolls = [18, 16, 14, 12, 10, 8];
+           $classname = "cleric";
 
-            $test_stat->assignRolls($six_rolls, $classname);
-            $strength = $test_stat->getStr();
-            $result = 14;
+           $test_stat->assignRolls($six_rolls, $classname);
+           $strength = $test_stat->getStr();
+           $result = 14;
 
-            $this->assertEquals($strength, $result);
-        }
+           $this->assertEquals($strength, $result);
+       }
     }
 ?>

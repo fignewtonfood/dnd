@@ -90,26 +90,26 @@
             $this->assertEquals(true, is_numeric($result));
         }
 
-        // function test_find() {
-        //     //Arrange
-        //     $description_id = 1;
-        //     $race_id = 1;
-        //     $stat_id = 1;
-        //     $test_character = new Character($description_id, $race_id, $stat_id);
-        //     $test_character->save();
-        //     $description_id2 = 2;
-        //     $race_id2 = 2;
-        //     $stat_id2 = 2;
-        //     $test_character2 = new Character($description_id2, $race_id2, $stat_id2);
-        //     $test_character2->save();
-        //
-        //     //Act
-        //     $result = Character::find($test_character->getId());
-        //
-        //     //Assert
-        //     $this->assertEquals($test_character, $result);
-        // }
-        //
+        function test_find() {
+            //Arrange
+            $description_id = 1;
+            $race_id = 1;
+            $stat_id = 1;
+            $test_character = new Character($description_id, $race_id, $stat_id);
+            $test_character->save();
+            $description_id2 = 2;
+            $race_id2 = 2;
+            $stat_id2 = 2;
+            $test_character2 = new Character($description_id2, $race_id2, $stat_id2);
+            $test_character2->save();
+
+            //Act
+            $result = Character::find($test_character->getId());
+
+            //Assert
+            $this->assertEquals($test_character, $result);
+        }
+
         // function testAddCharClass() {
         //     //Arrange
         //     $description_id = 1;

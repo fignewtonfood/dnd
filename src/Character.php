@@ -100,16 +100,16 @@
             $GLOBALS['DB']->exec("DELETE FROM characters;");
         }
 
-        // static function find($search_id){
-        //     $found_character = null;
-        //     $characters = Character::getAll();
-        //     foreach($characters as $character) {
-        //         $character_id = $character->getId();
-        //         if ($character_id == $search_id) {
-        //             $found_character = $character;
-        //         }
-        //     }
-        //     return $found_character;
-        // }
+        static function find($search_id){
+            $found_character = null;
+            $characters = Character::getAll();
+            foreach($characters as $character) {
+                $character_id = $character->getId();
+                if ($character_id == $search_id) {
+                    $found_character = $character;
+                }
+            }
+            return $found_character;
+        }
     }
 ?>

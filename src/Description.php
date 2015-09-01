@@ -10,10 +10,7 @@
         private $skin_tone;
         private $other;
 
-        function __construct($id = null, $gender = "male", $age = "25",
-        $alignment = "neutral", $height = "5 feet", $eye_color = "brown",
-        $hair_color = "brown", $skin_tone = "nondescript",
-        $other = "no other details") {
+        function __construct($gender, $age, $alignment, $height, $eye_color, $hair_color, $skin_tone, $other, $id = null) {
             $this->id = $id;
             $this->gender = $gender;
             $this->age = $age;

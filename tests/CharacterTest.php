@@ -154,5 +154,6 @@
             //Assert
             $this->assertEquals($test_character->getCharClasses(), [$test_class, $test_class2]);
         }
+
     }
 ?>

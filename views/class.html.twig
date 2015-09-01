@@ -4,14 +4,15 @@
     </head>
     <body>
 
-        <form action = '/class' method='post'>
-        <input id="race_id" name="race_id" type="hidden" value="race_id">
+        <form action = '/background' method='post'>
+            <input id="race_id" name="race_id" type="hidden" value="race_id">
+
 
         {% for class in classes %}
 
-            <label for = '{{ class.getName }}'>
+            <label for = '{{ class.getId }}'>
                 <div class='class_select'>
-                    <input type='radio' name = 'class' value = '{{ class.getName }}'>
+                    <input type='radio' name = 'class_id' value = '{{ class.getId }}' required>
                         <h3>{{ class.getName }}</h3>
                         <p>{{ class.getDescription }}</p>
                 </div>
@@ -21,7 +22,7 @@
         {% endfor %}
 
 
-            <button type='submit'>Get your stats -></button>
+            <button type='submit'>Choose your background -></button>
 
             <!-- https://css-tricks.com/css3-progress-bars/ -->
             <div class="progress">

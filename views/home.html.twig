@@ -9,7 +9,18 @@
 
         <h1>Your next adventure starts here!</h1>
 
+
         <a href="/race">Create your charactor -></a>
+
+
+        {% if characters is not empty %}
+            <h3>Or choose from previously created characters:</h3>
+                {% for character in characters %}
+                    <ul>
+                        <li>{{ charater.getName}}</li>
+                    </ul>
+                {% endfor %}
+        {% endif %}
 
 
     </body>

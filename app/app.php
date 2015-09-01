@@ -31,6 +31,13 @@
     });
 
 
+//race page
+    //renders race page
+    $app->get('/race', function() use ($app)
+    {
+        return $app['twig']->render('race.html.twig');
+    });
+
 
 return $app;
 

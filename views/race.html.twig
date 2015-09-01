@@ -6,41 +6,18 @@
 
         <form action = '/race' method='post'>
 
-            <label for = ''>
+            {% for race in races %}
+
+            <label for = '{{ race.getName }}'>
                 <div class='race_select'>
-                    <input type='radio' name = 'race' value = 'human'>
-                        <h3>Human</h3>
-                        <p>***Flavor text***</p>
+                    <input type='radio' name = 'race' value = '{{ race.getName }}'>
+                        <h3>{{ race.getName }}</h3>
+                        <p>{{ race.getDescription }}</p>
                 </div>
             </label>
             <hr>
 
-            <label for = ''>
-                <div class='race_select'>
-                    <input type='radio' name = 'race' value = 'elf'>
-                        <h3>Elf</h3>
-                        <p>***Flavor text***</p>
-                </div>
-            </label>
-            <hr>
-
-            <label for = ''>
-                <div class='race_select'>
-                    <input type='radio' name = 'race' value = 'dwarf'>
-                        <h3>Dwarf</h3>
-                        <p>***Flavor text***</p>
-                </div>
-            </label>
-            <hr>
-
-            <label for = ''>
-                <div class='race_select'>
-                    <input type='radio' name = 'race' value = 'halfling'>
-                        <h3>Halfling</h3>
-                        <p>***Flavor text***</p>
-                </div>
-            </label>
-            <hr>
+            {% endfor %}
 
 
             <button type='submit'>Choose your class -></button>

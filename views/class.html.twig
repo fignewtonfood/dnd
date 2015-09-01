@@ -5,10 +5,11 @@
     <body>
 
         <form action = '/class' method='post'>
+        <input id="race_id" name="race_id" type="hidden" value="{{ race_id.getId() }}">
 
             <label for = ''>
                 <div class='class_select'>
-                    <input type='checkbox' name = 'class' value = 'fighter'>
+                    <input type='radio' name = 'class' value = 'fighter'>
                         <h3>Fighter</h3>
                         <p>***Flavor text***</p>
                 </div>
@@ -17,7 +18,7 @@
 
             <label for = ''>
                 <div class='class_select'>
-                    <input type='checkbox' name = 'class' value = 'rouge'>
+                    <input type='radio' name = 'class' value = 'rouge'>
                         <h3>Rouge</h3>
                         <p>***Flavor text***</p>
                 </div>
@@ -26,7 +27,7 @@
 
             <label for = ''>
                 <div class='class_select'>
-                    <input type='checkbox' name = 'class' value = 'cleric'>
+                    <input type='radio' name = 'class' value = 'cleric'>
                         <h3>Cleric</h3>
                         <p>***Flavor text***</p>
                 </div>
@@ -35,7 +36,7 @@
 
             <label for = ''>
                 <div class='class_select'>
-                    <input type='checkbox' name = 'class' value = 'wizard'>
+                    <input type='radio' name = 'class' value = 'wizard'>
                         <h3>Wizard</h3>
                         <p>***Flavor text***</p>
                 </div>

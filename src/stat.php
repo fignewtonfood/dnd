@@ -16,119 +16,143 @@
         private $proficiency;
         private $stat_gen;
 
-        function setStr
+        function __construct($id, $str, $dex, $con, $intel, $wis, $cha, $init, $max_hp, $speed, $ac, $proficiency, $stat_gen)
         {
+            $this->id = $id;
+            $this->str = $str;
+            $this->dex = $dex;
+            $this->con = $con;
+            $this->intel = $intel;
+            $this->wis = $wis;
+            $this->cha = $cha;
+            $this->init = $init;
+            $this->max_hp = $max_hp;
+            $this->speed = $speed;
+            $this->ac = $ac;
+            $this->proficiency = $proficiency;
+            $this->stat_gen = $stat_gen;
 
         }
 
-        function setDex
+        function setStr($new_str)
         {
-
+            $this->str = $new_str;
         }
 
-        function setCon
+        function setDex($new_dex)
         {
-
+            $this->dex = $new_dex;
         }
 
-        function setIntel
+        function setCon($new_con)
         {
-
+            $this->con = $new_con;
         }
 
-        function setWis
+        function setIntel($new_intel)
         {
-
+            $this->intel = $new_intel;
         }
 
-        function setCha
+        function setWis($new_wis)
         {
-
+            $this->wis = $new_wis;
         }
 
-        function setInit
+        function setCha($new_cha)
         {
-
+            $this->cha = $new_cha;
         }
 
-        function setMax_hp
+        function setInit($new_init)
         {
-
+            $this->init = $new_init;
         }
 
-        function setSpeed
+        function setMax_hp($new_max_hp)
         {
-
+            $this->max_hp = $new_max_hp;
         }
 
-        function setAc
+        function setSpeed($new_speed)
         {
-
+            $this->speed = $new_speed;
         }
 
-        function setProficiency
+        function setAc($new_ac)
         {
-
+            $this->ac = $new_ac;
         }
 
-        function getId
+        function setProficiency($new_proficiency)
         {
-
+            $this->proficiency = $new_proficiency;
         }
 
-        function getStr
+        function getId()
         {
-
+            return $this->id;
         }
 
-        function getDex
+        function getStr()
         {
-
+            return $this->str;
         }
 
-        function getCon
+        function getDex()
         {
-
+            return $this->dex;
         }
 
-        function getIntel
+        function getCon()
         {
-
+            return $this->con;
         }
 
-        function getWis
+        function getIntel()
         {
-
+            return $this->intel;
         }
 
-        function getCha
+        function getWis()
         {
-
+            return $this->wis;
         }
 
-        function getInit
+        function getCha()
         {
-
+            return $this->cha;
         }
 
-        function getMax_hp
+        function getInit()
         {
-
+            return $this->init;
         }
 
-        function getSpeed
+        function getMax_hp()
         {
-
+            return $this->max_hp;
         }
 
-        function getAc
+        function getSpeed()
         {
-
+            return $this->speed;
         }
 
-        function getProficiency
+        function getAc()
         {
+            return $this->ac;
+        }
 
+        function getProficiency()
+        {
+            return $this->proficiency;
+        }
+
+        function save()
+        {
+              $GLOBALS['DB']->exec("INSERT INTO stats (str, dex, con, intel, wis, cha, init, max_hp, speed, ac, proficiency) VALUES ({$this->getStr()}, {$this->getDex()}, {$this->getCon()}, {$this->getIntel()}, {$this->getWis()}, {$this->getCha()}, {$this->getInit()}, {$this->getMax_Hp()}, {$this->getSpeed()}, {$this->getAc()}, '{$this->getProficiency()}');");
+              $this->id = $GLOBALS['DB']->lastInsertId();
         }
     }
  ?>

@@ -203,26 +203,26 @@
         // }
         //
         //
-        // function testAddSkill() {
-        //     //Arrange
-        //     $description_id = 1;
-        //     $race_id = 1;
-        //     $stat_id = 1;
-        //     $test_character = new Character($description_id, $race_id, $stat_id);
-        //     $test_character->save();
-        //
-        //     $name = "Acrobatics";
-        //     $description = "stuff";
-        //     $test_skill = new Skill($name, $description);
-        //     $test_skill->save();
-        //
-        //     //Act
-        //     $test_character->addSkill($test_skill);
-        //     $result = $test_character->getSkills();
-        //
-        //     //Assert
-        //     $this->assertEquals([$test_skill], $result);
-        // }
+        function testAddSkill() {
+            //Arrange
+            $description_id = 1;
+            $race_id = 1;
+            $stat_id = 1;
+            $test_character = new Character($description_id, $race_id, $stat_id);
+            $test_character->save();
+
+            $name = "Acrobatics";
+            $description = "stuff";
+            $test_skill = new Skill($name, $description);
+            $test_skill->save();
+
+            //Act
+            $test_character->addSkill($test_skill);
+            $result = $test_character->getSkills();
+
+            //Assert
+            $this->assertEquals([$test_skill], $result);
+        }
         //
         // function testGetCharClasses() {
         //     //Arrange

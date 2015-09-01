@@ -88,22 +88,22 @@
         //     return $backgrounds;
         // }
 
-        // function getSkills()
-        // {
-        //     $returned_classes = $GLOBALS['DB']->query("SELECT skills.* FROM characters
-        //         JOIN proficiencies ON (characters.id = proficiencies.character_id)
-        //         JOIN skills ON (proficiencies.skill_id = skills.id)
-        //         WHERE characters.id = {$this->getId()};");
-        //     $skills = array();
-        //     foreach ($returned_skills as $skill) {
-        //         $name = $skill['name'];
-        //         $description = $skill['description'];
-        //         $id = $skill['id'];
-        //         $new_skill = new Skill($name, $description, $id);
-        //         array_push($skills, $new_skill);
-        //     }
-        //     return $classes;
-        // }
+        function getSkills()
+        {
+            $returned_skills = $GLOBALS['DB']->query("SELECT skills.* FROM characters
+                JOIN proficiencies ON (characters.id = proficiencies.character_id)
+                JOIN skills ON (proficiencies.skill_id = skills.id)
+                WHERE characters.id = {$this->getId()};");
+            $skills = array();
+            foreach ($returned_skills as $skill) {
+                $name = $skill['name'];
+                $description = $skill['description'];
+                $id = $skill['id'];
+                $new_skill = new Skill($name, $description, $id);
+                array_push($skills, $new_skill);
+            }
+            return $skills;
+        }
 
 
         function save() {
@@ -120,9 +120,9 @@
         //     $GLOBALS['DB']->exec("INSERT INTO characters_backgrounds (character_id, background_id) VALUES ({$this->getId()}, {$background->getId()});");
         // }
 
-        // function addSkill($skill) {
-        //     $GLOBALS['DB']->exec("INSERT INTO proficiencies (character_id, skill_id) VALUES ({$this->getId()}, {$skill->getId()});");
-        // }
+        function addSkill($skill) {
+            $GLOBALS['DB']->exec("INSERT INTO proficiencies (character_id, skill_id) VALUES ({$this->getId()}, {$skill->getId()});");
+        }
 
         static function getAll() {
             $returned_characters = $GLOBALS['DB']->query("SELECT * FROM characters;");

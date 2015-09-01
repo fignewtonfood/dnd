@@ -4,10 +4,12 @@
     * @backupStaticAttributes disabled
     */
     require_once "src/Stat.php";
+
     $server = 'mysql:host=localhost;dbname=dnd_test';
     $username = 'root';
     $password = 'root';
     $DB = new PDO($server, $username, $password);
+
     class StatTest extends PHPUnit_Framework_TestCase
     {
         protected function tearDown()
@@ -639,6 +641,7 @@
             //Assert
             $this->assertEquals($deception, $result);
         }
+
 
 
         function testGetHistory()

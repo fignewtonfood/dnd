@@ -74,22 +74,22 @@
             //Assert
             $this->assertEquals([], $result);
         }
-        //
-        // function test_getId() {
-        //     //Arrange
-        //     $description_id = 1;
-        //     $race_id = 1;
-        //     $stat_id = 1;
-        //     $test_character = new Character($description_id, $race_id, $stat_id);
-        //     $test_character->save();
-        //
-        //     //Act
-        //     $result = $test_character->getId();
-        //
-        //     //Assert
-        //     $this->assertEquals(true, is_numeric($result));
-        // }
-        //
+
+        function test_getId() {
+            //Arrange
+            $description_id = 1;
+            $race_id = 1;
+            $stat_id = 1;
+            $test_character = new Character($description_id, $race_id, $stat_id);
+            $test_character->save();
+
+            //Act
+            $result = $test_character->getId();
+
+            //Assert
+            $this->assertEquals(true, is_numeric($result));
+        }
+
         // function test_find() {
         //     //Arrange
         //     $description_id = 1;

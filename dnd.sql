@@ -1,725 +1,580 @@
--- phpMyAdmin SQL Dump
--- version 4.4.11
--- http://www.phpmyadmin.net
---
--- Host: localhost:8080
--- Generation Time: Aug 31, 2015 at 10:58 PM
--- Server version: 5.6.26
--- PHP Version: 5.6.11
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `dnd`
---
-CREATE DATABASE IF NOT EXISTS `dnd` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `dnd`;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `adventures`
---
-
-CREATE TABLE IF NOT EXISTS `adventures` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `description` mediumtext CHARACTER SET utf8,
-  `campaign_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `adventures_locations`
---
-
-CREATE TABLE IF NOT EXISTS `adventures_locations` (
-  `id` int(11) NOT NULL,
-  `adventure_id` int(11) DEFAULT NULL,
-  `location_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `adventures_npcs`
---
-
-CREATE TABLE IF NOT EXISTS `adventures_npcs` (
-  `id` int(11) NOT NULL,
-  `adventure_id` int(11) DEFAULT NULL,
-  `npc_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `campaigns`
---
-
-CREATE TABLE IF NOT EXISTS `campaigns` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `description` mediumtext CHARACTER SET utf8,
-  `gm_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `campaigns_players`
---
-
-CREATE TABLE IF NOT EXISTS `campaigns_players` (
-  `id` int(11) NOT NULL,
-  `player_id` int(11) DEFAULT NULL,
-  `campaign_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `characters`
---
-
-CREATE TABLE IF NOT EXISTS `characters` (
-  `id` int(11) NOT NULL,
-  `race_id` int(11) DEFAULT NULL,
-  `description_id` int(11) DEFAULT NULL,
-  `stat_id` int(11) DEFAULT NULL,
-  `campaign_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `characters_classes`
---
-
-CREATE TABLE IF NOT EXISTS `characters_classes` (
-  `id` int(11) NOT NULL,
-  `character_id` int(11) DEFAULT NULL,
-  `class_id` int(11) DEFAULT NULL,
-  `level` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `characters_equipments`
---
-
-CREATE TABLE IF NOT EXISTS `characters_equipments` (
-  `id` int(11) NOT NULL,
-  `character_id` int(11) DEFAULT NULL,
-  `equipment_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `characters_spells`
---
-
-CREATE TABLE IF NOT EXISTS `characters_spells` (
-  `id` int(11) NOT NULL,
-  `character_id` int(11) DEFAULT NULL,
-  `spell_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `characters_weapons`
---
-
-CREATE TABLE IF NOT EXISTS `characters_weapons` (
-  `id` int(11) NOT NULL,
-  `character_id` int(11) DEFAULT NULL,
-  `weapon_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `classes`
---
-
-CREATE TABLE IF NOT EXISTS `classes` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `description` mediumtext CHARACTER SET utf8
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `descriptions`
---
-
-CREATE TABLE IF NOT EXISTS `descriptions` (
-  `id` int(11) NOT NULL,
-  `gender` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `age` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `alignment` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `height` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `eye_color` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `hair_color` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `skin_tone` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `other` varchar(255) CHARACTER SET utf8 DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `equipments`
---
-
-CREATE TABLE IF NOT EXISTS `equipments` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `description` mediumtext CHARACTER SET utf8
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `gms`
---
-
-CREATE TABLE IF NOT EXISTS `gms` (
-  `id` int(11) NOT NULL,
-  `sign_in_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `locations`
---
-
-CREATE TABLE IF NOT EXISTS `locations` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `description` mediumtext CHARACTER SET utf8,
-  `campaign_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `npcs`
---
-
-CREATE TABLE IF NOT EXISTS `npcs` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `description` mediumtext CHARACTER SET utf8,
-  `campaign_id` int(11) DEFAULT NULL,
-  `location_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `players`
---
-
-CREATE TABLE IF NOT EXISTS `players` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `location` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `sign_in_id` int(11) DEFAULT NULL,
-  `character_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `races`
---
-
-CREATE TABLE IF NOT EXISTS `races` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `description` mediumtext CHARACTER SET utf8
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `signIns`
---
-
-CREATE TABLE IF NOT EXISTS `signIns` (
-  `id` int(11) NOT NULL,
-  `user_name` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `password` varchar(255) CHARACTER SET utf8 DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `spells`
---
-
-CREATE TABLE IF NOT EXISTS `spells` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `description` mediumtext CHARACTER SET utf8,
-  `school` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `component` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `range` int(11) DEFAULT NULL,
-  `time_to_cast` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `duration` varchar(255) CHARACTER SET utf8 DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `stats`
---
-
-CREATE TABLE IF NOT EXISTS `stats` (
-  `id` int(11) NOT NULL,
-  `str` int(11) DEFAULT NULL,
-  `dex` int(11) DEFAULT NULL,
-  `con` int(11) DEFAULT NULL,
-  `int` int(11) DEFAULT NULL,
-  `wis` int(11) DEFAULT NULL,
-  `cha` int(11) DEFAULT NULL,
-  `initiative` int(11) DEFAULT NULL,
-  `max_hp` int(11) DEFAULT NULL,
-  `ac` int(11) DEFAULT NULL,
-  `speed` int(11) DEFAULT NULL,
-  `acrobatics` int(11) DEFAULT NULL,
-  `arcana` int(11) DEFAULT NULL,
-  `animal_handling` int(11) DEFAULT NULL,
-  `athletics` int(11) DEFAULT NULL,
-  `deception` int(11) DEFAULT NULL,
-  `history` int(11) DEFAULT NULL,
-  `insight` int(11) DEFAULT NULL,
-  `intimidation` int(11) DEFAULT NULL,
-  `investigation` int(11) DEFAULT NULL,
-  `medicine` int(11) DEFAULT NULL,
-  `nature` int(11) DEFAULT NULL,
-  `perception` int(11) DEFAULT NULL,
-  `performance` int(11) DEFAULT NULL,
-  `persuasion` int(11) DEFAULT NULL,
-  `religion` int(11) DEFAULT NULL,
-  `sleight_of_hand` int(11) DEFAULT NULL,
-  `stealth` int(11) DEFAULT NULL,
-  `survival` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `weapons`
---
-
-CREATE TABLE IF NOT EXISTS `weapons` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `base_damage` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `damage_type` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `special_attributes` mediumtext CHARACTER SET utf8,
-  `description` mediumtext CHARACTER SET utf8,
-  `range` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `adventures`
---
-ALTER TABLE `adventures`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `campaign_id` (`campaign_id`);
-
---
--- Indexes for table `adventures_locations`
---
-ALTER TABLE `adventures_locations`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `adventure_id` (`adventure_id`),
-  ADD KEY `location_id` (`location_id`);
-
---
--- Indexes for table `adventures_npcs`
---
-ALTER TABLE `adventures_npcs`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `adventure_id` (`adventure_id`),
-  ADD KEY `npc_id` (`npc_id`);
-
---
--- Indexes for table `campaigns`
---
-ALTER TABLE `campaigns`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `gm_id` (`gm_id`);
-
---
--- Indexes for table `campaigns_players`
---
-ALTER TABLE `campaigns_players`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `player_id` (`player_id`),
-  ADD KEY `campaign_id` (`campaign_id`);
-
---
--- Indexes for table `characters`
---
-ALTER TABLE `characters`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `race_id` (`race_id`),
-  ADD KEY `description_id` (`description_id`),
-  ADD KEY `stat_id` (`stat_id`);
-
---
--- Indexes for table `characters_classes`
---
-ALTER TABLE `characters_classes`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `character_id` (`character_id`),
-  ADD KEY `class_id` (`class_id`);
-
---
--- Indexes for table `characters_equipments`
---
-ALTER TABLE `characters_equipments`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `character_id` (`character_id`),
-  ADD KEY `equipment_id` (`equipment_id`);
-
---
--- Indexes for table `characters_spells`
---
-ALTER TABLE `characters_spells`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `character_id` (`character_id`),
-  ADD KEY `spell_id` (`spell_id`);
-
---
--- Indexes for table `characters_weapons`
---
-ALTER TABLE `characters_weapons`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `character_id` (`character_id`),
-  ADD KEY `weapon_id` (`weapon_id`);
-
---
--- Indexes for table `classes`
---
-ALTER TABLE `classes`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `descriptions`
---
-ALTER TABLE `descriptions`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `equipments`
---
-ALTER TABLE `equipments`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `gms`
---
-ALTER TABLE `gms`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `sign_in_id` (`sign_in_id`);
-
---
--- Indexes for table `locations`
---
-ALTER TABLE `locations`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `campaign_id` (`campaign_id`);
-
---
--- Indexes for table `npcs`
---
-ALTER TABLE `npcs`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `location_id` (`location_id`);
-
---
--- Indexes for table `players`
---
-ALTER TABLE `players`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `sign_in_id` (`sign_in_id`),
-  ADD KEY `character_id` (`character_id`);
-
---
--- Indexes for table `races`
---
-ALTER TABLE `races`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `signIns`
---
-ALTER TABLE `signIns`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `spells`
---
-ALTER TABLE `spells`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `stats`
---
-ALTER TABLE `stats`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `weapons`
---
-ALTER TABLE `weapons`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `adventures`
---
-ALTER TABLE `adventures`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `adventures_locations`
---
-ALTER TABLE `adventures_locations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `adventures_npcs`
---
-ALTER TABLE `adventures_npcs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `campaigns`
---
-ALTER TABLE `campaigns`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `campaigns_players`
---
-ALTER TABLE `campaigns_players`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `characters`
---
-ALTER TABLE `characters`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `characters_classes`
---
-ALTER TABLE `characters_classes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `characters_equipments`
---
-ALTER TABLE `characters_equipments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `characters_spells`
---
-ALTER TABLE `characters_spells`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `characters_weapons`
---
-ALTER TABLE `characters_weapons`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `classes`
---
-ALTER TABLE `classes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `descriptions`
---
-ALTER TABLE `descriptions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `equipments`
---
-ALTER TABLE `equipments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `gms`
---
-ALTER TABLE `gms`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `locations`
---
-ALTER TABLE `locations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `npcs`
---
-ALTER TABLE `npcs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `players`
---
-ALTER TABLE `players`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `races`
---
-ALTER TABLE `races`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `signIns`
---
-ALTER TABLE `signIns`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `spells`
---
-ALTER TABLE `spells`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `stats`
---
-ALTER TABLE `stats`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `weapons`
---
-ALTER TABLE `weapons`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `adventures`
---
-ALTER TABLE `adventures`
-  ADD CONSTRAINT `adventures_ibfk_1` FOREIGN KEY (`campaign_id`) REFERENCES `campaigns` (`id`);
-
---
--- Constraints for table `adventures_locations`
---
-ALTER TABLE `adventures_locations`
-  ADD CONSTRAINT `adventures_locations_ibfk_1` FOREIGN KEY (`adventure_id`) REFERENCES `adventures` (`id`),
-  ADD CONSTRAINT `adventures_locations_ibfk_2` FOREIGN KEY (`location_id`) REFERENCES `locations` (`id`);
-
---
--- Constraints for table `adventures_npcs`
---
-ALTER TABLE `adventures_npcs`
-  ADD CONSTRAINT `adventures_npcs_ibfk_1` FOREIGN KEY (`adventure_id`) REFERENCES `adventures` (`id`),
-  ADD CONSTRAINT `adventures_npcs_ibfk_2` FOREIGN KEY (`npc_id`) REFERENCES `npcs` (`id`);
-
---
--- Constraints for table `campaigns`
---
-ALTER TABLE `campaigns`
-  ADD CONSTRAINT `campaigns_ibfk_1` FOREIGN KEY (`id`) REFERENCES `npcs` (`id`),
-  ADD CONSTRAINT `campaigns_ibfk_2` FOREIGN KEY (`gm_id`) REFERENCES `gms` (`id`),
-  ADD CONSTRAINT `campaigns_ibfk_3` FOREIGN KEY (`id`) REFERENCES `npcs` (`id`),
-  ADD CONSTRAINT `campaigns_ibfk_4` FOREIGN KEY (`gm_id`) REFERENCES `gms` (`id`),
-  ADD CONSTRAINT `campaigns_ibfk_5` FOREIGN KEY (`id`) REFERENCES `npcs` (`id`),
-  ADD CONSTRAINT `campaigns_ibfk_6` FOREIGN KEY (`gm_id`) REFERENCES `gms` (`id`);
-
---
--- Constraints for table `campaigns_players`
---
-ALTER TABLE `campaigns_players`
-  ADD CONSTRAINT `campaigns_players_ibfk_1` FOREIGN KEY (`player_id`) REFERENCES `players` (`id`),
-  ADD CONSTRAINT `campaigns_players_ibfk_2` FOREIGN KEY (`campaign_id`) REFERENCES `campaigns` (`id`);
-
---
--- Constraints for table `characters`
---
-ALTER TABLE `characters`
-  ADD CONSTRAINT `characters_ibfk_1` FOREIGN KEY (`id`) REFERENCES `campaigns` (`id`),
-  ADD CONSTRAINT `characters_ibfk_2` FOREIGN KEY (`race_id`) REFERENCES `races` (`id`),
-  ADD CONSTRAINT `characters_ibfk_3` FOREIGN KEY (`description_id`) REFERENCES `descriptions` (`id`),
-  ADD CONSTRAINT `characters_ibfk_4` FOREIGN KEY (`stat_id`) REFERENCES `stats` (`id`);
-
---
--- Constraints for table `characters_classes`
---
-ALTER TABLE `characters_classes`
-  ADD CONSTRAINT `characters_classes_ibfk_1` FOREIGN KEY (`character_id`) REFERENCES `characters` (`id`),
-  ADD CONSTRAINT `characters_classes_ibfk_2` FOREIGN KEY (`class_id`) REFERENCES `classes` (`id`);
-
---
--- Constraints for table `characters_equipments`
---
-ALTER TABLE `characters_equipments`
-  ADD CONSTRAINT `characters_equipments_ibfk_1` FOREIGN KEY (`character_id`) REFERENCES `characters` (`id`),
-  ADD CONSTRAINT `characters_equipments_ibfk_2` FOREIGN KEY (`equipment_id`) REFERENCES `equipments` (`id`);
-
---
--- Constraints for table `characters_spells`
---
-ALTER TABLE `characters_spells`
-  ADD CONSTRAINT `characters_spells_ibfk_1` FOREIGN KEY (`character_id`) REFERENCES `characters` (`id`),
-  ADD CONSTRAINT `characters_spells_ibfk_2` FOREIGN KEY (`spell_id`) REFERENCES `spells` (`id`);
-
---
--- Constraints for table `characters_weapons`
---
-ALTER TABLE `characters_weapons`
-  ADD CONSTRAINT `characters_weapons_ibfk_1` FOREIGN KEY (`character_id`) REFERENCES `characters` (`id`),
-  ADD CONSTRAINT `characters_weapons_ibfk_2` FOREIGN KEY (`weapon_id`) REFERENCES `weapons` (`id`);
-
---
--- Constraints for table `gms`
---
-ALTER TABLE `gms`
-  ADD CONSTRAINT `gms_ibfk_1` FOREIGN KEY (`sign_in_id`) REFERENCES `signins` (`id`);
-
---
--- Constraints for table `locations`
---
-ALTER TABLE `locations`
-  ADD CONSTRAINT `locations_ibfk_1` FOREIGN KEY (`campaign_id`) REFERENCES `campaigns` (`id`),
-  ADD CONSTRAINT `locations_ibfk_2` FOREIGN KEY (`campaign_id`) REFERENCES `campaigns` (`id`),
-  ADD CONSTRAINT `locations_ibfk_3` FOREIGN KEY (`campaign_id`) REFERENCES `campaigns` (`id`);
-
---
--- Constraints for table `npcs`
---
-ALTER TABLE `npcs`
-  ADD CONSTRAINT `npcs_ibfk_1` FOREIGN KEY (`location_id`) REFERENCES `locations` (`id`);
-
---
--- Constraints for table `players`
---
-ALTER TABLE `players`
-  ADD CONSTRAINT `players_ibfk_1` FOREIGN KEY (`sign_in_id`) REFERENCES `signins` (`id`),
-  ADD CONSTRAINT `players_ibfk_2` FOREIGN KEY (`character_id`) REFERENCES `characters` (`id`),
-  ADD CONSTRAINT `players_ibfk_3` FOREIGN KEY (`sign_in_id`) REFERENCES `signins` (`id`),
-  ADD CONSTRAINT `players_ibfk_4` FOREIGN KEY (`character_id`) REFERENCES `characters` (`id`),
-  ADD CONSTRAINT `players_ibfk_5` FOREIGN KEY (`sign_in_id`) REFERENCES `signins` (`id`),
-  ADD CONSTRAINT `players_ibfk_6` FOREIGN KEY (`character_id`) REFERENCES `characters` (`id`);
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- SQL XML created by WWW SQL Designer, https://github.com/ondras/wwwsqldesigner/ -->
+<!-- Active URL: http://ondras.zarovi.cz/sql/demo/ -->
+<sql>
+<datatypes db="mysql">
+  <group label="Numeric" color="rgb(238,238,170)">
+    <type label="Integer" length="0" sql="INTEGER" quote=""/>
+     <type label="TINYINT" length="0" sql="TINYINT" quote=""/>
+     <type label="SMALLINT" length="0" sql="SMALLINT" quote=""/>
+     <type label="MEDIUMINT" length="0" sql="MEDIUMINT" quote=""/>
+     <type label="INT" length="0" sql="INT" quote=""/>
+    <type label="BIGINT" length="0" sql="BIGINT" quote=""/>
+    <type label="Decimal" length="1" sql="DECIMAL" re="DEC" quote=""/>
+    <type label="Single precision" length="0" sql="FLOAT" quote=""/>
+    <type label="Double precision" length="0" sql="DOUBLE" re="DOUBLE" quote=""/>
+  </group>
+
+  <group label="Character" color="rgb(255,200,200)">
+    <type label="Char" length="1" sql="CHAR" quote="'"/>
+    <type label="Varchar" length="1" sql="VARCHAR" quote="'"/>
+    <type label="Text" length="0" sql="MEDIUMTEXT" re="TEXT" quote="'"/>
+    <type label="Binary" length="1" sql="BINARY" quote="'"/>
+    <type label="Varbinary" length="1" sql="VARBINARY" quote="'"/>
+    <type label="BLOB" length="0" sql="BLOB" re="BLOB" quote="'"/>
+  </group>
+
+  <group label="Date &amp; Time" color="rgb(200,255,200)">
+    <type label="Date" length="0" sql="DATE" quote="'"/>
+    <type label="Time" length="0" sql="TIME" quote="'"/>
+    <type label="Datetime" length="0" sql="DATETIME" quote="'"/>
+    <type label="Year" length="0" sql="YEAR" quote=""/>
+    <type label="Timestamp" length="0" sql="TIMESTAMP" quote="'"/>
+  </group>
+
+  <group label="Miscellaneous" color="rgb(200,200,255)">
+    <type label="ENUM" length="1" sql="ENUM" quote=""/>
+    <type label="SET" length="1" sql="SET" quote=""/>
+    <type label="Bit" length="0" sql="bit" quote=""/>
+  </group>
+</datatypes><table x="411" y="74" name="sign_in">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="user_name" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default></row>
+<row name="password" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="749" y="33" name="campaign">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="name" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default></row>
+<row name="description" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="gm_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="gm" row="id" />
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="1246" y="302" name="location">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="name" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default></row>
+<row name="description" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="campaign_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="campaign" row="id" />
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="273" y="42" name="player">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="name" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default></row>
+<row name="location" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default></row>
+<row name="sign_in_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="sign_in" row="id" />
+</row>
+<row name="character_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="character" row="id" />
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="962" y="61" name="player_campaign">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="player_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="player" row="id" />
+</row>
+<row name="campaign_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="campaign" row="id" />
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="356" y="281" name="character">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="race_id" null="1" autoincrement="0">
+<datatype>INT</datatype>
+<default>NULL</default><relation table="race" row="id" />
+</row>
+<row name="description_id" null="1" autoincrement="0">
+<datatype>INT</datatype>
+<default>NULL</default><relation table="description" row="id" />
+</row>
+<row name="stat_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="stat" row="id" />
+</row>
+<row name="campaign_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="campaign" row="id" />
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="1231" y="32" name="adventure">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="name" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default></row>
+<row name="description" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="campaign_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="campaign" row="id" />
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="1563" y="242" name="adventure_location">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="adventure_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="adventure" row="id" />
+</row>
+<row name="location_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="location" row="id" />
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="82" y="40" name="race">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="name" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default></row>
+<row name="description" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="839" y="302" name="class">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="name" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default></row>
+<row name="description" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="591" y="278" name="character_class">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="character_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="character" row="id" />
+</row>
+<row name="class_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="class" row="id" />
+</row>
+<row name="level" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="69" y="244" name="description">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="gender" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default></row>
+<row name="age" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="alignment" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="height" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default></row>
+<row name="eye_color" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="hair_color" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="skin_tone" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="other" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="1105" y="435" name="weapon">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="name" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default></row>
+<row name="base_damage" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default></row>
+<row name="damage_type" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default></row>
+<row name="special_attributes" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="description" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="range" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="731" y="437" name="character_weapon">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="character_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="character" row="id" />
+</row>
+<row name="weapon_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="weapon" row="id" />
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="1108" y="666" name="equipment">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="name" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default></row>
+<row name="description" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="730" y="561" name="character_equipment">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="character_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="character" row="id" />
+</row>
+<row name="equipment_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="equipment" row="id" />
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="1381" y="155" name="npc">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="name" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default></row>
+<row name="description" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="campaign_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="campaign" row="id" />
+</row>
+<row name="location_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="location" row="id" />
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="960" y="191" name="gm">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="sign_in_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="sign_in" row="id" />
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="1126" y="794" name="spell">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="name" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default></row>
+<row name="description" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="school" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default></row>
+<row name="component" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default></row>
+<row name="range" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="time_to_cast" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default></row>
+<row name="duration" null="1" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="137" y="504" name="stat">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="str" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="dex" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="con" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="int" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="wis" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="cha" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="initiative" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="max_hp" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="ac" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="speed" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="proficiency" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="skill_stat_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="skill_stats" row="id" />
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="745" y="732" name="character_spell">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="character_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="character" row="id" />
+</row>
+<row name="spell_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="spell" row="id" />
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="1589" y="108" name="adventure_npc">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="adventure_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="adventure" row="id" />
+</row>
+<row name="npc_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="npc" row="id" />
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="118" y="809" name="skill_stats">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="acrobatics" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="arcana" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="animal_handling" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="athletics" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="deception" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="history" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="insight" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="intimidation" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="investigation" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="medicine" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="nature" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="perception" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="performance" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="persuasion" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="religion" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="sleight_of_hand" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="stealth" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="survival" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="589" y="825" name="proficiencies">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="character_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="character" row="id" />
+</row>
+<row name="skill_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="skill" row="id" />
+</row>
+<row name="proficiency_bonus" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="589" y="27" name="location">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="908" y="946" name="skill">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="name" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="description" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+</sql>

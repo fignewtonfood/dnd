@@ -89,18 +89,17 @@
                 $description_id = $character['description_id'];
                 $race_id = $character['race_id'];
                 $stat_id = $character['stat_id'];
-                $campaign_id = $character['campaign_id'];
                 $id = $character['id'];
-                $new_character = new Character($description_id, $race_id, $stat_id, $campaign_id, $id);
+                $new_character = new Character($description_id, $race_id, $stat_id, $campaign_id= null, $id);
                 array_push($characters, $new_character);
             }
             return $characters;
         }
 
-        // static function deleteAll() {
-        //     $GLOBALS['DB']->exec("DELETE FROM characters;");
-        // }
-        //
+        static function deleteAll() {
+            $GLOBALS['DB']->exec("DELETE FROM characters;");
+        }
+
         // static function find($search_id){
         //     $found_character = null;
         //     $characters = Character::getAll();

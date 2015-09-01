@@ -5,17 +5,18 @@
     * @backupStaticAttributes disabled
     */
 
-    require_once "src/Class.php";
+    require_once "src/CharClass.php";
     require_once "src/Character.php";
-    $server = 'mysql:host=localhost;dbname=dnd_test';
+
+    $server = 'mysql:host=localhost:8889;dbname=dnd_test';
     $username = 'root';
     $password = 'root';
     $DB = new PDO($server, $username, $password);
 
-    character ClassTest extends PHPUnit_Framework_TestCase {
+    class CharClassTest extends PHPUnit_Framework_TestCase {
 
         protected function tearDown() {
-            Class::deleteAll();
+            CharClass::deleteAll();
             Character::deleteAll();
         }
 
@@ -23,11 +24,11 @@
             //Arrange
             $name = "Fighter";
             $description = "stuff";
-            $test_class = new Class($name, $description);
+            $test_class = new CharClass($name, $description);
 
             //Act
             $test_class->save();
-            $result = Class::getAll();
+            $result = CharClass::getAll();
 
             //Assert
             $this->assertEquals($test_class, $result[0]);
@@ -37,15 +38,15 @@
             //Arrange
             $name = "Fighter";
             $description = "stuff";
-            $test_class = new Class($name, $description);
+            $test_class = new CharClass($name, $description);
             $test_class->save();
             $name2 = "Wizard";
             $description2 = "other stuff";
-            $test_class2 = new Class($name2, $description2);
+            $test_class2 = new CharClass($name2, $description2);
             $test_class2->save();
 
             //Act
-            $result = Class::getAll();
+            $result = CharClass::getAll();
 
             //Assert
             $this->assertEquals([$test_class, $test_class2], $result);
@@ -55,16 +56,16 @@
             //Arrange
             $name = "Fighter";
             $description = "stuff";
-            $test_class = new Class($name, $description);
+            $test_class = new CharClass($name, $description);
             $test_class->save();
             $name2 = "Wizard";
             $description2 = "other stuff";
-            $test_class2 = new Class($name2, $description2);
+            $test_class2 = new CharClass($name2, $description2);
             $test_class2->save();
 
             //Act
-            Class::deleteAll();
-            $result = Class::getAll();
+            CharClass::deleteAll();
+            $result = CharClass::getAll();
 
             //Assert
             $this->assertEquals([], $result);
@@ -74,7 +75,7 @@
             //Arrange
             $name = "Fighter";
             $description = "stuff";
-            $test_class = new Class($name, $description);
+            $test_class = new CharClass($name, $description);
             $test_class->save();
 
             //Act
@@ -88,15 +89,15 @@
             //Arrange
             $name = "Fighter";
             $description = "stuff";
-            $test_class = new Class($name, $description);
+            $test_class = new CharClass($name, $description);
             $test_class->save();
             $name2 = "Wizard";
             $description2 = "other stuff";
-            $test_class2 = new Class($name2, $description2);
+            $test_class2 = new CharClass($name2, $description2);
             $test_class2->save();
 
             //Act
-            $result = Class::find($test_class->getId());
+            $result = CharClass::find($test_class->getId());
 
             //Assert
             $this->assertEquals($test_class, $result);
@@ -106,7 +107,7 @@
             //Arrange
             $name = "Fighter";
             $description = "stuff";
-            $test_class = new Class($name, $description);
+            $test_class = new CharClass($name, $description);
             $test_class->save();
 
             $description_id = 1;

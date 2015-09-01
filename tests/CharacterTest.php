@@ -7,7 +7,7 @@
 
     require_once "src/Character.php";
     require_once "src/CharClass.php";
-    $server = 'mysql:host=localhost;dbname=dnd_test';
+    $server = 'mysql:host=localhost:8889;dbname=dnd_test';
     $username = 'root';
     $password = 'root';
     $DB = new PDO($server, $username, $password);
@@ -118,15 +118,17 @@
             $test_character = new Character($description_id, $race_id, $stat_id);
             $test_character->save();
 
-            $class_id = 1;
-            $test_class = new CharClass($class_id);
+            $name = "Wizard";
+            $description = "stuff";
+            $test_class = new CharClass($name, $description);
             $test_class->save();
 
             //Act
             $test_character->addCharClass($test_class);
+            $result = $test_character->getCharClasses();
 
             //Assert
-            $this->assertEquals($test_character->getCharClasses(), [$test_class]);
+            $this->assertEquals([$test_class], $result);
         }
 
         function testGetCharClasses() {
@@ -136,11 +138,13 @@
             $stat_id = 1;
             $test_character = new Character($description_id, $race_id, $stat_id);
             $test_character->save();
-            $class_id = 1;
-            $test_class = new CharClass($class_id);
+            $name = "Wizard";
+            $description = "stuff";
+            $test_class = new CharClass($name, $description);
             $test_class->save();
-            $class_id2 = 2;
-            $test_class2 = new CharClass($class_id2);
+            $name2 = "Fighter";
+            $description2 = "other stuff";
+            $test_class2 = new CharClass($name2, $description2);
             $test_class2->save();
 
             //Act

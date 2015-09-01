@@ -7,7 +7,7 @@
 
     require_once "src/Character.php";
     require_once "src/CharClass.php";
-    $server = 'mysql:host=localhost:8889;dbname=dnd_test';
+    $server = 'mysql:host=localhost;dbname=dnd_test';
     $username = 'root';
     $password = 'root';
     $DB = new PDO($server, $username, $password);
@@ -154,5 +154,6 @@
             //Assert
             $this->assertEquals($test_character->getCharClasses(), [$test_class, $test_class2]);
         }
+
     }
 ?>

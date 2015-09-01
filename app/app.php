@@ -1,7 +1,7 @@
 <?php
     require_once __DIR__."/../vendor/autoload.php";
      require_once __DIR__."/../src/Race.php";
-    // require_once __DIR__."/../src/Store.php";
+     require_once __DIR__."/../src/CharClass.php";
 
 
     $app = new Silex\Application();
@@ -48,7 +48,10 @@
 
 //class page
     //renders class page
-
+    $app->get('/class', function() use ($app)
+    {
+        return $app['twig']->render('class.html.twig', array('classes' => CharClass::getAll()));
+    });
 
 
 //background page

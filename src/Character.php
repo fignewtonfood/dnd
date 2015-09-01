@@ -7,7 +7,7 @@
         private $description_id;
         private $race_id;
         private $stat_id;
-        private $campaign_id
+        private $campaign_id;
         private $id;
 
         function __construct($description_id, $race_id, $stat_id, $campaign_id = null, $id = null) {
@@ -65,7 +65,7 @@
             foreach ($returned_classes as $class) {
                 $description = $class['description'];
                 $id = $class['id'];
-                $new_class = new Class($description, $id);
+                $new_class = new CharClass($description, $id);
                 array_push($classes, $new_class);
             }
             return $classes;

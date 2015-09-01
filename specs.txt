@@ -84,12 +84,3 @@ GET [OTHERS]
     Input character: 1, 1, 1
     Input class2: "Wizard"
     Output: ["Fighter", "Wizard"]
-
-
-UPDATE
-
-// Test Character::update()
-13) Update a character's name
-    Input: 1, 1, 1
-    Input new author: "Boots and More"
-    Output: "Boots and More"

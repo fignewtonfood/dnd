@@ -76,18 +76,19 @@
         $race_id = $_POST['race_id'];
         $class_id = $_POST['class_id'];
         $background_id = $_POST['background_id'];
-        return $app['twig']->render('stats.html.twig', array('races' => Race::getAll(), 'classes' => CharClass::getAll(), 'backgrounds' => Background::getAll()));
+        //Add stat roll logic here
+        return $app['twig']->render('stats.html.twig', array('races' => Race::getAll(), 'classes' => CharClass::getAll(), 'backgrounds' => Background::getAll(), 'stat' => stat::getAll()));
     });
 
-// //stats page
-//     //carry race id, class id, background id, stats id to skills page
-//     $app->post('/stats', function() use ($app)
-//     {
-//         $race_id = $_POST['race_id'];
-//         $class_id = $_POST['class_id'];
-//         $background_id = $_POST['background_id'];
-//         return $app['twig']->render('stats.html.twig', array('races' => Race::getAll(), 'classes' => CharClass::getAll(), 'backgrounds' => Background::getAll()));
-//     });
+//stats page
+    //carry race id, class id, background id, stats id to skills page
+    $app->post('/stats', function() use ($app)
+    {
+        $race_id = $_POST['race_id'];
+        $class_id = $_POST['class_id'];
+        $background_id = $_POST['background_id'];
+        return $app['twig']->render('stats.html.twig', array('races' => Race::getAll(), 'classes' => CharClass::getAll(), 'backgrounds' => Background::getAll()));
+    });
 //
 //
 // //skills page

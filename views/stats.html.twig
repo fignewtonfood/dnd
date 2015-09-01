@@ -4,45 +4,42 @@
     </head>
     <body>
 
-        {% for stat in stats %}
 
-            <h3>Strength:</h3>
-                <p>{{ strength.getRoll }}</p>
-                <p>***Flavor text***</p>
-            <br>
-
-        {% endfor %}
-
+        <h3>Strength:</h3>
+            <p>{{ stat.getStr }}</p>
+            <p>***Flavor text***</p>
+        <br>
 
         <h3>Dexterity:</h3>
-            <p>{{ dexterity.getRoll }}</p>
+            <p>{{ stat.getDex }}</p>
             <p>***Flavor text***</p>
         <br>
 
 
         <h3>Constitution:</h3>
-            <p>{{ constitution.getRoll }}</p>
+            <p>{{ stat.getCon }}</p>
             <p>***Flavor text***</p>
         <br>
 
 
         <h3>Intelligence:</h3>
-            <p>{{ intelligence.getRoll }}</p>
+            <p>{{ stat.getInt }}</p>
             <p>***Flavor text***</p>
+        <br>
 
 
         <h3>Wisdom:</h3>
-            <p>{{ wisdom.getRoll }}</p>
+            <p>{{ stat.getWis }}</p>
             <p>***Flavor text***</p>
         <br>
 
 
         <h3>Charisma:</h3>
-            <p>{{ charisma.getRoll }}</p>
+            <p>{{ stat.getCha }}</p>
             <p>***Flavor text***</p>
         <br>
 
-        <button type='submit'>Choose your background -></button>
+        <button type='submit'>Choose your skills -></button>
 
 
         <!-- https://css-tricks.com/css3-progress-bars/ -->

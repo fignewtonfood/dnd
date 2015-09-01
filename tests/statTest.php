@@ -1,4 +1,4 @@
-<?php
+S<?php
     /**
     * @backupGlobals disabled
     * @backupStaticAttributes disabled

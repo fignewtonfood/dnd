@@ -19,6 +19,7 @@
             CharClass::deleteAll();
             Character::deleteAll();
         }
+
         function test_get() {
             //Arrange
             $name = "Fighter";
@@ -116,50 +117,5 @@
             //Assert
             $this->assertEquals($test_class, $result);
         }
-
-        // these test are for currently unneeded methods
-        // ==========================================================
-        // function testAddCharacter() {
-        //     //Arrange
-        //     $name = "Fighter";
-        //     $description = "stuff";
-        //     $test_class = new CharClass($name, $description);
-        //     $test_class->save();
-        //
-        //     $description_id = 1;
-        //     $race_id = 1;
-        //     $stat_id = 1;
-        //     $test_character = new Character($description_id, $race_id, $stat_id);
-        //     $test_character->save();
-        //
-        //     //Act
-        //     $test_class->addCharacter($test_character);
-        //
-        //     //Assert
-        //     $this->assertEquals($test_class->getCharacters(), [$test_character]);
-        // }
-
-        // function testGetCharacters() {
-        //     //Arrange
-        //     $description_id = 1;
-        //     $race_id = 1;
-        //     $stat_id = 1;
-        //     $test_class = new Class($description_id, $race_id, $stat_id);
-        //     $test_class->save();
-        //     $character_id = 1;
-        //     $test_character = new Character($character_id);
-        //     $test_character->save();
-        //     $character_id2 = 2;
-        //     $test_character2 = new Character($character_id2);
-        //     $test_character2->save();
-        //
-        //     //Act
-        //     $test_class->addCharacter($test_character);
-        //     $test_class->addCharacter($test_character2);
-        //
-        //     //Assert
-        //     $this->assertEquals($test_class->getCharacters(), [$test_character, $test_character2]);
-        // }
-        // =========================================================
     }
 ?>

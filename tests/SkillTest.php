@@ -19,6 +19,7 @@
             Skill::deleteAll();
             Character::deleteAll();
         }
+
         function test_get() {
             //Arrange
             $name = "Acrobatics";
@@ -116,6 +117,5 @@
             //Assert
             $this->assertEquals($test_class, $result);
         }
-
     }
 ?>

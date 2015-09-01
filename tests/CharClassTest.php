@@ -19,6 +19,22 @@
             CharClass::deleteAll();
             Character::deleteAll();
         }
+        function test_get() {
+            //Arrange
+            $name = "Fighter";
+            $description = "stuff";
+            $test_class = new CharClass($name, $description);
+
+            //Act
+            $result = $test_class->getName();
+            $result2 = $test_class->getDescription();
+
+
+            //Assert
+            $this->assertEquals($name, $result);
+            $this->assertEquals($description, $result2);
+        }
+
 
         function test_save() {
             //Arrange
@@ -103,25 +119,27 @@
             $this->assertEquals($test_class, $result);
         }
 
-        function testAddCharacter() {
-            //Arrange
-            $name = "Fighter";
-            $description = "stuff";
-            $test_class = new CharClass($name, $description);
-            $test_class->save();
-
-            $description_id = 1;
-            $race_id = 1;
-            $stat_id = 1;
-            $test_character = new Character($description_id, $race_id, $stat_id);
-            $test_character->save();
-
-            //Act
-            $test_class->addCharacter($test_character);
-
-            //Assert
-            $this->assertEquals($test_class->getCharacters(), [$test_character]);
-        }
+        // these test are for currently unneeded methods
+        // ==========================================================
+        // function testAddCharacter() {
+        //     //Arrange
+        //     $name = "Fighter";
+        //     $description = "stuff";
+        //     $test_class = new CharClass($name, $description);
+        //     $test_class->save();
+        //
+        //     $description_id = 1;
+        //     $race_id = 1;
+        //     $stat_id = 1;
+        //     $test_character = new Character($description_id, $race_id, $stat_id);
+        //     $test_character->save();
+        //
+        //     //Act
+        //     $test_class->addCharacter($test_character);
+        //
+        //     //Assert
+        //     $this->assertEquals($test_class->getCharacters(), [$test_character]);
+        // }
 
         // function testGetCharacters() {
         //     //Arrange
@@ -144,5 +162,6 @@
         //     //Assert
         //     $this->assertEquals($test_class->getCharacters(), [$test_character, $test_character2]);
         // }
+        // =========================================================
     }
 ?>

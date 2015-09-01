@@ -170,7 +170,7 @@
 
             //Act
             $test_character->addBackground($test_background);
-            $result = $test_character->getBackground();
+            $result = $test_character->getBackgrounds();
 
             //Assert
             $this->assertEquals([$test_background], $result);
@@ -202,7 +202,6 @@
             $this->assertEquals($test_character->getBackgrounds(), [$test_background, $test_background2]);
         }
 
-
         function testAddSkill() {
             //Arrange
             $description_id = 1;
@@ -223,32 +222,30 @@
             //Assert
             $this->assertEquals([$test_skill], $result);
         }
-        //
-        // function testGetSkills() {
-        //     //Arrange
-        //     $description_id = 1;
-        //     $race_id = 1;
-        //     $stat_id = 1;
-        //     $test_character = new Character($description_id, $race_id, $stat_id);
-        //     $test_character->save();
 
-        //     $name = "Acrobatics";
-        //     $description = "stuff";
-        //     $test_skill = new Skill($name, $description);
-        //     $test_skill->save();
-        //     $name2 = "Athletics";
-        //     $description2 = "other stuff";
-        //     $test_skill2 = new Skill($name2, $description2);
-        //     $test_skill2->save();
-        //
-        //     //Act
-        //     $test_character->addSkill($test_skill);
-        //     $test_character->addSkill($test_skill2);
-        //
-        //     //Assert
-        //     $this->assertEquals($test_character->getSkills(), [$test_skill, $test_skill2]);
-        // }
+        function testGetSkills() {
+            //Arrange
+            $description_id = 1;
+            $race_id = 1;
+            $stat_id = 1;
+            $test_character = new Character($description_id, $race_id, $stat_id);
+            $test_character->save();
 
+            $name = "Acrobatics";
+            $description = "stuff";
+            $test_skill = new Skill($name, $description);
+            $test_skill->save();
+            $name2 = "Athletics";
+            $description2 = "other stuff";
+            $test_skill2 = new Skill($name2, $description2);
+            $test_skill2->save();
 
+            //Act
+            $test_character->addSkill($test_skill);
+            $test_character->addSkill($test_skill2);
+
+            //Assert
+            $this->assertEquals($test_character->getSkills(), [$test_skill, $test_skill2]);
+        }
     }
 ?>

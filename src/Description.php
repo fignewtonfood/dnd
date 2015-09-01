@@ -92,8 +92,6 @@
             return $this->other;
         }
 
-        // OTHER FUNCTIONS:
-
         function save() {
             $GLOBALS['DB']->exec("INSERT INTO descriptions (gender, age,
             alignment, height, eye_color, hair_color, skin_tone, other)
@@ -140,14 +138,5 @@
         static function deleteAll() {
             $GLOBALS["DB"]->exec("DELETE FROM descriptions;");
         }
-
-        // function deleteThis() {
-        //     $GLOBALS["DB"]->exec("DELETE FROM descriptions WHERE id =
-        //     {$this->getId()};");
-        // }
-
-
-
-
     }
 ?>

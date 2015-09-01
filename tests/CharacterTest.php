@@ -110,48 +110,49 @@
             $this->assertEquals($test_character, $result);
         }
 
-        // function testAddCharClass() {
-        //     //Arrange
-        //     $description_id = 1;
-        //     $race_id = 1;
-        //     $stat_id = 1;
-        //     $test_character = new Character($description_id, $race_id, $stat_id);
-        //     $test_character->save();
-        //
-        //     $name = "Wizard";
-        //     $description = "stuff";
-        //     $test_class = new CharClass($name, $description);
-        //     $test_class->save();
-        //
-        //     //Act
-        //     $test_character->addCharClass($test_class);
-        //
-        //     //Assert
-        //     $this->assertEquals($test_character->getCharClasses(), [$test_class]);
-        // }
-        //
-        // function testGetCharClasses() {
-        //     //Arrange
-        //     $description_id = 1;
-        //     $race_id = 1;
-        //     $stat_id = 1;
-        //     $test_character = new Character($description_id, $race_id, $stat_id);
-        //     $test_character->save();
-        //     $name = "Wizard";
-        //     $description = "stuff";
-        //     $test_class = new CharClass($name, $description);
-        //     $test_class->save();
-        //     $name2 = "Fighter";
-        //     $description2 = "other stuff";
-        //     $test_class2 = new CharClass($name2, $description2);
-        //     $test_class2->save();
-        //
-        //     //Act
-        //     $test_character->addCharClass($test_class);
-        //     $test_character->addCharClass($test_class2);
-        //
-        //     //Assert
-        //     $this->assertEquals($test_character->getCharClasses(), [$test_class, $test_class2]);
-        // }
+        function testAddCharClass() {
+            //Arrange
+            $description_id = 1;
+            $race_id = 1;
+            $stat_id = 1;
+            $test_character = new Character($description_id, $race_id, $stat_id);
+            $test_character->save();
+
+            $name = "Wizard";
+            $description = "stuff";
+            $test_class = new CharClass($name, $description);
+            $test_class->save();
+
+            //Act
+            $test_character->addCharClass($test_class);
+            $result = $test_character->getCharClasses();
+
+            //Assert
+            $this->assertEquals([$test_class], $result);
+        }
+
+        function testGetCharClasses() {
+            //Arrange
+            $description_id = 1;
+            $race_id = 1;
+            $stat_id = 1;
+            $test_character = new Character($description_id, $race_id, $stat_id);
+            $test_character->save();
+            $name = "Wizard";
+            $description = "stuff";
+            $test_class = new CharClass($name, $description);
+            $test_class->save();
+            $name2 = "Fighter";
+            $description2 = "other stuff";
+            $test_class2 = new CharClass($name2, $description2);
+            $test_class2->save();
+
+            //Act
+            $test_character->addCharClass($test_class);
+            $test_character->addCharClass($test_class2);
+
+            //Assert
+            $this->assertEquals($test_character->getCharClasses(), [$test_class, $test_class2]);
+        }
     }
 ?>

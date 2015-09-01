@@ -1,4 +1,4 @@
-S<?php
+<?php
     /**
     * @backupGlobals disabled
     * @backupStaticAttributes disabled
@@ -1371,5 +1371,7 @@ S<?php
             $result = Stat::getAll();
             $this->assertEquals($test_stat, $result[0]);
         }
+
+        
     }
 ?>

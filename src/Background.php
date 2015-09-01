@@ -57,41 +57,44 @@
         // ==========================================================
 
         function save() {
-            $GLOBALS['DB']->exec("INSERT INTO classes (name, description) VALUES ('{$this->getName()}', '{$this->getDescription()}')");
+            $GLOBALS['DB']->exec("INSERT INTO backgrounds (name, description) VALUES ('{$this->getName()}', '{$this->getDescription()}')");
             $this->id = $GLOBALS['DB']->lastInsertId();
         }
-//Save a class and character at the same time to join table
-        function addCharacter($character) {
-            $GLOBALS['DB']->exec("INSERT INTO classes_characters (class_id, character_id) VALUES ({$this->getId()}, {$character->getId()});");
-        }
+
+        //=============================== unused method
+        // //Save a class and character at the same time to join table
+        //         function addCharacter($character) {
+        //             $GLOBALS['DB']->exec("INSERT INTO classes_characters (class_id, character_id) VALUES ({$this->getId()}, {$character->getId()});");
+        //         }
+        //===============================
 
         static function getAll() {
-            $returned_classes = $GLOBALS['DB']->query("SELECT * FROM classes;");
-            $classes = array();
-            foreach($returned_classes as $class) {
-                $name = $class['name'];
-                $description = $class['description'];
-                $id = $class['id'];
-                $new_class = new CharClass($name, $description, $id);
-                array_push($classes, $new_class);
+            $returned_backgrounds = $GLOBALS['DB']->query("SELECT * FROM backgrounds;");
+            $backgrounds = array();
+            foreach($returned_backgrounds as $background) {
+                $name = $background['name'];
+                $description = $background['description'];
+                $id = $background['id'];
+                $new_background = new Background($name, $description, $id);
+                array_push($backgrounds, $new_background);
             }
-            return $classes;
+            return $backgrounds;
         }
 
         static function deleteAll() {
-            $GLOBALS['DB']->exec("DELETE FROM classes;");
+            $GLOBALS['DB']->exec("DELETE FROM backgrounds;");
         }
 
         static function find($search_id){
-            $found_class = null;
-            $classes = CharClass::getAll();
-            foreach($classes as $class) {
-                $class_id = $class->getId();
-                if ($class_id == $search_id) {
-                    $found_class = $class;
+            $found_background = null;
+            $backgrounds = Background::getAll();
+            foreach($backgrounds as $background) {
+                $background_id = $background->getId();
+                if ($background_id == $search_id) {
+                    $found_background = $background;
                 }
             }
-            return $found_class;
+            return $found_background;
         }
     }
 ?>

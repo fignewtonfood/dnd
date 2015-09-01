@@ -7,7 +7,7 @@
         private $description_id;
         private $race_id;
         private $stat_id;
-        private $campaign_id
+        private $campaign_id;
         private $id;
 
         function __construct($description_id, $race_id, $stat_id, $campaign_id = null, $id = null) {
@@ -54,23 +54,23 @@
             return $this->id;
         }
 //Get Classes from Character method using join statement
-        function getClasses()
-        {
-//Join statement saved into returned_classes; query selects all classes columns and joins data across tables to return all matching classes that fit a specific character id
-            $returned_classes = $GLOBALS['DB']->query("SELECT classes.* FROM characters
-                JOIN characters_classes ON (characters.id = characters_classes.character_id)
-                JOIN classes ON (characters_classes.class_id = classes.id)
-                WHERE characters.id = {$this->getId()};");
-            $classes = array();
-            foreach ($returned_classes as $class) {
-                $name = $class['name']
-                $description = $class['description'];
-                $id = $class['id'];
-                $new_class = new Class($name, $description, $id);
-                array_push($classes, $new_class);
-            }
-            return $classes;
-        }
+//         function getCharClasses()
+//         {
+// //Join statement saved into returned_classes; query selects all classes columns and joins data across tables to return all matching classes that fit a specific character id
+//             $returned_classes = $GLOBALS['DB']->query("SELECT classes.* FROM characters
+//                 JOIN characters_classes ON (characters.id = characters_classes.character_id)
+//                 JOIN classes ON (characters_classes.class_id = classes.id)
+//                 WHERE characters.id = {$this->getId()};");
+//             $classes = array();
+//             foreach ($returned_classes as $class) {
+//                 $name = $class['name'];
+//                 $description = $class['description'];
+//                 $id = $class['id'];
+//                 $new_class = new CharClass($name, $description, $id);
+//                 array_push($classes, $new_class);
+//             }
+//             return $classes;
+//         }
 
         function save() {
             $GLOBALS['DB']->exec("INSERT INTO characters (description_id, race_id, stat_id, campaign_id) VALUES ({$this->getDescriptionId()}, {$this->getRaceId()}, {$this->getStatId()}, {$this->getCampaignId})");
@@ -78,7 +78,7 @@
         }
 
 //Save a character and class at the same time to join table
-        function addClass($class) {
+        function addCharClass($class) {
             $GLOBALS['DB']->exec("INSERT INTO characters_classes (character_id, class_id) VALUES ({$this->getId()}, {$class->getId()});");
         }
 

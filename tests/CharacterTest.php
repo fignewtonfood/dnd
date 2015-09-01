@@ -24,6 +24,7 @@
             $description_id = 1;
             $race_id = 1;
             $stat_id = 1;
+            $campaign_id = 1;
             $test_character = new Character($description_id, $race_id, $stat_id);
 
             //Act
@@ -129,26 +130,26 @@
             $this->assertEquals($test_character->getCharClasses(), [$test_class]);
         }
 
-        function testGetCharClasses() {
-            //Arrange
-            $description_id = 1;
-            $race_id = 1;
-            $stat_id = 1;
-            $test_character = new Character($description_id, $race_id, $stat_id);
-            $test_character->save();
-            $class_id = 1;
-            $test_class = new CharClass($class_id);
-            $test_class->save();
-            $class_id2 = 2;
-            $test_class2 = new CharClass($class_id2);
-            $test_class2->save();
-
-            //Act
-            $test_character->addCharClass($test_class);
-            $test_character->addCharClass($test_class2);
-
-            //Assert
-            $this->assertEquals($test_character->getCharClasses(), [$test_class, $test_class2]);
-        }
+        // function testGetCharClasses() {
+        //     //Arrange
+        //     $description_id = 1;
+        //     $race_id = 1;
+        //     $stat_id = 1;
+        //     $test_character = new Character($description_id, $race_id, $stat_id);
+        //     $test_character->save();
+        //     $class_id = 1;
+        //     $test_class = new CharClass($class_id);
+        //     $test_class->save();
+        //     $class_id2 = 2;
+        //     $test_class2 = new CharClass($class_id2);
+        //     $test_class2->save();
+        //
+        //     //Act
+        //     $test_character->addCharClass($test_class);
+        //     $test_character->addCharClass($test_class2);
+        //
+        //     //Assert
+        //     $this->assertEquals($test_character->getCharClasses(), [$test_class, $test_class2]);
+        // }
     }
 ?>

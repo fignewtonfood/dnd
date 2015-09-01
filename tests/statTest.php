@@ -1372,7 +1372,7 @@
             $this->assertEquals($test_stat, $result[0]);
         }
 
-        function teststatRoll()
+        function testStatRoll()
         {
             $result = statRoll();
             $this->assertEquals(6, count($result));

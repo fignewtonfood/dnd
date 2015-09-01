@@ -79,8 +79,13 @@ ADDS
 GET [OTHERS]
 
 // Test Character::getClasss()
-12) Get Classs from Character method using join statement
+12) Get Classes from Character method using join statement
     Input class: "Fighter"
     Input character: 1, 1, 1
     Input class2: "Wizard"
     Output: ["Fighter", "Wizard"]
+
+DICE ROLLER
+
+// Test Stat::rollStats()
+13) Get 4d6 drop lowest stats

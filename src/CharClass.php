@@ -60,7 +60,7 @@
             $GLOBALS['DB']->exec("INSERT INTO classes (name, description) VALUES ('{$this->getName()}', '{$this->getDescription()}')");
             $this->id = $GLOBALS['DB']->lastInsertId();
         }
-//Save a class and character at the same time to join table
+
         function addCharacter($character) {
             $GLOBALS['DB']->exec("INSERT INTO classes_characters (class_id, character_id) VALUES ({$this->getId()}, {$character->getId()});");
         }

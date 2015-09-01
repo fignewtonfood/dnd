@@ -16,7 +16,7 @@
 
         protected function tearDown() {
             Character::deleteAll();
-            CharClass::deleteAll();
+            // CharClass::deleteAll();
         }
 
         function test_save() {

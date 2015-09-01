@@ -63,18 +63,20 @@
                 WHERE characters.id = {$this->getId()};");
             $classes = array();
             foreach ($returned_classes as $class) {
+                $name = $class['name']
                 $description = $class['description'];
                 $id = $class['id'];
-                $new_class = new Class($description, $id);
+                $new_class = new Class($name, $description, $id);
                 array_push($classes, $new_class);
             }
             return $classes;
         }
 
         function save() {
-            $GLOBALS['DB']->exec("INSERT INTO characters (description) VALUES ('{$this->getDescription()}')");
+            $GLOBALS['DB']->exec("INSERT INTO characters (description_id, race_id, stat_id, campaign_id) VALUES ({$this->getDescriptionId()}, {$this->getRaceId()}, {$this->getStatId()}, {$this->getCampaignId})");
             $this->id = $GLOBALS['DB']->lastInsertId();
         }
+
 //Save a character and class at the same time to join table
         function addClass($class) {
             $GLOBALS['DB']->exec("INSERT INTO characters_classes (character_id, class_id) VALUES ({$this->getId()}, {$class->getId()});");
@@ -84,9 +86,12 @@
             $returned_characters = $GLOBALS['DB']->query("SELECT * FROM characters;");
             $characters = array();
             foreach($returned_characters as $character) {
-                $description = $character['description'];
+                $description_id = $character['description_id'];
+                $race_id = $character['race_id'];
+                $stat_id = $character['stat_id'];
+                $campaign_id = $character['campaign_id'];
                 $id = $character['id'];
-                $new_character = new Character($description, $id);
+                $new_character = new Character($description_id, $race_id, $stat_id, $campaign_id, $id);
                 array_push($characters, $new_character);
             }
             return $characters;

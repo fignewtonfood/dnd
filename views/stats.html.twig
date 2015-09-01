@@ -4,10 +4,14 @@
     </head>
     <body>
 
-        <h3>Strength:</h3>
-            <p>{{ strength.getRoll }}</p>
-            <p>***Flavor text***</p>
-        <br>
+        {% for stat in stats %}
+
+            <h3>Strength:</h3>
+                <p>{{ strength.getRoll }}</p>
+                <p>***Flavor text***</p>
+            <br>
+
+        {% endfor %}
 
 
         <h3>Dexterity:</h3>

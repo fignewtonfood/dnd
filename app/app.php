@@ -1,8 +1,17 @@
 <?php
     require_once __DIR__."/../vendor/autoload.php";
-     require_once __DIR__."/../src/Race.php";
-     require_once __DIR__."/../src/CharClass.php";
+    require_once __DIR__."/../src/Race.php";
+    require_once __DIR__."/../src/CharClass.php";
+    require_once __DIR__."/../src/Background.php";
+    require_once __DIR__."/../src/stat.php";
+    require_once __DIR__."/../src/Skill.php";
+    require_once __DIR__."/../src/Description.php";
+    require_once __DIR__."/../src/Character.php";
 
+    session_start();
+    if (empty($_SESSION['temporary_character'])) {
+        $_SESSION['temporary_character'] = array();
+    }
 
     $app = new Silex\Application();
     $app['debug'] = true;
@@ -42,6 +51,7 @@
     $app->post('/class', function() use ($app)
     {
         $race_id = $_POST['race_id'];
+        var_dump($race_id);
         return $app['twig']->render('class.html.twig', array('races' => Race::getAll(), 'classes' => CharClass::getAll()));
     });
 
@@ -52,6 +62,8 @@
     {
         $race_id = $_POST['race_id'];
         $class_id = $_POST['class_id'];
+        var_dump($race_id);
+        var_dump($class_id);
         return $app['twig']->render('background.html.twig', array('races' => Race::getAll(), 'classes' => CharClass::getAll(), 'backgrounds' => Background::getAll()));
     });
 

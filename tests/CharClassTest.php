@@ -29,12 +29,10 @@
             $result = $test_class->getName();
             $result2 = $test_class->getDescription();
 
-
             //Assert
             $this->assertEquals($name, $result);
             $this->assertEquals($description, $result2);
         }
-
 
         function test_save() {
             //Arrange

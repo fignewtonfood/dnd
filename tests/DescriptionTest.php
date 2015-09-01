@@ -6,7 +6,7 @@
 
     require_once 'src/Description.php';
 
-    $server = 'mysql:host=localhost;dbname=dnd_test';
+    $server = 'mysql:host=localhost:8889;dbname=dnd_test';
     $username = 'root';
     $password = 'root';
     $DB = new PDO($server, $username, $password);

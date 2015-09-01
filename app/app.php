@@ -41,8 +41,8 @@
     //carry race id to class page
     $app->post('/race', function() use ($app)
     {
-        $race_id = $_POST['id'];
-        return $app['twig']->render('class.html.twig', array('race' => $race_id));
+        $race_id = $_POST['race_id'];
+        return $app['twig']->render('class.html.twig', array('race' => Race::getAll(), 'classes' => CharClass::getAll()));
     });
 
 

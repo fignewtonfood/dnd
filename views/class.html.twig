@@ -5,18 +5,18 @@
     <body>
 
         <form action = '/class' method='post'>
-        <input id="race_id" name="race_id" type="hidden" value="{{ race_id.getId() }}">
+        <input id="race_id" name="race_id" type="hidden" value="race_id">
 
         {% for class in classes %}
 
-        <label for = '{{ class.getName }}'>
-            <div class='class_select'>
-                <input type='radio' name = 'class' value = '{{ class.getName }}'>
-                    <h3>{{ class.getName }}</h3>
-                    <p>{{ class.getDescription }}</p>
-            </div>
-        </label>
-        <hr>
+            <label for = '{{ class.getName }}'>
+                <div class='class_select'>
+                    <input type='radio' name = 'class' value = '{{ class.getName }}'>
+                        <h3>{{ class.getName }}</h3>
+                        <p>{{ class.getDescription }}</p>
+                </div>
+            </label>
+            <hr>
 
         {% endfor %}
 

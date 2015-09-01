@@ -8,9 +8,9 @@
 
             {% for race in races %}
 
-            <label for = '{{ race.getName }}'>
+            <label for = '{{ race.getId }}'>
                 <div class='race_select'>
-                    <input type='radio' name = 'race' value = '{{ race.getName }}'>
+                    <input type='radio' name = 'race_id' value = '{{ race.getId }}'>
                         <h3>{{ race.getName }}</h3>
                         <p>{{ race.getDescription }}</p>
                 </div>

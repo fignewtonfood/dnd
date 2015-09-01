@@ -88,19 +88,19 @@
         //     return $backgrounds;
         // }
 
-        // function getCharClasses()
+        // function getSkills()
         // {
-        //     $returned_classes = $GLOBALS['DB']->query("SELECT classes.* FROM characters
-        //         JOIN characters_classes ON (characters.id = characters_classes.character_id)
-        //         JOIN classes ON (characters_classes.class_id = classes.id)
+        //     $returned_classes = $GLOBALS['DB']->query("SELECT skills.* FROM characters
+        //         JOIN proficiencies ON (characters.id = proficiencies.character_id)
+        //         JOIN skills ON (proficiencies.skill_id = skills.id)
         //         WHERE characters.id = {$this->getId()};");
-        //     $classes = array();
-        //     foreach ($returned_classes as $class) {
-        //         $name = $class['name'];
-        //         $description = $class['description'];
-        //         $id = $class['id'];
-        //         $new_class = new CharClass($name, $description, $id);
-        //         array_push($classes, $new_class);
+        //     $skills = array();
+        //     foreach ($returned_skills as $skill) {
+        //         $name = $skill['name'];
+        //         $description = $skill['description'];
+        //         $id = $skill['id'];
+        //         $new_skill = new Skill($name, $description, $id);
+        //         array_push($skills, $new_skill);
         //     }
         //     return $classes;
         // }

@@ -155,54 +155,54 @@
             $this->assertEquals($test_character->getCharClasses(), [$test_class, $test_class2]);
         }
 
-        // function testAddBackground() {
-        //     //Arrange
-        //     $description_id = 1;
-        //     $race_id = 1;
-        //     $stat_id = 1;
-        //     $test_character = new Character($description_id, $race_id, $stat_id);
-        //     $test_character->save();
-        //
-        //     $name = "Noble";
-        //     $description = "stuff";
-        //     $test_background = new Background($name, $description);
-        //     $test_background->save();
-        //
-        //     //Act
-        //     $test_character->addBackground($test_background);
-        //     $result = $test_character->getBackground();
-        //
-        //     //Assert
-        //     $this->assertEquals([$test_background], $result);
-        // }
-        //
-        // function testGetBackgrounds() {
-        //     //Arrange
-        //     $description_id = 1;
-        //     $race_id = 1;
-        //     $stat_id = 1;
-        //     $test_character = new Character($description_id, $race_id, $stat_id);
-        //     $test_character->save();
+        function testAddBackground() {
+            //Arrange
+            $description_id = 1;
+            $race_id = 1;
+            $stat_id = 1;
+            $test_character = new Character($description_id, $race_id, $stat_id);
+            $test_character->save();
 
-        //     $name = "Noble";
-        //     $description = "stuff";
-        //     $test_background = new Background($name, $description);
-        //     $test_background->save();
+            $name = "Noble";
+            $description = "stuff";
+            $test_background = new Background($name, $description);
+            $test_background->save();
 
-        //     $name2 = "Urchin";
-        //     $description2 = "other stuff";
-        //     $test_background2 = new Background($name2, $description2);
-        //     $test_background2->save();
-        //
-        //     //Act
-        //     $test_character->addBackground($test_background);
-        //     $test_character->addBackground($test_background2);
-        //
-        //     //Assert
-        //     $this->assertEquals($test_character->getBackgrounds(), [$test_background, $test_background2]);
-        // }
-        //
-        //
+            //Act
+            $test_character->addBackground($test_background);
+            $result = $test_character->getBackground();
+
+            //Assert
+            $this->assertEquals([$test_background], $result);
+        }
+
+        function testGetBackgrounds() {
+            //Arrange
+            $description_id = 1;
+            $race_id = 1;
+            $stat_id = 1;
+            $test_character = new Character($description_id, $race_id, $stat_id);
+            $test_character->save();
+
+            $name = "Noble";
+            $description = "stuff";
+            $test_background = new Background($name, $description);
+            $test_background->save();
+
+            $name2 = "Urchin";
+            $description2 = "other stuff";
+            $test_background2 = new Background($name2, $description2);
+            $test_background2->save();
+
+            //Act
+            $test_character->addBackground($test_background);
+            $test_character->addBackground($test_background2);
+
+            //Assert
+            $this->assertEquals($test_character->getBackgrounds(), [$test_background, $test_background2]);
+        }
+
+
         function testAddSkill() {
             //Arrange
             $description_id = 1;
@@ -224,7 +224,7 @@
             $this->assertEquals([$test_skill], $result);
         }
         //
-        // function testGetCharClasses() {
+        // function testGetSkills() {
         //     //Arrange
         //     $description_id = 1;
         //     $race_id = 1;

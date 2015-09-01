@@ -71,22 +71,22 @@
             return $classes;
         }
 
-        // function getBackground()
-        // {
-        //     $returned_backgrounds = $GLOBALS['DB']->query("SELECT backgrounds.* FROM characters
-        //         JOIN characters_backgrounds ON (characters.id = characters_backgrounds.character_id)
-        //         JOIN backgrounds ON (characters_backgrounds.background_id = backgrounds.id)
-        //         WHERE characters.id = {$this->getId()};");
-        //     $classes = array();
-        //     foreach ($returned_backgrounds as $background) {
-        //         $name = $background['name'];
-        //         $description = $background['description'];
-        //         $id = $background['id'];
-        //         $new_background = new Background($name, $description, $id);
-        //         array_push($backgrounds, $new_background);
-        //     }
-        //     return $backgrounds;
-        // }
+        function getBackground()
+        {
+            $returned_backgrounds = $GLOBALS['DB']->query("SELECT backgrounds.* FROM characters
+                JOIN characters_backgrounds ON (characters.id = characters_backgrounds.character_id)
+                JOIN backgrounds ON (characters_backgrounds.background_id = backgrounds.id)
+                WHERE characters.id = {$this->getId()};");
+            $classes = array();
+            foreach ($returned_backgrounds as $background) {
+                $name = $background['name'];
+                $description = $background['description'];
+                $id = $background['id'];
+                $new_background = new Background($name, $description, $id);
+                array_push($backgrounds, $new_background);
+            }
+            return $backgrounds;
+        }
 
         function getSkills()
         {
@@ -116,9 +116,9 @@
             $GLOBALS['DB']->exec("INSERT INTO characters_classes (character_id, class_id) VALUES ({$this->getId()}, {$class->getId()});");
         }
 
-        // function addBackground($background) {
-        //     $GLOBALS['DB']->exec("INSERT INTO characters_backgrounds (character_id, background_id) VALUES ({$this->getId()}, {$background->getId()});");
-        // }
+        function addBackground($background) {
+            $GLOBALS['DB']->exec("INSERT INTO characters_backgrounds (character_id, background_id) VALUES ({$this->getId()}, {$background->getId()});");
+        }
 
         function addSkill($skill) {
             $GLOBALS['DB']->exec("INSERT INTO proficiencies (character_id, skill_id) VALUES ({$this->getId()}, {$skill->getId()});");

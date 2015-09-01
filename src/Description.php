@@ -117,9 +117,9 @@
                 $hair_color = $details["hair_color"];
                 $skin_tone = $details["skin_tone"];
                 $other = $details["other"];
-                $full_description = new Description($id, $gender, $age,
+                $full_description = new Description($gender, $age,
                 $alignment, $height, $eye_color, $hair_color, $skin_tone,
-                $other);
+                $other, $id);
                 array_push($all, $full_description);
             }
             return $all;
@@ -141,10 +141,10 @@
             $GLOBALS["DB"]->exec("DELETE FROM descriptions;");
         }
 
-        function deleteThis() {
-            $GLOBALS["DB"]->exec("DELETE FROM descriptions WHERE id =
-            {$this->getId()};");
-        }
+        // function deleteThis() {
+        //     $GLOBALS["DB"]->exec("DELETE FROM descriptions WHERE id =
+        //     {$this->getId()};");
+        // }
 
 
 

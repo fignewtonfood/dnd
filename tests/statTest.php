@@ -5,16 +5,14 @@
     * @backupStaticAttributes disabled
     */
 
-    require_once "src/Store.php";
-    require_once "src/Brand.php";
-    $server = 'mysql:host=localhost;dbname=test_dnd';
+
+    require_once "src/Stat.php";
+
+    $server = 'mysql:host=localhost:8889;dbname=dnd_test';
     $username = 'root';
     $password = 'root';
     $DB = new PDO($server, $username, $password);
 
-    class StatTest extends PHPUnit_Framework_TestCase
-    {
-        
-    }
+    
 
 ?>

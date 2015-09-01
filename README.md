@@ -3,7 +3,7 @@
 ##### Epicodus D&D Campaign Manager, started 8/29/2015
 
 
-#### By Tim White, Ike Mattice & Charles Moss
+#### By Tim White, Ike Mattice, Dillon Lloyd Lee & Charles Moss
 
 
 ## Description
@@ -12,29 +12,23 @@ This program will store shoes and shoe brands into a MySQL database. The user wi
 
 ## Setup
 
-- clone https://github.com/fignewtonfood/wk4_code_review.git
-- Run $ composer install in project folder
-- Start mySQL server
-- Start php server in web directory folder
-- navigate web browser to localhost:8000
-- Run phpmyadmin and import database store.zip from folder
-
+* _Initialize your mysql databases by typing "mysql.server start" and "mysql -uroot -proot" in the terminal._
+* _Type "apachectl start" in the terminal, then open localhost:8080/phpmyadmin in your web browser.  Password and username are both "root."_
+* _Import the dnd.sql.zip file.  Import its test as well if you plan to run PHPUnit tests.
+* _Clone directory from "https://github.com/fignewtonfood/dnd.git"_
+* _run "composer install" into the terminal from the main folder directory._
+* _run "php -S localhost:8000" from the web folder, then open that location in your web browser._
+* _That's it!  Run this program from the root web page and follow onscreen directions._
 
 ## Technologies Used
 
 PHP, phpunit, Silex, Twig, HTML, CSS, Boostrap, Symfony, MySQL
 
-## SQL Commands Used
-CREATE DATABASE shoes;
-USE shoes;
-CREATE TABLE `brands` (`id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL, `name` VARCHAR(255) NULL DEFAULT NULL, PRIMARY KEY (`id`));
-CREATE TABLE `stores` (`id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL, `name` VARCHAR(255) NULL DEFAULT NULL, PRIMARY KEY (`id`));
-CREATE TABLE `brands_stores` (`id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL, `brand_id` INTEGER NULL DEFAULT NULL, `store_id` INTEGER NULL DEFAULT NULL, PRIMARY KEY (`id`));
 
 ### Legal
 
 
-Copyright (c) 2015 Tim White, Ike Mattice
+Copyright (c) 2015 Tim White, Ike Mattice, Dillon Lloyd Lee
 
 This software is licensed under the MIT license.
 

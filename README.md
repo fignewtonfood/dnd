@@ -1,14 +1,14 @@
-# DnD
+# D&D Campaign Manager
 
-##### Epicodus D&D Campaign Manager, started 8/29/2015
+##### a simple character creator and campaign manager, started 8/29/2015
 
 
-#### By Tim White, Ike Mattice, Dillon Lloyd Lee & Charles Moss
+#### By Tim White, Ike Mattice, Dillon Lloyd Lee, Michael Rapp & Charles Moss
 
 
 ## Description
 
-This program will store shoes and shoe brands into a MySQL database. The user will have the capability to create, read, update, and delete individual shoe entries as well as creating and reading shoe brands.
+This program is the week-long group project for Epicodus.  It will provide easy, simplified construction steps for new D&D5e characters--perfect for beginners!--and store its data in a MySQL database.  Dungeon Master's can access campaigns and organize all characters.
 
 ## Setup
 
@@ -22,13 +22,13 @@ This program will store shoes and shoe brands into a MySQL database. The user wi
 
 ## Technologies Used
 
-PHP, phpunit, Silex, Twig, HTML, CSS, Boostrap, Symfony, MySQL
+PHP, Silex, Twig, HTML, CSS, Bootstrap, Composer, Symfony, MySQL.  Tests conducted with PHPUnit.
 
 
 ### Legal
 
 
-Copyright (c) 2015 Tim White, Ike Mattice, Dillon Lloyd Lee
+Copyright (c) 2015 Tim White, Ike Mattice, Dillon Lloyd Lee, Charles Moss, Michael Rapp
 
 This software is licensed under the MIT license.
 

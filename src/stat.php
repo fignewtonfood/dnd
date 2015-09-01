@@ -338,11 +338,6 @@
             }
             return $found_stat;
         }
-
-
-
-
-
         // UPDATE STAT FUNCTIONS:
         function updateStr($number) {
             $GLOBALS["DB"]->exec("UPDATE stats SET str = {$number} WHERE id = {$this->getId()};");
@@ -415,5 +410,31 @@
 
 
         }
+
+    }
+
+    function statRoll()
+    {
+        $stats = array();
+        $statcounter = 0;
+        while($statcounter < 6)
+        {
+            $numbers = array();
+            $counter = 0;
+            while($counter < 4)
+            {
+                $number = rand(1, 6);
+                array_push($numbers, $number);
+                $counter++;
+            }
+            asort($numbers);
+            unset($numbers[0]);
+            $number_sum = array_sum($numbers);
+            array_push($stats, $number_sum);
+            $statcounter++;
+        }
+        arsort($stats);
+        return $stats;
+
     }
  ?>

@@ -8,10 +8,33 @@
     require_once __DIR__."/../src/Description.php";
     require_once __DIR__."/../src/Character.php";
 
+
     session_start();
     if (empty($_SESSION['temporary_character'])) {
-        $_SESSION['temporary_character'] = array();
-    }
+        $_SESSION['temporary_character'] = array(
+        $_SESSION['race'] => "",
+        $_SESSION['class'] => "",
+        $_SESSION['background'] => "",
+        $_SESSION['str'] => "",
+        $_SESSION['dex'] => "",
+        $_SESSION['con'] => "",
+        $_SESSION['wis'] => "",
+        $_SESSION['int'] => "",
+        $_SESSION['cha'] => "",
+        $_SESSION['name'] => "",
+        $_SESSION['age'] => "",
+        $_SESSION['gender'] => "",
+        $_SESSION['height'] => "",
+        $_SESSION['weight'] => "",
+        $_SESSION['eye_color'] => "",
+        $_SESSION['hair_color'] => "",
+        $_SESSION['skin_tone'] => "",
+        $_SESSION['alignment'] => "",
+        $_SESSION['motivations'] => "",
+        $_SESSION['flaws'] => "",
+        $_SESSION['other_information'] => "",
+    );};
+
 
     $app = new Silex\Application();
     $app['debug'] = true;
@@ -51,7 +74,9 @@
     //carry race id to class page
     $app->post('/class', function() use ($app)
     {
-        return $app['twig']->render('class.html.twig', array('race_id' => $_POST['race_id'], 'classes' => CharClass::getAll()));
+        $_SESSION['race'] = $_POST['race_id'];
+
+        return $app['twig']->render('class.html.twig', array('classes' => CharClass::getAll()));
     });
 
 
@@ -60,7 +85,9 @@
     //carry race id and class id to background page
     $app->post('/background', function() use ($app)
     {
-        return $app['twig']->render('background.html.twig', array('race_id' => $_POST['race_id'], 'class_id' => $_POST['class_id'], 'backgrounds' => Background::getAll()));
+        $_SESSION['class'] = $_POST['class_id'];
+        var_dump($_SESSION['race']);
+        return $app['twig']->render('background.html.twig', array('backgrounds' => Background::getAll()));
     });
 
 
@@ -69,6 +96,12 @@
     //carry race id, class id, background id to stats page
     $app->post('/stats', function() use ($app)
     {
+        $race_find = Race::find($race_id);
+        $race_id = $_POST['race_id'];
+        $race_id =
+        $stats = statRoll();
+        $assigned_stats = assignRolls($stats);
+
         return $app['twig']->render('stats.html.twig', array('race_id' => $_POST['race_id'], 'class_id' => $_POST['class_id'], 'background_id' => $_POST['background_id'], 'stat' => Stat::getAll()));
     });
 

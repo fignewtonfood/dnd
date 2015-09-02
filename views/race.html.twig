@@ -1,34 +1,35 @@
 <html>
     <head>
         <title>Choose your race</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
         <link rel='stylesheet' href='./css/main.css'>
     </head>
     <body>
+        <div class="container">
+            <form action = '/class' method='post'>
 
-        <form action = '/class' method='post'>
 
-
-            {% for race in races %}
+                {% for race in races %}
 
                     <label for='{{ race.getId }}' class='choice_radio' >
                     <input type='radio' name='race_id' value='{{ race.getId }}' required>
                         <h3>{{ race.getName }}</h3>
                         <p>{{ race.getDescription }}</p>
                     </label>
-                <hr>
+                    <hr>
 
-            {% endfor %}
-
-
-            <button type='submit'>Choose your class -></button>
+                {% endfor %}
 
 
-            <!-- https://css-tricks.com/css3-progress-bars/ -->
-            <div class="progress">
-                <span style='width: 0%'></span>
-            </div>
+                <button type='submit'>Choose your class -></button>
 
-        </form>
 
+                <!-- https://css-tricks.com/css3-progress-bars/ -->
+                <div class="progress">
+                    <span style='width: 0%'></span>
+                </div>
+
+            </form>
+        </div>
     </body>
 </html>

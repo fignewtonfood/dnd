@@ -1,37 +1,37 @@
 <html>
     <head>
         <title>Choose your class</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
         <link rel='stylesheet' href='./css/main.css'>
 
     </head>
     <body>
-        {{ race_id }}
-        <form action = '/background' method='post'>
-            <input name="race_id" type="hidden" value="{{ race_id }}">
+        <div class='container'>
+            <form action = '/background' method='post'>
+
+            {% for class in classes %}
+
+                <label for = '{{ class.getId }}'>
+                    <div class='class_select'>
+
+                        <input type='radio' name = 'class_id' value = '{{ class.getId }}' required>
+                            <h3>{{ class.getName }}</h3>
+                            <p>{{ class.getDescription }}</p>
+                    </div>
+                </label>
+                <hr>
+
+            {% endfor %}
 
 
-        {% for class in classes %}
+                <button type='submit'>Choose your background -></button>
 
-            <label for = '{{ class.getId }}'>
-                <div class='class_select'>
-
-                    <input type='radio' name = 'class_id' value = '{{ class.getId }}' required>
-                        <h3>{{ class.getName }}</h3>
-                        <p>{{ class.getDescription }}</p>
+                <!-- https://css-tricks.com/css3-progress-bars/ -->
+                <div class="progress">
+                    <span style='width: 17%'></span>
                 </div>
-            </label>
-            <hr>
 
-        {% endfor %}
-
-
-            <button type='submit'>Choose your background -></button>
-
-            <!-- https://css-tricks.com/css3-progress-bars/ -->
-            <div class="progress">
-                <span style='width: 17%'></span>
-            </div>
-
-        </form>
+            </form>
+        </div>
     </body>
 </html>

@@ -1,5 +1,7 @@
 <html>
     <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>Choose your class</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
         <link rel='stylesheet' href='./css/main.css'>
@@ -8,6 +10,21 @@
     <body>
         <div class='container'>
             <form action = '/background' method='post'>
+        <link rel='stylesheet' href='./css/main.css'>
+        <meta name="viewport" content="width=device-width">
+
+    </head>
+    <body>
+
+        {% embed "header.html.twig" %}
+        {% endembed %}
+
+        <section class="main group">
+
+        {{race_id}}
+
+        <form action = '/background' method='get'>
+            <input  name="race_id" type="hidden" value="{{ race_id }}">
 
             {% for class in classes %}
 
@@ -21,8 +38,8 @@
                 </label>
                 <hr>
 
-            {% endfor %}
 
+            {% endfor %}
 
                 <button type='submit'>Choose your background -></button>
 
@@ -33,5 +50,18 @@
 
             </form>
         </div>
+        </form>
+
+        <button type='submit'>Choose your background -></button>
+
+        </section>
+
+        {% embed "progress.html.twig" %}
+        {% endembed %}
+
+        {% embed "footer.html.twig" %}
+        {% endembed %}
+
     </body>
+
 </html>

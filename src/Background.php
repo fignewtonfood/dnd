@@ -35,8 +35,7 @@
         }
 
         function save() {
-            $GLOBALS['DB']->exec("INSERT INTO backgrounds (name, description) VALUES ('{$this->getName()}', '{$this->getDescription()}')");
-            $this->id = $GLOBALS['DB']->lastInsertId();
+            $GLOBALS['DB']->exec("INSERT INTO backgrounds (name, description, id) VALUES ('{$this->getName()}', '{$this->getDescription()}', {$this->getId()});");
         }
 
         static function getAll() {

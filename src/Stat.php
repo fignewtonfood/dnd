@@ -508,6 +508,13 @@
             $this->setInit($mod);
         }
 
+        function updateAc() {
+            $mod = $this->getModifier($this->getDex());
+            $GLOBALS["DB"]->exec("UPDATE stats SET ac = {$mod} WHERE id =
+                {$this->getId()};");
+            $this->setAc($mod);
+        }
+
         function updateAcrobatics($proficiency_array) {
             $mod = $this->getModifier($this->getDex());
             foreach ($proficiency_array as $proficiency) {

@@ -117,5 +117,15 @@
             //Assert
             $this->assertEquals($test_class, $result);
         }
+
+        function test_loadOuts(){
+
+        $class = 3;
+        $background = 2;
+
+        $result = loadOuts($class, $background);
+        var_dump($result);
+        $this->assertEquals(true, is_array($result));
+        }
     }
 ?>

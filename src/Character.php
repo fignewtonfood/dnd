@@ -111,6 +111,7 @@
             $this->id = $GLOBALS['DB']->lastInsertId();
         }
 
+//Save a character and class at the same time to join table
         function addCharClass($class) {
             $GLOBALS['DB']->exec("INSERT INTO characters_classes (character_id, class_id) VALUES ({$this->getId()}, {$class->getId()});");
         }

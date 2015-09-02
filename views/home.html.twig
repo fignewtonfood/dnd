@@ -25,6 +25,7 @@
 
                 <a class="main__callToAction" href="/race">Create Your Charactor</a>
 
+        <a href="/race">Create your charactor -></a>
             </section>
 
             <aside class="site__progress">
@@ -43,6 +44,16 @@
             </div>
 
         </footer>
+
+        {% if characters is not empty %}
+            <h3>Or choose from previously created characters:</h3>
+                {% for character in characters %}
+                    <ul>
+                        <li>{{ charater.getName}}</li>
+                    </ul>
+                {% endfor %}
+        {% endif %}
+
 
     </body>
 

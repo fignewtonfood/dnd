@@ -5,46 +5,28 @@
     </head>
     <body>
 
-        <form action = '/background' method='post'>
+        <form action = '/stats' method='post'>
+            <input id="race_id" name="race_id" type="hidden" value="race_id">
+            <input id="class_id" name="class_id" type="hidden" value="class_id">
 
-            <label for = ''>
+
+            {% for background in backgrounds %}
+
+            <label for = '{{ background.getId }}'>
                 <div class='background_select'>
-                    <input type='checkbox' name = 'background' value = 'noble'>
-                        <h3>Noble</h3>
-                        <p>***Flavor text***</p>
+                    <input type='radio' name = 'background_id' value = '{{ background.getId }}'>
+                        <h3>{{ background.getName }}</h3>
+                        <p>{{ background.getDescription }}</p>
+
                 </div>
             </label>
             <hr>
 
-            <label for = ''>
-                <div class='background_select'>
-                    <input type='checkbox' name = 'background' value = 'hermit'>
-                        <h3>Hermit</h3>
-                        <p>***Flavor text***</p>
-                </div>
-            </label>
-            <hr>
-
-            <label for = ''>
-                <div class='background_select'>
-                    <input type='checkbox' name = 'background' value = 'urchin'>
-                        <h3>Urchin</h3>
-                        <p>***Flavor text***</p>
-                </div>
-            </label>
-            <hr>
-
-            <label for = ''>
-                <div class='background_select'>
-                    <input type='checkbox' name = 'background' value = 'soldier'>
-                        <h3>Soldier</h3>
-                        <p>***Flavor text***</p>
-                </div>
-            </label>
-            <hr>
+            {% endfor %}
 
 
-            <button type='submit'>Choose your class -></button>
+            <button type='submit'>Roll your stats -></button>
+
 
             <!-- https://css-tricks.com/css3-progress-bars/ -->
             <div class="progress">

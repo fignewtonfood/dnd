@@ -99,33 +99,6 @@
             $this->cha = $new_cha;
         }
 
-
-        //
-        // function setInit($new_init)
-        // {
-        //     $this->init = $new_init;
-        // }
-        //
-        // function setMax_hp($new_max_hp)
-        // {
-        //     $this->max_hp = $new_max_hp;
-        // }
-        //
-        // function setSpeed($new_speed)
-        // {
-        //     $this->speed = $new_speed;
-        // }
-        //
-        // function setAc($new_ac)
-        // {
-        //     $this->ac = $new_ac;
-        // }
-        //
-        // function setProficiency($new_proficiency)
-        // {
-        //     $this->proficiency = $new_proficiency;
-        // }
-
         function getId()
         {
             return $this->id;
@@ -272,6 +245,126 @@
         function getSurvival()
         {
             return $this->survival;
+        }
+
+        function setInit($new_init)
+        {
+            $this->init = $new_init;
+        }
+
+        function setMaxHp($new_maxHp)
+        {
+            $this->max_hp = $new_maxHp;
+        }
+
+        function setSpeed($new_speed)
+        {
+            $this->speed = $new_speed;
+        }
+
+        function setAc($new_ac)
+        {
+            $this->ac = $new_ac;
+        }
+
+        function setProficiency($new_proficiency)
+        {
+            $this->proficiency = $new_proficiency;
+        }
+
+        function setAnimal_handling($new_animal_handling)
+        {
+            $this->animal_handling = $new_animal_handling;
+        }
+
+        function setArcana($new_arcana)
+        {
+            $this->arcana = $new_arcana;
+        }
+
+        function setAthletics($new_athletics)
+        {
+            $this->athletics = $new_athletics;
+        }
+
+        function setAnimalHandling($new_animal_handling)
+        {
+            $this->animal_handling = $new_animal_handling;
+        }
+
+        function setDeception($new_deception)
+        {
+            $this->deception = $new_deception;
+        }
+
+        function setHistory($new_history)
+        {
+            $this->history = $new_history;
+        }
+
+        function setInsight($new_insight)
+        {
+            $this->insight = $new_insight;
+        }
+
+        function setIntimidation($new_intimidation)
+        {
+            $this->intimidation = $new_intimidation;
+        }
+
+        function setInvestigation($new_investigation)
+        {
+            $this->investigation = $new_investigation;
+        }
+
+        function setMedicine($new_medicine)
+        {
+            $this->medicine = $new_medicine;
+        }
+
+        function setAcrobatics($new_acrobatics)
+        {
+            $this->acrobatics = $new_acrobatics;
+        }
+
+        function setNature($new_nature)
+        {
+            $this->nature = $new_nature;
+        }
+
+        function setPerception($new_perception)
+        {
+            $this->perception = $new_perception;
+        }
+
+        function setPerformance($new_performance)
+        {
+            $this->performance = $new_performance;
+        }
+
+        function setPersuasion($new_persuasion)
+        {
+            $this->persuasion = $new_persuasion;
+        }
+
+        function setReligion($new_religion)
+        {
+            $this->religion = $new_religion;
+        }
+
+        function setSleightOfHand($new_sleight_of_hand)
+        {
+            $this->sleight_of_hand = $new_sleight_of_hand;
+        }
+
+        function setStealth($new_stealth)
+        {
+            $this->stealth = $new_stealth;
+        }
+
+        function setSurvival($new_survival)
+        {
+            $this->survival = $new_survival;
         }
 
         function save()

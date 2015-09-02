@@ -35,8 +35,6 @@
         $_SESSION['hair_color'] => "",
         $_SESSION['skin_tone'] => "",
         $_SESSION['alignment'] => "",
-        $_SESSION['motivations'] => "",
-        $_SESSION['flaws'] => "",
         $_SESSION['other_information'] => "",
     );};
 

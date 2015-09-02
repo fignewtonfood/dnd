@@ -1527,9 +1527,9 @@
 
             $test_stat->assignRolls($six_rolls, $classname, $race);
             $dex = $test_stat->getDex();
-            $result = 0;
+            $result = 1;
 
-            $proficiencies = ["insight", "medicine"];
+            $proficiencies = ["insight", "medicine", "acrobatics"];
             $test_stat->updateAcrobatics($proficiencies);
             $acrobatics = $test_stat->getAcrobatics();
 
@@ -1540,7 +1540,6 @@
             $stat_total = 16;
 
             $mod = Stat::getModifier($stat_total);
-            var_dump($mod);
             $result = 3;
 
             $this->assertEquals($mod, $result);

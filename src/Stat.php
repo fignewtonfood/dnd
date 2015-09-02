@@ -492,6 +492,7 @@
 
 
         // DICE ROLL ASSIGN FUNCTION:
+        
         function assignRolls($six_rolls, $classname, $race) {
             $classname = strtolower ($classname);
             if ($classname == "fighter") {

@@ -1430,7 +1430,7 @@
            $this->assertEquals($strength, $result);
         }
 
-    function test_assignRolls_cleric() {
+        function test_assignRolls_cleric() {
 
            $str = 2;
            $dex = 2;
@@ -1479,6 +1479,50 @@
            $result = 16;
 
            $this->assertEquals($strength, $result);
+       }
+
+       function test_updateInvestigation() {
+           $str = 2;
+           $dex = 2;
+           $con = 2;
+           $intel = 2;
+           $wis = 2;
+           $cha = 2;
+           $init = 2;
+           $max_hp = 2;
+           $speed = 2;
+           $ac = 2;
+           $acrobatics = 2;
+           $arcana = 2;
+           $animal_handling = 2;
+           $athletics = 2;
+           $deception = 12;
+           $history = 2;
+           $insight = 2;
+           $intimidation = 2;
+           $investigation = 2;
+           $medicine = 2;
+           $nature = 2;
+           $perception = 2;
+           $performance = 2;
+           $persuasion = 2;
+           $proficiency = ["investigation", "persuasion", "stealth"];
+           $religion = 2;
+           $sleight_of_hand = 2;
+           $stealth = 2;
+           $survival = 2;
+           $test_stat = new Stat($ac, $acrobatics, $animal_handling,
+               $arcana, $athletics, $cha, $con, $deception, $dex,
+               $history, $init, $insight, $intel, $intimidation,
+               $investigation, $max_hp, $medicine, $nature, $perception,
+               $performance, $persuasion, $proficiency, $religion,
+               $speed, $sleight_of_hand, $stealth, $str, $survival, $wis);
+
+           $test_stat->save();
+
+           $test_stat->updateInvestigation();
+
+           $result = 3;
        }
     }
 ?>

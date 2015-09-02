@@ -7,7 +7,6 @@
 
         <form action = '/class' method='post'>
 
-
             {% for race in races %}
 
                     <label for='{{ race.getId }}' class='choice_radio' >
@@ -15,8 +14,8 @@
                         <h3>{{ race.getName }}</h3>
                         <p>{{ race.getDescription }}</p>
                     </label>
-                <hr>
 
+                <hr>
             {% endfor %}
 
 
@@ -29,6 +28,5 @@
             </div>
 
         </form>
-
     </body>
 </html>

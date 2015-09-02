@@ -4,8 +4,13 @@
         <link rel='stylesheet' href='./css/main.css'>
     </head>
     <body>
-        {{race_id}}{{class_id}}
-        <form action = '/stats' method='get'>
+
+        <p>race = {{race_id}}</p>
+        <br>
+        <p>class = {{class_id}}</p>
+        <br>
+
+        <form action = '/stats' method='post'>
             <input id="race_id" name="race_id" type="hidden" value="race_id">
             <input name="class_id" type="hidden" value="{{class_id}}">
 

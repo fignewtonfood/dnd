@@ -35,8 +35,7 @@
         }
 
         function save() {
-            $GLOBALS['DB']->exec("INSERT INTO skills (name, description) VALUES ('{$this->getName()}', '{$this->getDescription()}')");
-            $this->id = $GLOBALS['DB']->lastInsertId();
+            $GLOBALS['DB']->exec("INSERT INTO skills (name, description, id) VALUES ('{$this->getName()}', '{$this->getDescription()}', {$this->getId()})");
         }
 
         function addCharacter($character) {

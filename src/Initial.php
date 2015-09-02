@@ -1,7 +1,7 @@
 <?php
     // RUN THIS FUNCTION WHEN YOU FIRST START THE PROGRAM
     // TO INITIALIZE DATA IN THE DATABASE.
-    
+
     require_once "Skill.php";
     require_once "Race.php";
     require_once "CharClass.php";

@@ -1,35 +1,52 @@
 <html>
     <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>Choose your class</title>
+        <link rel='stylesheet' href='./css/main.css'>
+        <meta name="viewport" content="width=device-width">
+
     </head>
     <body>
+
+        {% embed "header.html.twig" %}
+        {% endembed %}
+
+        <section class="main group">
+
         {{race_id}}
+
         <form action = '/background' method='get'>
             <input  name="race_id" type="hidden" value="{{ race_id }}">
 
 
-        {% for class in classes %}
+            {% for class in classes %}
 
-            <label for = '{{ class.getId }}'>
-                <div class='class_select'>
+                <label for = '{{ class.getId }}'>
+                    <div class='class_select'>
 
-                    <input type='radio' name = 'class_id' value = '{{ class.getId }}' required>
-                        <h3>{{ class.getName }}</h3>
-                        <p>{{ class.getDescription }}</p>
-                </div>
-            </label>
-            <hr>
+                        <input type='radio' name = 'class_id' value = '{{ class.getId }}' required>
+                            <h3>{{ class.getName }}</h3>
+                            <p>{{ class.getDescription }}</p>
+                    </div>
 
-        {% endfor %}
+                </label>
+                <hr>
 
-
-            <button type='submit'>Choose your background -></button>
-
-            <!-- https://css-tricks.com/css3-progress-bars/ -->
-            <div class="progress">
-                <span style='width: 17%'></span>
-            </div>
+            {% endfor %}
 
         </form>
+
+        <button type='submit'>Choose your background -></button>
+
+        </section>
+
+        {% embed "progress.html.twig" %}
+        {% endembed %}
+
+        {% embed "footer.html.twig" %}
+        {% endembed %}
+
     </body>
+
 </html>

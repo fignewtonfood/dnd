@@ -506,7 +506,7 @@
             $proficiencies = $this::getProficiency();
             foreach ($proficiencies as $proficiency) {
                 if ($proficiency == "acrobatics") {
-                    $mod += 2;
+                    $mod += $this->getProficiency();
                 }
             }
             $GLOBALS["DB"]->exec("UPDATE stats SET acrobatics = {$mod} WHERE id =
@@ -519,7 +519,7 @@
             $proficiencies = $this::getProficiency();
             foreach ($proficiencies as $proficiency) {
                 if ($proficiency == "animal handling") {
-                    $mod += 2;
+                    $mod += $this->getProficiency();
                 }
             }
             $GLOBALS["DB"]->exec("UPDATE stats SET animal_handling = {$mod} WHERE id =
@@ -529,10 +529,10 @@
 
         function updateArcana() {
             $mod = $this->getModifier($this->getInt());
-
+            $proficiencies = $this::getProficiency();
             foreach ($proficiencies as $proficiency) {
                 if ($proficiency == "arcana") {
-                    $mod += 2;
+                    $mod += $this->getProficiency();
                 }
             }
             $GLOBALS["DB"]->exec("UPDATE stats SET arcana = {$mod} WHERE id =
@@ -542,10 +542,10 @@
 
         function updateAthletics() {
             $mod = $this->getModifier($this->getStr());
-
+            $proficiencies = $this::getProficiency();
             foreach ($proficiencies as $proficiency) {
                 if ($proficiency == "athletics") {
-                    $mod += 2;
+                    $mod += $this->getProficiency();
                 }
             }
             $GLOBALS["DB"]->exec("UPDATE stats SET athletics = {$mod} WHERE id =
@@ -555,10 +555,10 @@
 
         function updateDeception() {
             $mod = $this->getModifier($this->getCha());
-
+            $proficiencies = $this::getProficiency();
             foreach ($proficiencies as $proficiency) {
                 if ($proficiency == "deception") {
-                    $mod += 2;
+                    $mod += $this->getProficiency();
                 }
             }
             $GLOBALS["DB"]->exec("UPDATE stats SET deception = {$mod} WHERE id =
@@ -568,10 +568,10 @@
 
         function updateHistory() {
             $mod = $this->getModifier($this->getInt());
-
+            $proficiencies = $this::getProficiency();
             foreach ($proficiencies as $proficiency) {
                 if ($proficiency == "history") {
-                    $mod += 2;
+                    $mod += $this->getProficiency();
                 }
             }
             $GLOBALS["DB"]->exec("UPDATE stats SET history = {$mod} WHERE id =
@@ -581,9 +581,10 @@
 
         function updateInsight() {
             $mod = $this->getModifier($this->getWis());
+            $proficiencies = $this::getProficiency();
             foreach ($proficiencies as $proficiency) {
                 if ($proficiency == "insight") {
-                    $mod += 2;
+                    $mod += $this->getProficiency();
                 }
             }
             $GLOBALS["DB"]->exec("UPDATE stats SET insight = {$mod} WHERE id =
@@ -593,10 +594,10 @@
 
         function updateIntimidation() {
             $mod = $this->getModifier($this->getCha());
-
+            $proficiencies = $this::getProficiency();
             foreach ($proficiencies as $proficiency) {
                 if ($proficiency == "intimidation") {
-                    $mod += 2;
+                    $mod += $this->getProficiency();
                 }
             }
             $GLOBALS["DB"]->exec("UPDATE stats SET intimidation = {$mod} WHERE id =
@@ -606,10 +607,10 @@
 
         function updateInvestigation() {
             $mod = $this->getModifier($this->getInt());
-
+            $proficiencies = $this::getProficiency();
             foreach ($proficiencies as $proficiency) {
                 if ($proficiency == "investigation") {
-                    $mod += 2;
+                    $mod += $this->getProficiency();
                 }
             }
             $GLOBALS["DB"]->exec("UPDATE stats SET investigation = {$mod} WHERE id =
@@ -619,10 +620,10 @@
 
         function updateMedicine() {
             $mod = $this->getModifier($this->getWis());
-
+            $proficiencies = $this::getProficiency();
             foreach ($proficiencies as $proficiency) {
                 if ($proficiency == "medicine") {
-                    $mod += 2;
+                    $mod += $this->getProficiency();
                 }
             }
             $GLOBALS["DB"]->exec("UPDATE stats SET medicine = {$mod} WHERE id =
@@ -632,10 +633,10 @@
 
         function updateNature() {
             $mod = $this->getModifier($this->getInt());
-
+            $proficiencies = $this::getProficiency();
             foreach ($proficiencies as $proficiency) {
                 if ($proficiency == "nature") {
-                    $mod += 2;
+                    $mod += $this->getProficiency();
                 }
             }
             $GLOBALS["DB"]->exec("UPDATE stats SET nature = {$mod} WHERE id =
@@ -645,10 +646,10 @@
 
         function updatePerception() {
             $mod = $this->getModifier($this->getWis());
-
+            $proficiencies = $this::getProficiency();
             foreach ($proficiencies as $proficiency) {
                 if ($proficiency == "perception") {
-                    $mod += 2;
+                    $mod += $this->getProficiency();
                 }
             }
             $GLOBALS["DB"]->exec("UPDATE stats SET perception = {$mod} WHERE id =
@@ -658,10 +659,10 @@
 
         function updatePerformance() {
             $mod = $this->getModifier($this->getCha());
-
+            $proficiencies = $this::getProficiency();
             foreach ($proficiencies as $proficiency) {
                 if ($proficiency == "performance") {
-                    $mod += 2;
+                    $mod += $this->getProficiency();
                 }
             }
             $GLOBALS["DB"]->exec("UPDATE stats SET performance = {$mod} WHERE id =
@@ -671,10 +672,10 @@
 
         function updatePersuasion() {
             $mod = $this->getModifier($this->getCha());
-
+            $proficiencies = $this::getProficiency();
             foreach ($proficiencies as $proficiency) {
                 if ($proficiency == "persuasion") {
-                    $mod += 2;
+                    $mod += $this->getProficiency();
                 }
             }
             $GLOBALS["DB"]->exec("UPDATE stats SET persuasion = {$mod} WHERE id =
@@ -684,10 +685,10 @@
 
         function updateReligion() {
             $mod = $this->getModifier($this->getInt());
-
+            $proficiencies = $this::getProficiency();
             foreach ($proficiencies as $proficiency) {
                 if ($proficiency == "religion") {
-                    $mod += 2;
+                    $mod += $this->getProficiency();
                 }
             }
             $GLOBALS["DB"]->exec("UPDATE stats SET religion = {$mod} WHERE id =
@@ -697,10 +698,10 @@
 
         function updateSleightOfHand() {
             $mod = $this->getModifier($this->getDex());
-
+            $proficiencies = $this::getProficiency();
             foreach ($proficiencies as $proficiency) {
                 if ($proficiency == "sleight of hand") {
-                    $mod += 2;
+                    $mod += $this->getProficiency();
                 }
             }
             $GLOBALS["DB"]->exec("UPDATE stats SET sleight_of_hand = {$mod} WHERE id =
@@ -710,10 +711,10 @@
 
         function updateStealth() {
             $mod = $this->getModifier($this->getDex());
-
+            $proficiencies = $this::getProficiency();
             foreach ($proficiencies as $proficiency) {
                 if ($proficiency == "stealth") {
-                    $mod += 2;
+                    $mod += $this->getProficiency();
                 }
             }
             $GLOBALS["DB"]->exec("UPDATE stats SET stealth = {$mod} WHERE id =
@@ -723,10 +724,10 @@
 
         function updateSurvival() {
             $mod = $this->getModifier($this->getWis());
-
+            $proficiencies = $this::getProficiency();
             foreach ($proficiencies as $proficiency) {
                 if ($proficiency == "survival") {
-                    $mod += 2;
+                    $mod += $this->getProficiency();
                 }
             }
             $GLOBALS["DB"]->exec("UPDATE stats SET survival = {$mod} WHERE id =

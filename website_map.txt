@@ -16,4 +16,7 @@ v
 Skills Choice Page
 |
 v
+Character Description Page
+|
+v
 Complete Character Summary Page

@@ -50,11 +50,10 @@
     //carry race id to class page
     $app->get('/class', function() use ($app)
     {
-        setcookie($race, time() + 1800);
+        // setcookie($race, time() + 1800);
 
         // $new_temporary_character = new TemporaryCharacter ($_POST['race_id'])
         // $new_temporary_character->sessionSave();
-        var_dump($race);
         return $app['twig']->render('class.html.twig', array('races' => Race::getAll(), 'race_id' => $_GET['race_id'], 'classes' => CharClass::getAll()));
     });
 
@@ -63,32 +62,32 @@
     //carry race id and class id to background page
     $app->get('/background', function() use ($app)
     {
-        $race = $_GET['race_id'];
-        var_dump($_COOKIE[$race]);
+        // $race = $_GET['race_id'];
+        // var_dump($_COOKIE[$race]);
         // http://www.pontikis.net/blog/create-cookies-php-javascript
         // $race= $_POST['race_id'];
         // $class_id = $_POST['class_id'];
-        var_dump($race);
-        var_dump($class_id);
-        return $app['twig']->render('background.html.twig', array('races' => Race::getAll(), 'race_id' => $_GET['race_id'], 'classes' => CharClass::getAll(), 'backgrounds' => Background::getAll()));
+        // var_dump($race);
+        // var_dump($class_id);
+        return $app['twig']->render('background.html.twig', array('races' => Race::getAll(), 'race_id' => $_GET['race_id'], 'class_id' => $_GET['class_id'], 'classes' => CharClass::getAll(), 'backgrounds' => Background::getAll()));
     });
 
 
 
 //background page
     //carry race id, class id, background id to stats page
-    $app->post('/stats', function() use ($app)
+    $app->get('/stats', function() use ($app)
     {
-        $race_id = $_POST['race_id'];
-        $class_id = $_POST['class_id'];
-        $background_id = $_POST['background_id'];
+        // $race_id = $_POST['race_id'];
+        // $class_id = $_POST['class_id'];
+        // $background_id = $_POST['background_id'];
         //Add stat roll logic here
-        return $app['twig']->render('stats.html.twig', array('races' => Race::getAll(), 'classes' => CharClass::getAll(), 'backgrounds' => Background::getAll(), 'stat' => stat::getAll()));
+        return $app['twig']->render('stats.html.twig', array('races' => Race::getAll(), 'classes' => CharClass::getAll(), 'backgrounds' => Background::getAll(), 'stat' => stat::getAll(), 'race_id' => $_GET['race_id'], 'class_id' => $_GET['class_id'], 'background_id' => $_GET['background_id']));
     });
 
 //stats page
     //carry race id, class id, background id, stats id to skills page
-    $app->post('/stats', function() use ($app)
+    $app->get('/stats', function() use ($app)
     {
         $race_id = $_POST['race_id'];
         $class_id = $_POST['class_id'];

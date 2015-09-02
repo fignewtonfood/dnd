@@ -99,33 +99,6 @@
             $this->cha = $new_cha;
         }
 
-
-        //
-        // function setInit($new_init)
-        // {
-        //     $this->init = $new_init;
-        // }
-        //
-        // function setMax_hp($new_max_hp)
-        // {
-        //     $this->max_hp = $new_max_hp;
-        // }
-        //
-        // function setSpeed($new_speed)
-        // {
-        //     $this->speed = $new_speed;
-        // }
-        //
-        // function setAc($new_ac)
-        // {
-        //     $this->ac = $new_ac;
-        // }
-        //
-        // function setProficiency($new_proficiency)
-        // {
-        //     $this->proficiency = $new_proficiency;
-        // }
-
         function getId()
         {
             return $this->id;
@@ -274,6 +247,126 @@
             return $this->survival;
         }
 
+        function setInit($new_init)
+        {
+            $this->init = $new_init;
+        }
+
+        function setMaxHp($new_maxHp)
+        {
+            $this->max_hp = $new_maxHp;
+        }
+
+        function setSpeed($new_speed)
+        {
+            $this->speed = $new_speed;
+        }
+
+        function setAc($new_ac)
+        {
+            $this->ac = $new_ac;
+        }
+
+        function setProficiency($new_proficiency)
+        {
+            $this->proficiency = $new_proficiency;
+        }
+
+        function setAnimal_handling($new_animal_handling)
+        {
+            $this->animal_handling = $new_animal_handling;
+        }
+
+        function setArcana($new_arcana)
+        {
+            $this->arcana = $new_arcana;
+        }
+
+        function setAthletics($new_athletics)
+        {
+            $this->athletics = $new_athletics;
+        }
+
+        function setAnimalHandling($new_animal_handling)
+        {
+            $this->animal_handling = $new_animal_handling;
+        }
+
+        function setDeception($new_deception)
+        {
+            $this->deception = $new_deception;
+        }
+
+        function setHistory($new_history)
+        {
+            $this->history = $new_history;
+        }
+
+        function setInsight($new_insight)
+        {
+            $this->insight = $new_insight;
+        }
+
+        function setIntimidation($new_intimidation)
+        {
+            $this->intimidation = $new_intimidation;
+        }
+
+        function setInvestigation($new_investigation)
+        {
+            $this->investigation = $new_investigation;
+        }
+
+        function setMedicine($new_medicine)
+        {
+            $this->medicine = $new_medicine;
+        }
+
+        function setAcrobatics($new_acrobatics)
+        {
+            $this->acrobatics = $new_acrobatics;
+        }
+
+        function setNature($new_nature)
+        {
+            $this->nature = $new_nature;
+        }
+
+        function setPerception($new_perception)
+        {
+            $this->perception = $new_perception;
+        }
+
+        function setPerformance($new_performance)
+        {
+            $this->performance = $new_performance;
+        }
+
+        function setPersuasion($new_persuasion)
+        {
+            $this->persuasion = $new_persuasion;
+        }
+
+        function setReligion($new_religion)
+        {
+            $this->religion = $new_religion;
+        }
+
+        function setSleightOfHand($new_sleight_of_hand)
+        {
+            $this->sleight_of_hand = $new_sleight_of_hand;
+        }
+
+        function setStealth($new_stealth)
+        {
+            $this->stealth = $new_stealth;
+        }
+
+        function setSurvival($new_survival)
+        {
+            $this->survival = $new_survival;
+        }
+
         function save()
         {
               $GLOBALS['DB']->exec("INSERT INTO stats (ac, acrobatics, animal_handling, arcana, athletics, cha, con, deception, dex, history, init, insight, intel, intimidation, investigation, max_hp, medicine, nature, perception, performance, persuasion, proficiency, religion, speed, sleight_of_hand, stealth, str, survival, wis) VALUES ({$this->getAc()}, {$this->getAcrobatics()}, {$this->getAnimalHandling()}, {$this->getArcana()}, {$this->getAthletics()}, {$this->getCha()}, {$this->getCon()},  {$this->getDeception()}, {$this->getDex()}, {$this->getHistory()}, {$this->getInit()}, {$this->getInsight()}, {$this->getIntel()}, {$this->getIntimidation()}, {$this->getInvestigation()}, {$this->getMaxHp()}, {$this->getMedicine()}, {$this->getNature()}, {$this->getPerception()}, {$this->getPerformance()}, {$this->getPersuasion()}, {$this->getProficiency()}, {$this->getReligion()}, {$this->getSpeed()}, {$this->getSleightOfHand()}, {$this->getStealth()}, {$this->getStr()}, {$this->getSurvival()}, {$this->getWis()});");
@@ -338,6 +431,10 @@
             }
             return $found_stat;
         }
+
+
+
+
         // UPDATE STAT FUNCTIONS:
         function updateStr($number) {
             $GLOBALS["DB"]->exec("UPDATE stats SET str = {$number} WHERE id = {$this->getId()};");
@@ -369,33 +466,129 @@
             $this->setDex($number);
         }
 
+
+        // SKILL COMPUTERS:
+
         function updateInit() {
-            $number = $this->getDex;
-            if ($number == 3) {
-                $mod = -4;
-            } elseif ($number == 4 | 5) {
-                $mod = -3;
-            } elseif ($number == 6 | 7) {
-                $mod = -2;
-            } elseif ($number == 8 | 9) {
-                $mod = -1;
-            } elseif ($number == 10 | 11) {
-                $mod = 0;
-            } elseif ($number == 12 | 13) {
-                $mod = 1;
-            } elseif ($number == 14 | 15) {
-                $mod = 2;
-            } elseif ($number == 16 | 17) {
-                $mod = 3;
-            } else {
-                $mod = 4;
-            }
+            $mod = $this->getModifier($this->getDex());
             $GLOBALS["DB"]->exec("UPDATE stats SET init = {$mod} WHERE id = {$this->getId()};");
-            $this->setDex($mod);
+            $this->setInit($mod);
         }
 
+        function updateAcrobatics() {
+            $mod = $this->getModifier($this->getDex());
+            $proficiencies = $this::getProficiency();
+            foreach ($proficiencies as $proficiency) {
+                if ($proficiency == "acrobatics") {
+                    $mod += 2;
+                }
+            }
+            $GLOBALS["DB"]->exec("UPDATE stats SET acrobatics = {$mod} WHERE id = {$this->getId()};");
+            $this->setAcrobatics($mod);
+        }
+
+        function updateAnimalHandling() {
+            $mod = $this->getModifier($this->getWis());
+            $proficiencies = $this::getProficiency();
+            foreach ($proficiencies as $proficiency) {
+                if ($proficiency == "animal handling") {
+                    $mod += 2;
+                }
+            }
+            $GLOBALS["DB"]->exec("UPDATE stats SET animal_handling = {$mod} WHERE id = {$this->getId()};");
+            $this->setAnimalHandling($mod);
+        }
+
+        function updateArcana() {
+            $mod = $this->getModifier($this->getInt());
+
+            foreach ($proficiencies as $proficiency) {
+                if ($proficiency == "arcana") {
+                    $mod += 2;
+                }
+            }
+            $GLOBALS["DB"]->exec("UPDATE stats SET arcana = {$mod} WHERE id = {$this->getId()};");
+            $this->setArcana($mod);
+        }
+
+        function updateAthletics() {
+            $mod = $this->getModifier($this->getStr());
+
+            foreach ($proficiencies as $proficiency) {
+                if ($proficiency == "athletics") {
+                    $mod += 2;
+                }
+            }
+            $GLOBALS["DB"]->exec("UPDATE stats SET athletics = {$mod} WHERE id = {$this->getId()};");
+            $this->setAthletics($mod);
+        }
+
+        function updateDeception() {
+            $mod = $this->getModifier($this->getCha());
+
+            foreach ($proficiencies as $proficiency) {
+                if ($proficiency == "deception") {
+                    $mod += 2;
+                }
+            }
+            $GLOBALS["DB"]->exec("UPDATE stats SET deception = {$mod} WHERE id = {$this->getId()};");
+            $this->setDeception($mod);
+        }
+
+        function updateHistory() {
+            $mod = $this->getModifier($this->getInt());
+
+            foreach ($proficiencies as $proficiency) {
+                if ($proficiency == "history") {
+                    $mod += 2;
+                }
+            }
+            $GLOBALS["DB"]->exec("UPDATE stats SET history = {$mod} WHERE id = {$this->getId()};");
+            $this->setHistory($mod);
+        }
+
+        function updateInsight() {
+            $mod = $this->getModifier($this->getWis());
+            foreach ($proficiencies as $proficiency) {
+                if ($proficiency == "insight") {
+                    $mod += 2;
+                }
+            }
+            $GLOBALS["DB"]->exec("UPDATE stats SET insight = {$mod} WHERE id = {$this->getId()};");
+            $this->setInsight($mod);
+        }
+
+        function updateIntimidation() {
+            $mod = $this->getModifier($this->getCha());
+
+            foreach ($proficiencies as $proficiency) {
+                if ($proficiency == "intimidation") {
+                    $mod += 2;
+                }
+            }
+            $GLOBALS["DB"]->exec("UPDATE stats SET intimidation = {$mod} WHERE id = {$this->getId()};");
+            $this->setIntimidation($mod);
+        }
+
+        function updateInvestigation() {
+            $mod = $this->getModifier($this->getInt());
+
+            foreach ($proficiencies as $proficiency) {
+                if ($proficiency == "investigation") {
+                    $mod += 2;
+                }
+            }
+            $GLOBALS["DB"]->exec("UPDATE stats SET investigation = {$mod} WHERE id = {$this->getId()};");
+            $this->setInvestigation($mod);
+        }
+
+
+
+
+
         // DICE ROLL ASSIGN FUNCTION:
-        function assignRolls($six_rolls, $classname) {
+
+        function assignRolls($six_rolls, $classname, $race) {
             $classname = strtolower ($classname);
             if ($classname == "fighter") {
                 $this->updateStr($six_rolls[0]);
@@ -432,11 +625,78 @@
             else {
                 var_dump("ERROR");
             }
-
-
+            $race = strtolower ($race);
+            if ($race == "human") {
+                $this->updateStr($this->getStr() + 1);
+                $this->updateIntel($this->getIntel() + 1);
+                $this->updateDex($this->getDex() + 1);
+                $this->updateWis($this->getWis() + 1);
+                $this->updateCha($this->getCha() + 1);
+                $this->updateCon($this->getCon() + 1);
+            }
+            elseif ($race == "lightfoot halfling") {
+                $this->updateDex($this->getDex() + 2);
+                $this->updateCha($this->getCha() + 1);
+            }
+            elseif ($race == "stout halfling") {
+                $this->updateDex($this->getDex() + 2);
+                $this->updateCon($this->getCon() + 1);
+            }
+            elseif ($race == "high elf") {
+                $this->updateDex($this->getDex() + 2);
+                $this->updateInt($this->getInt() + 1);
+            }
+            elseif ($race == "wood elf") {
+                $this->updateDex($this->getDex() + 2);
+                $this->updateWis($this->getWis() + 1);
+            }
+            elseif ($race == "hill dwarf") {
+                $this->updateCon($this->getCon() + 2);
+                $this->updateWis($this->getWis() + 1);
+            }
+            elseif ($race == "mountain dwarf") {
+                $this->updateCon($this->getCon() + 2);
+                $this->updateStr($this->getStr() + 2);
+            }
+            else {
+                var_dump("ERROR");
+            }
         }
 
+
+
+
+
+            // MODIFIER FINDER:
+
+            function getModifier($stat_number) {
+                if ($stat_number == 3) {
+                    $mod = -4;
+                } elseif ($stat_number == 4 | 5) {
+                    $mod = -3;
+                } elseif ($stat_number == 6 | 7) {
+                    $mod = -2;
+                } elseif ($stat_number == 8 | 9) {
+                    $mod = -1;
+                } elseif ($stat_number == 10 | 11) {
+                    $mod = 0;
+                } elseif ($stat_number == 12 | 13) {
+                    $mod = 1;
+                } elseif ($stat_number == 14 | 15) {
+                    $mod = 2;
+                } elseif ($stat_number == 16 | 17) {
+                    $mod = 3;
+                } else {
+                    $mod = 4;
+                }
+                return $mod;
+            }
     }
+
+
+
+
+    // DICE ROLLER
 
     function statRoll()
     {

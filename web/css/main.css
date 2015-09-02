@@ -256,6 +256,14 @@ img {
     margin-top: .5rem;
 }
 
+/*.choice_radio {
+	display: block;
+	width:200px;
+	height:200px;
+	background-color: red;
+	cursor: pointer;
+}*/
+
 /* clear fix ================ */
 
 .group:after {

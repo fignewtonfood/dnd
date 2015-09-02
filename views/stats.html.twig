@@ -5,8 +5,22 @@
     </head>
     <body>
 
+        <p>race = {{race_id}}</p>
+        <br>
+        <p>class = {{class_id}}</p>
+        <br>
+        <p>background = {{background_id}}</p>
+        <br>
+
+
+    <form action = '/bio' method='post'>
+
+{# stats are rolled and automaticly assigns a value to each stat.
+keep stat values hidden until user hits a button.
+the button reveals the hidden stat, which mimics the act of rolling dice, despite the stats being predetermined. #}
 
         <h3>Strength:</h3>
+        <input type='radio' name = 'background_id' value = '{{ background.getId }}'>
             <p>{{ stat.getStr }}</p>
             <p>***Flavor text***</p>
         <br>
@@ -39,6 +53,7 @@
             <p>{{ stat.getCha }}</p>
             <p>***Flavor text***</p>
         <br>
+
 
         <button type='submit'>Choose your skills -></button>
 

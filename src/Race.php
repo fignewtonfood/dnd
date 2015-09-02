@@ -33,8 +33,7 @@
 
         function save()
         {
-              $GLOBALS['DB']->exec("INSERT INTO races (description, name) VALUES ('{$this->getDescription()}', '{$this->getName()}');");
-              $this->id = $GLOBALS['DB']->lastInsertId();
+              $GLOBALS['DB']->exec("INSERT INTO races (description, name, id) VALUES ('{$this->getDescription()}', '{$this->getName()}', {$this->getId()});");
         }
 
         static function deleteAll()

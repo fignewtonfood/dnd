@@ -1474,7 +1474,7 @@
            $classname = "cleric";
            $race = "mountain dwarf";
 
-           $test_stat->assignRolls($six_rolls, $classname);
+           $test_stat->assignRolls($six_rolls, $classname, $race);
            $strength = $test_stat->getStr();
            $result = 16;
 

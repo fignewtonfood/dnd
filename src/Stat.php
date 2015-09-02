@@ -385,7 +385,7 @@
             $proficiencies = $this::getProficiency();
             foreach ($proficiencies as $proficiency) {
                 if ($proficiency == "acrobatics") {
-                    $mod ++ 2;
+                    $mod += 2;
                 }
             }
             $GLOBALS["DB"]->exec("UPDATE stats SET acrobatics = {$mod} WHERE id = {$this->getId()};");
@@ -397,7 +397,7 @@
             $proficiencies = $this::getProficiency();
             foreach ($proficiencies as $proficiency) {
                 if ($proficiency == "animal handling") {
-                    $mod ++ 2;
+                    $mod += 2;
                 }
             }
             $GLOBALS["DB"]->exec("UPDATE stats SET animal_handling = {$mod} WHERE id = {$this->getId()};");
@@ -406,10 +406,10 @@
 
         function updateArcana() {
             $mod = $this->getModifier($this->getInt());
-            $proficiencies = $this::getProficiency();
+
             foreach ($proficiencies as $proficiency) {
                 if ($proficiency == "arcana") {
-                    $mod ++ 2;
+                    $mod += 2;
                 }
             }
             $GLOBALS["DB"]->exec("UPDATE stats SET arcana = {$mod} WHERE id = {$this->getId()};");
@@ -418,10 +418,10 @@
 
         function updateAthletics() {
             $mod = $this->getModifier($this->getStr());
-            $proficiencies = $this::getProficiency();
+
             foreach ($proficiencies as $proficiency) {
                 if ($proficiency == "athletics") {
-                    $mod ++ 2;
+                    $mod += 2;
                 }
             }
             $GLOBALS["DB"]->exec("UPDATE stats SET athletics = {$mod} WHERE id = {$this->getId()};");
@@ -430,10 +430,10 @@
 
         function updateDeception() {
             $mod = $this->getModifier($this->getCha());
-            $proficiencies = $this::getProficiency();
+
             foreach ($proficiencies as $proficiency) {
                 if ($proficiency == "deception") {
-                    $mod ++ 2;
+                    $mod += 2;
                 }
             }
             $GLOBALS["DB"]->exec("UPDATE stats SET deception = {$mod} WHERE id = {$this->getId()};");
@@ -442,10 +442,10 @@
 
         function updateHistory() {
             $mod = $this->getModifier($this->getInt());
-            $proficiencies = $this::getProficiency();
+
             foreach ($proficiencies as $proficiency) {
                 if ($proficiency == "history") {
-                    $mod ++ 2;
+                    $mod += 2;
                 }
             }
             $GLOBALS["DB"]->exec("UPDATE stats SET history = {$mod} WHERE id = {$this->getId()};");
@@ -456,7 +456,7 @@
             $mod = $this->getModifier($this->getWis());
             foreach ($proficiencies as $proficiency) {
                 if ($proficiency == "insight") {
-                    $mod ++ 2;
+                    $mod += 2;
                 }
             }
             $GLOBALS["DB"]->exec("UPDATE stats SET insight = {$mod} WHERE id = {$this->getId()};");
@@ -465,10 +465,10 @@
 
         function updateIntimidation() {
             $mod = $this->getModifier($this->getCha());
-            $proficiencies = $this::getProficiency();
+
             foreach ($proficiencies as $proficiency) {
                 if ($proficiency == "intimidation") {
-                    $mod ++ 2;
+                    $mod += 2;
                 }
             }
             $GLOBALS["DB"]->exec("UPDATE stats SET intimidation = {$mod} WHERE id = {$this->getId()};");
@@ -477,10 +477,10 @@
 
         function updateInvestigation() {
             $mod = $this->getModifier($this->getInt());
-            $proficiencies = $this::getProficiency();
+
             foreach ($proficiencies as $proficiency) {
                 if ($proficiency == "investigation") {
-                    $mod ++ 2;
+                    $mod += 2;
                 }
             }
             $GLOBALS["DB"]->exec("UPDATE stats SET investigation = {$mod} WHERE id = {$this->getId()};");
@@ -565,6 +565,7 @@
             else {
                 var_dump("ERROR");
             }
+        }
 
 
 
@@ -594,12 +595,10 @@
                 }
                 return $mod;
             }
-        }
-
-
-
-
     }
+
+
+
 
     // DICE ROLLER
 

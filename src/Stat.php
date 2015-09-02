@@ -510,7 +510,6 @@
 
         function updateAcrobatics($proficiency_array) {
             $mod = $this->getModifier($this->getDex());
-            var_dump($mod);
             foreach ($proficiency_array as $proficiency) {
                 if ($proficiency == "acrobatics") {
                     $mod += $this->getProficiency();
@@ -812,19 +811,19 @@
         static function getModifier($stat_number) {
             if ($stat_number == 3) {
                 $mod = -4;
-            } elseif ($stat_number == 4 | $stat_number = 5) {
+            } elseif ($stat_number == 4 | $stat_number == 5) {
                 $mod = -3;
-            } elseif ($stat_number == 6 | $stat_number = 7) {
+            } elseif ($stat_number == 6 | $stat_number == 7) {
                 $mod = -2;
-            } elseif ($stat_number == 8 | $stat_number = 9) {
+            } elseif ($stat_number == 8 | $stat_number == 9) {
                 $mod = -1;
-            } elseif ($stat_number == 10 | $stat_number = 11) {
+            } elseif ($stat_number == 10 | $stat_number == 11) {
                 $mod = 0;
-            } elseif ($stat_number == 12 | $stat_number = 13) {
+            } elseif ($stat_number == 12 | $stat_number == 13) {
                 $mod = 1;
-            } elseif ($stat_number == 14 | $stat_number = 15) {
+            } elseif ($stat_number == 14 | $stat_number == 15) {
                 $mod = 2;
-            } elseif ($stat_number == 16 | $stat_number = 17) {
+            } elseif ($stat_number == 16 | $stat_number == 17) {
                 $mod = 3;
             } else {
                 $mod = 4;

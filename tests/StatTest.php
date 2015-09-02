@@ -1421,15 +1421,16 @@
 
            $six_rolls = [18, 16, 14, 12, 10, 8];
            $classname = "fighter";
+           $race = "human";
 
-           $test_stat->assignRolls($six_rolls, $classname);
+           $test_stat->assignRolls($six_rolls, $classname, $race);
            $strength = $test_stat->getStr();
-           $result = 18;
+           $result = 19;
 
            $this->assertEquals($strength, $result);
         }
 
-    function test_assignRolls_cleric() {
+        function test_assignRolls_cleric() {
 
            $str = 2;
            $dex = 2;
@@ -1471,12 +1472,15 @@
 
            $six_rolls = [18, 16, 14, 12, 10, 8];
            $classname = "cleric";
+           $race = "mountain dwarf";
 
-           $test_stat->assignRolls($six_rolls, $classname);
+           $test_stat->assignRolls($six_rolls, $classname, $race);
            $strength = $test_stat->getStr();
-           $result = 14;
+           $result = 16;
 
            $this->assertEquals($strength, $result);
        }
+
+
     }
 ?>

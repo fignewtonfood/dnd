@@ -99,33 +99,6 @@
             $this->cha = $new_cha;
         }
 
-
-        //
-        // function setInit($new_init)
-        // {
-        //     $this->init = $new_init;
-        // }
-        //
-        // function setMax_hp($new_max_hp)
-        // {
-        //     $this->max_hp = $new_max_hp;
-        // }
-        //
-        // function setSpeed($new_speed)
-        // {
-        //     $this->speed = $new_speed;
-        // }
-        //
-        // function setAc($new_ac)
-        // {
-        //     $this->ac = $new_ac;
-        // }
-        //
-        // function setProficiency($new_proficiency)
-        // {
-        //     $this->proficiency = $new_proficiency;
-        // }
-
         function getId()
         {
             return $this->id;
@@ -274,9 +247,148 @@
             return $this->survival;
         }
 
+        function setInit($new_init)
+        {
+            $this->init = $new_init;
+        }
+
+        function setMaxHp($new_maxHp)
+        {
+            $this->max_hp = $new_maxHp;
+        }
+
+        function setSpeed($new_speed)
+        {
+            $this->speed = $new_speed;
+        }
+
+        function setAc($new_ac)
+        {
+            $this->ac = $new_ac;
+        }
+
+        function setProficiency($new_proficiency)
+        {
+            $this->proficiency = $new_proficiency;
+        }
+
+        function setAnimal_handling($new_animal_handling)
+        {
+            $this->animal_handling = $new_animal_handling;
+        }
+
+        function setArcana($new_arcana)
+        {
+            $this->arcana = $new_arcana;
+        }
+
+        function setAthletics($new_athletics)
+        {
+            $this->athletics = $new_athletics;
+        }
+
+        function setAnimalHandling($new_animal_handling)
+        {
+            $this->animal_handling = $new_animal_handling;
+        }
+
+        function setDeception($new_deception)
+        {
+            $this->deception = $new_deception;
+        }
+
+        function setHistory($new_history)
+        {
+            $this->history = $new_history;
+        }
+
+        function setInsight($new_insight)
+        {
+            $this->insight = $new_insight;
+        }
+
+        function setIntimidation($new_intimidation)
+        {
+            $this->intimidation = $new_intimidation;
+        }
+
+        function setInvestigation($new_investigation)
+        {
+            $this->investigation = $new_investigation;
+        }
+
+        function setMedicine($new_medicine)
+        {
+            $this->medicine = $new_medicine;
+        }
+
+        function setAcrobatics($new_acrobatics)
+        {
+            $this->acrobatics = $new_acrobatics;
+        }
+
+        function setNature($new_nature)
+        {
+            $this->nature = $new_nature;
+        }
+
+        function setPerception($new_perception)
+        {
+            $this->perception = $new_perception;
+        }
+
+        function setPerformance($new_performance)
+        {
+            $this->performance = $new_performance;
+        }
+
+        function setPersuasion($new_persuasion)
+        {
+            $this->persuasion = $new_persuasion;
+        }
+
+        function setReligion($new_religion)
+        {
+            $this->religion = $new_religion;
+        }
+
+        function setSleightOfHand($new_sleight_of_hand)
+        {
+            $this->sleight_of_hand = $new_sleight_of_hand;
+        }
+
+        function setStealth($new_stealth)
+        {
+            $this->stealth = $new_stealth;
+        }
+
+        function setSurvival($new_survival)
+        {
+            $this->survival = $new_survival;
+        }
+
         function save()
         {
-              $GLOBALS['DB']->exec("INSERT INTO stats (ac, acrobatics, animal_handling, arcana, athletics, cha, con, deception, dex, history, init, insight, intel, intimidation, investigation, max_hp, medicine, nature, perception, performance, persuasion, proficiency, religion, speed, sleight_of_hand, stealth, str, survival, wis) VALUES ({$this->getAc()}, {$this->getAcrobatics()}, {$this->getAnimalHandling()}, {$this->getArcana()}, {$this->getAthletics()}, {$this->getCha()}, {$this->getCon()},  {$this->getDeception()}, {$this->getDex()}, {$this->getHistory()}, {$this->getInit()}, {$this->getInsight()}, {$this->getIntel()}, {$this->getIntimidation()}, {$this->getInvestigation()}, {$this->getMaxHp()}, {$this->getMedicine()}, {$this->getNature()}, {$this->getPerception()}, {$this->getPerformance()}, {$this->getPersuasion()}, {$this->getProficiency()}, {$this->getReligion()}, {$this->getSpeed()}, {$this->getSleightOfHand()}, {$this->getStealth()}, {$this->getStr()}, {$this->getSurvival()}, {$this->getWis()});");
+              $GLOBALS['DB']->exec("INSERT INTO stats (ac, acrobatics,
+                  animal_handling, arcana, athletics, cha, con, deception,
+                  dex, history, init, insight, intel, intimidation,
+                  investigation, max_hp, medicine, nature, perception,
+                  performance, persuasion, proficiency, religion, speed,
+                  sleight_of_hand, stealth, str, survival, wis) VALUES
+                  ({$this->getAc()}, {$this->getAcrobatics()},
+                  {$this->getAnimalHandling()}, {$this->getArcana()},
+                  {$this->getAthletics()}, {$this->getCha()}, {$this->getCon()},
+                  {$this->getDeception()}, {$this->getDex()},
+                  {$this->getHistory()}, {$this->getInit()},
+                  {$this->getInsight()}, {$this->getIntel()},
+                  {$this->getIntimidation()}, {$this->getInvestigation()},
+                  {$this->getMaxHp()}, {$this->getMedicine()},
+                  {$this->getNature()}, {$this->getPerception()},
+                  {$this->getPerformance()}, {$this->getPersuasion()},
+                  {$this->getProficiency()}, {$this->getReligion()},
+                  {$this->getSpeed()}, {$this->getSleightOfHand()},
+                  {$this->getStealth()}, {$this->getStr()},
+                  {$this->getSurvival()}, {$this->getWis()});");
               $this->id = $GLOBALS['DB']->lastInsertId();
         }
 
@@ -344,32 +456,38 @@
 
         // UPDATE STAT FUNCTIONS:
         function updateStr($number) {
-            $GLOBALS["DB"]->exec("UPDATE stats SET str = {$number} WHERE id = {$this->getId()};");
+            $GLOBALS["DB"]->exec("UPDATE stats SET str = {$number} WHERE id =
+                {$this->getId()};");
             $this->setStr($number);
         }
 
         function updateIntel($number) {
-            $GLOBALS["DB"]->exec("UPDATE stats SET intel = {$number} WHERE id = {$this->getId()};");
+            $GLOBALS["DB"]->exec("UPDATE stats SET intel = {$number} WHERE id =
+                {$this->getId()};");
             $this->setIntel($number);
         }
 
         function updateCon($number) {
-            $GLOBALS["DB"]->exec("UPDATE stats SET con = {$number} WHERE id = {$this->getId()};");
+            $GLOBALS["DB"]->exec("UPDATE stats SET con = {$number} WHERE id =
+                {$this->getId()};");
             $this->setCon($number);
         }
 
         function updateWis($number) {
-            $GLOBALS["DB"]->exec("UPDATE stats SET wis = {$number} WHERE id = {$this->getId()};");
+            $GLOBALS["DB"]->exec("UPDATE stats SET wis = {$number} WHERE id =
+                {$this->getId()};");
             $this->setWis($number);
         }
 
         function updateCha($number) {
-            $GLOBALS["DB"]->exec("UPDATE stats SET cha = {$number} WHERE id = {$this->getId()};");
+            $GLOBALS["DB"]->exec("UPDATE stats SET cha = {$number} WHERE id =
+                {$this->getId()};");
             $this->setCha($number);
         }
 
         function updateDex($number) {
-            $GLOBALS["DB"]->exec("UPDATE stats SET dex = {$number} WHERE id = {$this->getId()};");
+            $GLOBALS["DB"]->exec("UPDATE stats SET dex = {$number} WHERE id =
+                {$this->getId()};");
             $this->setDex($number);
         }
 
@@ -378,13 +496,252 @@
 
         function updateInit() {
             $mod = $this->getModifier($this->getDex());
-            $GLOBALS["DB"]->exec("UPDATE stats SET init = {$mod} WHERE id = {$this->getId()};");
-            $this->setDex($mod);
+            $GLOBALS["DB"]->exec("UPDATE stats SET init = {$mod} WHERE id =
+                {$this->getId()};");
+            $this->setInit($mod);
+        }
+
+        function updateAcrobatics() {
+            $mod = $this->getModifier($this->getDex());
+            $proficiencies = $this::getProficiency();
+            foreach ($proficiencies as $proficiency) {
+                if ($proficiency == "acrobatics") {
+                    $mod += $this->getProficiency();
+                }
+            }
+            $GLOBALS["DB"]->exec("UPDATE stats SET acrobatics = {$mod} WHERE id =
+                {$this->getId()};");
+            $this->setAcrobatics($mod);
+        }
+
+        function updateAnimalHandling() {
+            $mod = $this->getModifier($this->getWis());
+            $proficiencies = $this::getProficiency();
+            foreach ($proficiencies as $proficiency) {
+                if ($proficiency == "animal handling") {
+                    $mod += $this->getProficiency();
+                }
+            }
+            $GLOBALS["DB"]->exec("UPDATE stats SET animal_handling = {$mod} WHERE id =
+                {$this->getId()};");
+            $this->setAnimalHandling($mod);
+        }
+
+        function updateArcana() {
+            $mod = $this->getModifier($this->getInt());
+            $proficiencies = $this::getProficiency();
+            foreach ($proficiencies as $proficiency) {
+                if ($proficiency == "arcana") {
+                    $mod += $this->getProficiency();
+                }
+            }
+            $GLOBALS["DB"]->exec("UPDATE stats SET arcana = {$mod} WHERE id =
+                {$this->getId()};");
+            $this->setArcana($mod);
+        }
+
+        function updateAthletics() {
+            $mod = $this->getModifier($this->getStr());
+            $proficiencies = $this::getProficiency();
+            foreach ($proficiencies as $proficiency) {
+                if ($proficiency == "athletics") {
+                    $mod += $this->getProficiency();
+                }
+            }
+            $GLOBALS["DB"]->exec("UPDATE stats SET athletics = {$mod} WHERE id =
+                {$this->getId()};");
+            $this->setAthletics($mod);
+        }
+
+        function updateDeception() {
+            $mod = $this->getModifier($this->getCha());
+            $proficiencies = $this::getProficiency();
+            foreach ($proficiencies as $proficiency) {
+                if ($proficiency == "deception") {
+                    $mod += $this->getProficiency();
+                }
+            }
+            $GLOBALS["DB"]->exec("UPDATE stats SET deception = {$mod} WHERE id =
+                {$this->getId()};");
+            $this->setDeception($mod);
+        }
+
+        function updateHistory() {
+            $mod = $this->getModifier($this->getInt());
+            $proficiencies = $this::getProficiency();
+            foreach ($proficiencies as $proficiency) {
+                if ($proficiency == "history") {
+                    $mod += $this->getProficiency();
+                }
+            }
+            $GLOBALS["DB"]->exec("UPDATE stats SET history = {$mod} WHERE id =
+                {$this->getId()};");
+            $this->setHistory($mod);
+        }
+
+        function updateInsight() {
+            $mod = $this->getModifier($this->getWis());
+            $proficiencies = $this::getProficiency();
+            foreach ($proficiencies as $proficiency) {
+                if ($proficiency == "insight") {
+                    $mod += $this->getProficiency();
+                }
+            }
+            $GLOBALS["DB"]->exec("UPDATE stats SET insight = {$mod} WHERE id =
+                {$this->getId()};");
+            $this->setInsight($mod);
+        }
+
+        function updateIntimidation() {
+            $mod = $this->getModifier($this->getCha());
+            $proficiencies = $this::getProficiency();
+            foreach ($proficiencies as $proficiency) {
+                if ($proficiency == "intimidation") {
+                    $mod += $this->getProficiency();
+                }
+            }
+            $GLOBALS["DB"]->exec("UPDATE stats SET intimidation = {$mod} WHERE id =
+                {$this->getId()};");
+            $this->setIntimidation($mod);
+        }
+
+        function updateInvestigation() {
+            $mod = $this->getModifier($this->getInt());
+            $proficiencies = $this::getProficiency();
+            foreach ($proficiencies as $proficiency) {
+                if ($proficiency == "investigation") {
+                    $mod += $this->getProficiency();
+                }
+            }
+            $GLOBALS["DB"]->exec("UPDATE stats SET investigation = {$mod} WHERE id =
+                {$this->getId()};");
+            $this->setInvestigation($mod);
+        }
+
+        function updateMedicine() {
+            $mod = $this->getModifier($this->getWis());
+            $proficiencies = $this::getProficiency();
+            foreach ($proficiencies as $proficiency) {
+                if ($proficiency == "medicine") {
+                    $mod += $this->getProficiency();
+                }
+            }
+            $GLOBALS["DB"]->exec("UPDATE stats SET medicine = {$mod} WHERE id =
+                {$this->getId()};");
+            $this->setMedicine($mod);
+        }
+
+        function updateNature() {
+            $mod = $this->getModifier($this->getInt());
+            $proficiencies = $this::getProficiency();
+            foreach ($proficiencies as $proficiency) {
+                if ($proficiency == "nature") {
+                    $mod += $this->getProficiency();
+                }
+            }
+            $GLOBALS["DB"]->exec("UPDATE stats SET nature = {$mod} WHERE id =
+                {$this->getId()};");
+            $this->setNature($mod);
+        }
+
+        function updatePerception() {
+            $mod = $this->getModifier($this->getWis());
+            $proficiencies = $this::getProficiency();
+            foreach ($proficiencies as $proficiency) {
+                if ($proficiency == "perception") {
+                    $mod += $this->getProficiency();
+                }
+            }
+            $GLOBALS["DB"]->exec("UPDATE stats SET perception = {$mod} WHERE id =
+                {$this->getId()};");
+            $this->setPerception($mod);
+        }
+
+        function updatePerformance() {
+            $mod = $this->getModifier($this->getCha());
+            $proficiencies = $this::getProficiency();
+            foreach ($proficiencies as $proficiency) {
+                if ($proficiency == "performance") {
+                    $mod += $this->getProficiency();
+                }
+            }
+            $GLOBALS["DB"]->exec("UPDATE stats SET performance = {$mod} WHERE id =
+                {$this->getId()};");
+            $this->setPerformance($mod);
+        }
+
+        function updatePersuasion() {
+            $mod = $this->getModifier($this->getCha());
+            $proficiencies = $this::getProficiency();
+            foreach ($proficiencies as $proficiency) {
+                if ($proficiency == "persuasion") {
+                    $mod += $this->getProficiency();
+                }
+            }
+            $GLOBALS["DB"]->exec("UPDATE stats SET persuasion = {$mod} WHERE id =
+                {$this->getId()};");
+            $this->setPersuasion($mod);
+        }
+
+        function updateReligion() {
+            $mod = $this->getModifier($this->getInt());
+            $proficiencies = $this::getProficiency();
+            foreach ($proficiencies as $proficiency) {
+                if ($proficiency == "religion") {
+                    $mod += $this->getProficiency();
+                }
+            }
+            $GLOBALS["DB"]->exec("UPDATE stats SET religion = {$mod} WHERE id =
+                {$this->getId()};");
+            $this->setReligion($mod);
+        }
+
+        function updateSleightOfHand() {
+            $mod = $this->getModifier($this->getDex());
+            $proficiencies = $this::getProficiency();
+            foreach ($proficiencies as $proficiency) {
+                if ($proficiency == "sleight of hand") {
+                    $mod += $this->getProficiency();
+                }
+            }
+            $GLOBALS["DB"]->exec("UPDATE stats SET sleight_of_hand = {$mod} WHERE id =
+                {$this->getId()};");
+            $this->setSleightOfHand($mod);
+        }
+
+        function updateStealth() {
+            $mod = $this->getModifier($this->getDex());
+            $proficiencies = $this::getProficiency();
+            foreach ($proficiencies as $proficiency) {
+                if ($proficiency == "stealth") {
+                    $mod += $this->getProficiency();
+                }
+            }
+            $GLOBALS["DB"]->exec("UPDATE stats SET stealth = {$mod} WHERE id =
+                {$this->getId()};");
+            $this->setStealth($mod);
+        }
+
+        function updateSurvival() {
+            $mod = $this->getModifier($this->getWis());
+            $proficiencies = $this::getProficiency();
+            foreach ($proficiencies as $proficiency) {
+                if ($proficiency == "survival") {
+                    $mod += $this->getProficiency();
+                }
+            }
+            $GLOBALS["DB"]->exec("UPDATE stats SET survival = {$mod} WHERE id =
+                {$this->getId()};");
+            $this->setSurvival($mod);
         }
 
 
 
+
+
+
         // DICE ROLL ASSIGN FUNCTION:
+
         function assignRolls($six_rolls, $classname, $race) {
             $classname = strtolower ($classname);
             if ($classname == "fighter") {
@@ -458,6 +815,7 @@
             else {
                 var_dump("ERROR");
             }
+        }
 
 
 
@@ -487,12 +845,10 @@
                 }
                 return $mod;
             }
-        }
-
-
-
-
     }
+
+
+
 
     // DICE ROLLER
 

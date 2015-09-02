@@ -376,12 +376,106 @@
 
         // SKILL COMPUTERS:
 
-        function updateInit() {
-            $mod = $this->getModifier($this->getDex());
-            $GLOBALS["DB"]->exec("UPDATE stats SET init = {$mod} WHERE id = {$this->getId()};");
-            $this->setDex($mod);
+        function updateMedicine() {
+            $mod = $this->getModifier($this->getWis());
+            $proficiencies = $this::getProficiency();
+            foreach ($proficiencies as $proficiency) {
+                    if ($proficiency == "Medicine")
+                        $mod += 2;
+                    }
+            }
+            $GLOBALS["DB"]->exec("UPDATE stats SET medicine = {$mod} WHERE id = {$this->getId()};");
+            $this->setMedicine($mod);
+
         }
 
+        function updateNature() {
+            $mod = $this->getModifier($this->getInt());
+            foreach ($proficiencies as $proficiency) {
+                if ($proficiency == "Medicine")
+                    $mod += 2;
+                }
+            }
+            $GLOBALS["DB"]->exec("UPDATE stats SET nature = {$mod} WHERE id = {$this->getId()};");
+            $this->setNature($mod);
+        }
+
+        function updatePerception() {
+            $mod = $this->getModifier($this->getWis());
+            foreach ($proficiencies as $proficiency) {
+                if ($proficiency == "Perception")
+                    $mod += 2;
+                }
+            }
+            $GLOBALS["DB"]->exec("UPDATE stats SET perception = {$mod} WHERE id = {$this->getId()};");
+            $this->setWis($mod);
+        }
+
+        function updatePerformance() {
+            $mod = $this->getModifier($this->getCha());
+            foreach ($proficiencies as $proficiency) {
+                if ($proficiency == "Performance")
+                    $mod += 2;
+                }
+            }
+            $GLOBALS["DB"]->exec("UPDATE stats SET performance = {$mod} WHERE id = {$this->getId()};");
+            $this->setPerformance($mod);
+        }
+
+        function updatePersuasion() {
+            $mod = $this->getModifier($this->getCha());
+            foreach ($proficiencies as $proficiency) {
+                if ($proficiency == "Medicine")
+                    $mod += 2;
+                }
+            }
+            $GLOBALS["DB"]->exec("UPDATE stats SET persuasion = {$mod} WHERE id = {$this->getId()};");
+            $this->setPersuasion($mod);
+        }
+
+        function updateReligion() {
+            $mod = $this->getModifier($this->getInt());
+            foreach ($proficiencies as $proficiency) {
+                if ($proficiency == "Religion")
+                    $mod += 2;
+                }
+            }
+            $GLOBALS["DB"]->exec("UPDATE stats SET religion = {$mod} WHERE id = {$this->getId()};");
+            $this->setReligion($mod);
+        }
+
+        function updateSleightOfHand() {
+            $mod = $this->getModifier($this->getDex());
+            foreach ($proficiencies as $proficiency) {
+                if ($proficiency == "SleightOfHand")
+                    $mod += 2;
+                }
+            }
+            $GLOBALS["DB"]->exec("UPDATE stats SET sleight_of_hand = {$mod} WHERE id = {$this->getId()};");
+            $this->setSleightOfHand($mod);
+        }
+
+        function updateStealth() {
+            $mod = $this->getModifier($this->getDex());
+            foreach ($proficiencies as $proficiency) {
+                if ($proficiency == "Stealth")
+                    $mod += 2;
+                }
+            }
+            $GLOBALS["DB"]->exec("UPDATE stats SET stealth = {$mod} WHERE id = {$this->getId()};");
+            $this->setStealth($mod);
+        }
+
+        function updateSurvival() {
+            $mod = $this->getModifier($this->getWis());
+            foreach ($proficiencies as $proficiency) {
+                if ($proficiency == "Survival")
+                    $mod += 2;
+                }
+            }
+            $GLOBALS["DB"]->exec("UPDATE stats SET survival = {$mod} WHERE id = {$this->getId()};");
+            $this->setSurvival($mod);
+        }
 
 
         // DICE ROLL ASSIGN FUNCTION:

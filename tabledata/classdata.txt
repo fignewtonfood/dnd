@@ -1,9 +1,6 @@
-ID  NAME                DESCRIPTION
-=== ==========          ================================
-1   Human               Good all around, well balanced, adventurer.  Easy to role play and fits most roles well.
-2   Hill Dwarf          Tough and wise. Good clerics. Bearded and can live to over 400. A bit more open than mountain dwarves.
-3   Mountain Dwarf      Strong and tough. Good fighters. Bearded and can live to over 400. Likes to keep to their own.
-4   High Elf            Fast and intelligent. Good fighters, rogues or wizards. Bronze skin. Has air of superiority.
-5   Wood Elf            Fast and wise. Good clerics and fighters. Copper/green skin. Very in tune with nature.
-6   Lightfoot Halfling  Fast and charismatic. Good rogues. Easily overlooked. Wanderers. Around 3 feet tall.
-7   Stout Halfling      Tough and fast. Good fighters or rogues. Strong natured and boisterous.
+ID  NAME        DESCRIPTION
+=== ==========  ================================
+1   Cleric      Wise and charismatic. Typically a healer who wields divine power in the service of their diety.
+2   Fighter     Strong and tough or fast and tough. Master of combat and knowledgable in weapons and armor.
+3   Rogue       Fast and intelligent. Highly skilled and commonly duplicitous. Commonly a seeker of treasures.
+4   Wizard      Intelligent and wise. Weaves magic spells that manipulate reality using long studied arcane knowledge. 

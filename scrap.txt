@@ -1,2 +1,33 @@
 character = wolverine = class
 class = badger = character
+
+Elves - *Perception
+
+Cleric WIS (2) - History, Insight, Medicine, Persuasion, Religion
+Fighter STR (2) - Acrobatics, Animal Handling, Athletics, History, Insight, Intimidation, Perception, Survival
+Rogue DEX (4) - Acrobatics, Athletics, Deception, Insight, Intimidation, Investigation, Perception, Performance, Persuasion, Sleight of Hand, Stealth
+Wizard INT (2) - Arcana, History, xInsight, Investigation, xMedicine, Religion
+
+Hermit - *Medicine, *Religion
+Noble - *History, *Persuasion
+Soldier - *Athletics, *Intimidation
+Urchin - *Sleight of Hand, *Stealth
+
+Acrobatics (2)
+Animal Handling (1)
+Arcana (1)
+Athletics (3)
+Deception (1)
+History (4)
+Insight (4)
+Intimidation (3)
+Investigation (2)
+Medicine (3)
+Nature (0)
+Perception (3)
+Performance (1)
+Persuasion (3)
+Religion (3)
+Sleight of Hand (2)
+Stealth (2)
+Survival (1)

@@ -27,6 +27,10 @@
             return $this->id;
         }
 
+        function setId($new_id) {
+            $this->id = (int) $new_id;
+        }
+
         function save()
         {
               $GLOBALS['DB']->exec("INSERT INTO races (description, name) VALUES ('{$this->getDescription()}', '{$this->getName()}');");

@@ -118,4 +118,5 @@
             $this->assertEquals($test_class, $result);
         }
     }
+    
 ?>

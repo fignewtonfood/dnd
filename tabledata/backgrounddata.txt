@@ -1,0 +1,6 @@
+ID  NAME        DESCRIPTION
+=== ==========  ================================
+1   Hermit      Medicine and religion. Your life has been lonely and you have a secret knowledge.
+2   Noble       History and persuasion. Your life has been luxurious and you benefit from your position of privilege.
+3   Soldier     Athletics and intimidation. Your life has been touched by war and you are recognized by your military rank.
+4   Urchin      Sleight of Hand and Stealth. Your life has been impoverished and you are intimately familiar with city workings.

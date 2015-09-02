@@ -6,10 +6,10 @@
     */
 
     require_once "src/Initial.php";
-    require_once "Skill.php";
-    require_once "Race.php";
-    require_once "CharClass.php";
-    require_once "Background.php";
+    require_once "src/Skill.php";
+    require_once "src/Race.php";
+    require_once "src/CharClass.php";
+    require_once "src/Background.php";
     $server = 'mysql:host=localhost;dbname=dnd_test';
     $username = 'root';
     $password = 'root';
@@ -30,6 +30,8 @@
             $race = Race::getAll();
 
             $result = ["Good all around, well balanced, adventurer.  Easy to role play and fits most roles well.", "Human", 1];
+            var_dump($race[0]);
+            var_dump($result);
 
             $this->assertEquals($race[0], $result);
         }

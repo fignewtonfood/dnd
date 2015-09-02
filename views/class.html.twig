@@ -3,9 +3,9 @@
         <title>Choose your class</title>
     </head>
     <body>
-
+        {{race_id}}
         <form action = '/background' method='get'>
-            <input id="race_id" name="race_id" type="hidden" value="{{ race_id }}">
+            <input  name="race_id" type="hidden" value="{{ race_id }}">
 
 
         {% for class in classes %}

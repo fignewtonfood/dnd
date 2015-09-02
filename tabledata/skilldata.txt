@@ -1,0 +1,20 @@
+ID  NAME            DESCRIPTION
+=== ==========      ================================
+1   Acrobatics      Balancing and tumbling.
+2   Animal Handling Using or interacting with domesticated animals.
+3   Arcana          Magic related lore and knowledge.
+4   Athletics       Climbing, jumping, and swimming.
+5   Deception       Hide the truth.
+6   History         Recall historical events.
+7   Insight         Determine a creature's true intentions.
+8   Intimidation    Influence by using threats.
+9   Investigation   Look for clues and find hidden things.
+10  Medicine        Stabilize the dying or diagnose a disease.
+11  Nature          Recall weather, plant, or animal lore.
+12  Perception      See, hear, or smell the presence or something.
+13  Performance     Ability in dancing, singing, or storytelling.
+14  Persuasion      Influence by using goodwill.
+15  Religion        Recall religious lore.
+16  Sleight of Hand Concealing items or stealing things.
+17  Stealth         Sneaking or hiding.
+18  Survival        Track and hunt, avoid hazards, or predict weather.

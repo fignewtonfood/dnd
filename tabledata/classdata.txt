@@ -1,0 +1,6 @@
+ID  NAME        DESCRIPTION
+=== ==========  ================================
+1   Cleric      Wise and charismatic. Typically a healer who wields divine power in the service of their diety.
+2   Fighter     Strong and tough or fast and tough. Master of combat and knowledgable in weapons and armor.
+3   Rogue       Fast and intelligent. Highly skilled and commonly duplicitous. Commonly a seeker of treasures.
+4   Wizard      Intelligent and wise. Weaves magic spells that manipulate reality using long studied arcane knowledge. 

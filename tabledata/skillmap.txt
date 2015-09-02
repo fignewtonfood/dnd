@@ -1,0 +1,264 @@
+Elves - *Perception
+
+Cleric (2) - History, Insight, Medicine, Persuasion, Religion
+Fighter (2) - Acrobatics, Animal Handling, Athletics, History, Insight, Intimidation, Perception, Survival
+Rogue (4) - Acrobatics, Athletics, Deception, Insight, Intimidation, Investigation, Perception, Performance, Persuasion, Sleight of Hand, Stealth
+Wizard (2) - Arcana, History, Insight, Investigation, Medicine, Religion
+
+Hermit - *Medicine, *Religion
+Noble - *History, *Persuasion
+Soldier - *Athletics, *Intimidation
+Urchin - *Sleight of Hand, *Stealth
+
+Acrobatics (2)
+Animal Handling (1)
+Arcana (1)
+Athletics (3)
+Deception (1)
+History (4)
+Insight (4)
+Intimidation (3)
+Investigation (2)
+Medicine (3)
+Nature (0)
+Perception (3)
+Performance (1)
+Persuasion (3)
+Religion (3)
+Sleight of Hand (2)
+Stealth (2)
+Survival (1)
+
+
+LOADOUTS
+
+Maxed - Raising high stats
+Utility - Preference to rare stats
+
+*If elf
+
+CLERIC
+    Hermit
+        Maxed/Utility
+            Insight
+            Medicine
+            *Perception
+            Persuasion
+            Religion
+    Noble
+        Maxed
+            History
+            Insight
+            Medicine
+            *Perception
+            Persuasion
+        Utility
+            History
+            Medicine
+            *Perception
+            Persuasion
+            Religion
+    Soldier
+        Maxed
+            Athletics
+            Insight
+            Intimidation
+            Medicine
+            *Perception
+        Utility
+            Athletics
+            Intimidation
+            *Perception
+            Persuasion
+            Religion
+    Urchin
+        Maxed
+            Insight
+            Medicine
+            *Perception
+            Sleight of Hand
+            Stealth
+        Utility
+            *Perception
+            Persuasion
+            Religion
+            Sleight of Hand
+            Stealth
+
+FIGHTER
+    Hermit
+        Maxed
+            Acrobatics
+            Athletics
+            Medicine
+            *Perception
+            Religion
+        Utility
+            Animal Handling
+            Medicine
+            *Perception
+            Religion
+            Survival
+    Noble
+        Maxed
+            Acrobatics
+            Athletics
+            History
+            *Perception
+            Persuasion
+        Utility
+            Animal Handling
+            History
+            *Perception
+            Persuasion
+            Survival
+    Soldier
+        Maxed
+            Acrobatics
+            Athletics
+            Intimidation
+            *Perception
+            Stealth
+        Utility
+            Animal Handling
+            Athletics
+            Intimidation
+            *Perception
+            Survival
+    Urchin
+        Maxed
+            Acrobatics
+            Athletics
+            *Perception
+            Sleight of Hand
+            Stealth
+        Utility
+            Animal Handling
+            *Perception
+            Sleight of Hand
+            Stealth
+            Survival
+
+ROGUE
+    Hermit
+        Maxed
+            Acrobatics
+            Medicine
+            Investigation
+            *Perception
+            Religion
+            Sleight of Hand
+            Stealth
+        Utility
+            Deception
+            Investigation
+            Medicine
+            *Perception
+            Performance
+            Religion
+            Stealth
+    Noble
+        Maxed
+            Acrobatics
+            History
+            Investigation
+            *Perception
+            Persuasion
+            Sleight of Hand
+            Stealth
+        Utility
+            Deception
+            History
+            Investigation
+            *Perception
+            Performance
+            Persuasion
+            Stealth
+    Soldier
+        Maxed
+            Acrobatics
+            Athletics
+            Investigation
+            Intimidation
+            *Perception
+            Sleight of Hand
+            Stealth
+        Utility
+            Athletics
+            Deception
+            Investigation
+            Intimidation
+            *Perception
+            Performance
+            Stealth
+    Urchin
+        Maxed
+            Acrobatics
+            Deception
+            *Insight
+            Investigation
+            Perception
+            Sleight of Hand
+            Stealth
+        Utility
+            Acrobatics
+            Deception
+            Investigation
+            *Perception
+            Performance
+            Sleight of Hand
+            Stealth
+
+WIZARD
+    Hermit
+        Maxed
+            Arcana
+            History
+            Medicine
+            *Perception
+            Religion
+        Utility
+            Arcana
+            Investigation
+            Medicine
+            *Perception
+            Religion
+    Noble
+        Maxed
+            Arcana
+            History
+            *Perception
+            Persuasion
+            Religion
+        Utility
+            Arcana
+            History
+            Investigation
+            *Perception
+            Persuasion
+    Soldier
+        Maxed
+            Arcana
+            Athletics
+            History
+            Intimidation
+            *Perception
+        Utility
+            Arcana
+            Athletics
+            Intimidation
+            Investigation
+            *Perception
+    Urchin
+        Maxed
+            Arcana
+            *Perception
+            Religion
+            Sleight of Hand
+            Stealth
+        Utility
+            Arcana
+            Investigation
+            *Perception
+            Sleight of Hand
+            Stealth

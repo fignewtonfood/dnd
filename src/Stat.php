@@ -338,6 +338,10 @@
             }
             return $found_stat;
         }
+
+
+
+
         // UPDATE STAT FUNCTIONS:
         function updateStr($number) {
             $GLOBALS["DB"]->exec("UPDATE stats SET str = {$number} WHERE id = {$this->getId()};");
@@ -369,33 +373,19 @@
             $this->setDex($number);
         }
 
+
+        // SKILL COMPUTERS:
+
         function updateInit() {
-            $number = $this->getDex;
-            if ($number == 3) {
-                $mod = -4;
-            } elseif ($number == 4 | 5) {
-                $mod = -3;
-            } elseif ($number == 6 | 7) {
-                $mod = -2;
-            } elseif ($number == 8 | 9) {
-                $mod = -1;
-            } elseif ($number == 10 | 11) {
-                $mod = 0;
-            } elseif ($number == 12 | 13) {
-                $mod = 1;
-            } elseif ($number == 14 | 15) {
-                $mod = 2;
-            } elseif ($number == 16 | 17) {
-                $mod = 3;
-            } else {
-                $mod = 4;
-            }
+            $mod = $this->getModifier($this->getDex());
             $GLOBALS["DB"]->exec("UPDATE stats SET init = {$mod} WHERE id = {$this->getId()};");
             $this->setDex($mod);
         }
 
+
+
         // DICE ROLL ASSIGN FUNCTION:
-        function assignRolls($six_rolls, $classname) {
+        function assignRolls($six_rolls, $classname, $race) {
             $classname = strtolower ($classname);
             if ($classname == "fighter") {
                 $this->updateStr($six_rolls[0]);
@@ -432,11 +422,79 @@
             else {
                 var_dump("ERROR");
             }
+            $race = strtolower ($race);
+            if ($race == "human") {
+                $this->updateStr($this->getStr() + 1);
+                $this->updateIntel($this->getIntel() + 1);
+                $this->updateDex($this->getDex() + 1);
+                $this->updateWis($this->getWis() + 1);
+                $this->updateCha($this->getCha() + 1);
+                $this->updateCon($this->getCon() + 1);
+            }
+            elseif ($race == "lightfoot halfling") {
+                $this->updateDex($this->getDex() + 2);
+                $this->updateCha($this->getCha() + 1);
+            }
+            elseif ($race == "stout halfling") {
+                $this->updateDex($this->getDex() + 2);
+                $this->updateCon($this->getCon() + 1);
+            }
+            elseif ($race == "high elf") {
+                $this->updateDex($this->getDex() + 2);
+                $this->updateInt($this->getInt() + 1);
+            }
+            elseif ($race == "wood elf") {
+                $this->updateDex($this->getDex() + 2);
+                $this->updateWis($this->getWis() + 1);
+            }
+            elseif ($race == "hill dwarf") {
+                $this->updateCon($this->getCon() + 2);
+                $this->updateWis($this->getWis() + 1);
+            }
+            elseif ($race == "mountain dwarf") {
+                $this->updateCon($this->getCon() + 2);
+                $this->updateStr($this->getStr() + 2);
+            }
+            else {
+                var_dump("ERROR");
+            }
 
 
+
+
+
+            // MODIFIER FINDER:
+
+            function getModifier($stat_number) {
+                if ($stat_number == 3) {
+                    $mod = -4;
+                } elseif ($stat_number == 4 | 5) {
+                    $mod = -3;
+                } elseif ($stat_number == 6 | 7) {
+                    $mod = -2;
+                } elseif ($stat_number == 8 | 9) {
+                    $mod = -1;
+                } elseif ($stat_number == 10 | 11) {
+                    $mod = 0;
+                } elseif ($stat_number == 12 | 13) {
+                    $mod = 1;
+                } elseif ($stat_number == 14 | 15) {
+                    $mod = 2;
+                } elseif ($stat_number == 16 | 17) {
+                    $mod = 3;
+                } else {
+                    $mod = 4;
+                }
+                return $mod;
+            }
         }
 
+
+
+
     }
+
+    // DICE ROLLER
 
     function statRoll()
     {

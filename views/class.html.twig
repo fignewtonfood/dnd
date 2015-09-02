@@ -6,8 +6,8 @@
     </head>
     <body>
 
-        <form action = '/background' method='post'>
-            <input id="race_id" name="race_id" type="hidden" value="{{ race_id }}">
+        <form action = '/background' method='get'>
+            <input  name="race_id" type="hidden" value="{{ race_id }}">
 
 
         {% for class in classes %}

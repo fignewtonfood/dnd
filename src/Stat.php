@@ -494,6 +494,13 @@
 
         // SKILL COMPUTERS:
 
+        function updateMaxHp() {
+            $mod = $this->getModifier($this->getModifier($this->getCon));
+            $proficiencies = Stat::getProficiency();
+            $GLOBALS['DB']->exec("UPDATE stats SET max_hp = {$mod} WHERE id = {$this->getId()};");
+            $this->setMaxHp($mod);
+        }
+
         function updateInit() {
             $mod = $this->getModifier($this->getDex());
             $GLOBALS["DB"]->exec("UPDATE stats SET init = {$mod} WHERE id =

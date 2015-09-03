@@ -247,5 +247,16 @@
             //Assert
             $this->assertEquals($test_character->getSkills(), [$test_skill, $test_skill2]);
         }
+
+        function testSaveProficiencies(){
+            $loadout_id = 10;
+            $character_id = 10;
+
+            saveProficiencies($loadout_id, $character_id);
+            $result = getProficiencies($character_id);
+            var_dump($result);
+
+            $this->assertEquals([2, 10, 15, 18], $result);
+        }
     }
 ?>

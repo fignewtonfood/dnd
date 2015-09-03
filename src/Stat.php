@@ -780,12 +780,12 @@
             }
             $race = strtolower ($race);
             if ($race == "human") {
-                $this->updateStr($_SESSION['str'] ++);
-                $this->updateIntel($_SESSION['int'] ++);
-                $this->updateDex($_SESSION['dex'] ++);
-                $this->updateWis($_SESSION['wis'] ++);
-                $this->updateCha($_SESSION['cha'] ++);
-                $this->updateCon($_SESSION['con'] ++);
+                $_SESSION['str'] ++;
+                $_SESSION['int'] ++;
+                $_SESSION['dex'] ++;
+                $_SESSION['wis'] ++;
+                $_SESSION['cha'] ++;
+                $_SESSION['con'] ++;
             }
             elseif ($race == "lightfoot halfling") {
                 $this->updateDex($_SESSION['dex'] + 2);

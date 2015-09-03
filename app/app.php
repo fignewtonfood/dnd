@@ -86,7 +86,7 @@
     {
         $_SESSION['race'] = $_POST['race_id'];
 
-        return $app['twig']->render('class.html.twig', array('classes' => CharClass::getAll()));
+        return $app['twig']->render('class.html.twig', array('classes' => CharClass::getAll(), 'race' => $_SESSION['race']));
     });
 
 
@@ -132,8 +132,7 @@
         $stats = statRoll();
         Stat::assignRolls($stats, $class, $race);
 
-
-        return $app['twig']->render('stats.html.twig');
+        return $app['twig']->render('stats.html.twig', array('str' => $_SESSION['str'], 'dex'=> $_SESSION['dex'], 'con'=> $_SESSION['con'], 'wis'=> $_SESSION['wis'], 'int'=> $_SESSION['int'], 'cha'=> $_SESSION['cha']));
     });
 
 
@@ -141,12 +140,7 @@
     //carry race id, class id, background id, stats id to skills page
     $app->post('/bio', function() use ($app)
     {
-        $_SESSION['str'] = $_POST['str_id'];
-        $_SESSION['dex'] = $_POST['dex_id'];
-        $_SESSION['con'] = $_POST['con_id'];
-        $_SESSION['int'] = $_POST['int_id'];
-        $_SESSION['wis'] = $_POST['wis_id'];
-        $_SESSION['cha'] = $_POST['cha_id'];
+
 
         $load_outs = loadOuts($_SESSION['class'], $_SESSION['background']);
 

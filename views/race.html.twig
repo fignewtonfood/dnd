@@ -2,45 +2,48 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Choose Your Race</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-<link rel='stylesheet' href='./css/main.css'>
-        <meta name="viewport" content="width=device-width">
-
+<<<<<<< HEAD
+        <title>Choose your race</title>
+        <link href='https://fonts.googleapis.com/css?family=Overlock+SC' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+        <link rel='stylesheet' href='./css/main.css'>
     </head>
     <body>
         {% embed "header.html.twig" %}
         {% endembed %}
         <div class="container">
+            <form action = '/class' method='post'>
 
         <section class="main group">
 
         <h2 class="main__title">Choose Your Race</h2>
 
-        <form action = '/class' method='post'>
+
+        <form action = '/class' method='get'>
+<div class = "col-xs-12">
 
                 {% for race in races %}
-
+                <div class = "col-sm-6">
                     <label for='{{ race.getId }}' class='choice_radio' >
                     <input type='radio' name='race_id' value='{{ race.getId }}' required>
                         <h3>{{ race.getName }}</h3>
                         <p>{{ race.getDescription }}</p>
                     </label>
-                    <hr>
+                </div>
 
                 {% endfor %}
-
-
+</div>
+<br>
                 <button type='submit'>Choose your class -></button>
-                <br>
-                <br>
 
         </section>
+<<<<<<< HEAD
+        <br>
+=======
+>>>>>>> master
 
             </form>
         </div>
-        {% embed "progress.html.twig" %}
-        {% endembed %}
 
         {% embed "footer.html.twig" %}
         {% endembed %}

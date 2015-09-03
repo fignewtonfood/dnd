@@ -19,7 +19,7 @@
         }
 
         function setDescriptionId($new_description_id) {
-            $this->description_id = (string) $new_description_id;
+            $this->description_id = $new_description_id;
         }
 
         function getDescriptionId() {
@@ -27,7 +27,7 @@
         }
 
         function setRaceId($new_race_id) {
-            $this->race_id = (string) $new_race_id;
+            $this->race_id = $new_race_id;
         }
 
         function getRaceId() {
@@ -35,16 +35,12 @@
         }
 
         function setStatId($new_stat_id) {
-            $this->stat_id = (string) $new_stat_id;
+            $this->stat_id = $new_stat_id;
         }
 
         function getStatId() {
             return $this->stat_id;
         }
-
-        // function setCampaignId($new_campaign_id) {
-        //     $this->campaign_id = (string) $new_campaign_id;
-        // }
 
         function getCampaignId() {
             return $this->campaign_id;

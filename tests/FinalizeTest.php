@@ -11,6 +11,7 @@
     require_once "src/Description.php";
     require_once "src/Finalize.php";
     require_once "src/Race.php";
+    require_once "src/Initial.php";
 
     session_start();
         $_SESSION['race'] = 2;
@@ -43,7 +44,18 @@
 
     class FinalizeTest extends PHPUnit_Framework_TestCase {
 
+        protected function tearDown() {
+            CharClass::deleteAll();
+            Character::deleteAll();
+            Race::deleteAll();
+            Skill::deleteAll();
+            Stat::deleteAll();
+            Description::deleteAll();
+            Background::deleteAll();
+        }
+
         function test_run_raceIsThere() {
+            Initial::addData();
             $character = Finalize::run();
             $race = $character->getRaceId();
 
@@ -53,6 +65,7 @@
         }
 
         function test_run_ageIsThere() {
+            Initial::addData();
             $character = Finalize::run();
             $id = $character->getDescriptionId();
             $description = Description::find($id);
@@ -61,6 +74,18 @@
             $result = "21";
 
             $this->assertEquals($age, $result);
+        }
+
+        function test_run_maxHpIsThere() {
+            Initial::addData();
+            $character = Finalize::run();
+            $id = $character->getStatId();
+            $stat = Stat::find($id);
+            $max_hp = $stat->getMaxHp();
+
+            $result = 11;
+
+            $this->assertEquals($max_hp, $result);
         }
 
     }

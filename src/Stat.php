@@ -747,28 +747,28 @@
                 $_SESSION['int'] = $six_rolls[5];
             }
             elseif ($classname == "rogue") {
-                $this->updateDex($six_rolls[0]);
-                $this->updateCon($six_rolls[1]);
-                $this->updateCha($six_rolls[2]);
-                $this->updateIntel($six_rolls[3]);
-                $this->updateStr($six_rolls[4]);
-                $this->updateWis($six_rolls[5]);
+                $_SESSION['dex'] = $six_rolls[0];
+                $_SESSION['con'] = $six_rolls[1];
+                $_SESSION['cha'] = $six_rolls[2];
+                $_SESSION['int'] $six_rolls[3];
+                $_SESSION['str'] = $six_rolls[4];
+                $_SESSION['wis'] = $six_rolls[5];
             }
             elseif ($classname == "wizard") {
-                $this->updateIntel($six_rolls[0]);
-                $this->updateCon($six_rolls[1]);
-                $this->updateDex($six_rolls[2]);
-                $this->updateWis($six_rolls[3]);
-                $this->updateCha($six_rolls[4]);
-                $this->updateStr($six_rolls[5]);
+                $_SESSION['int'] $six_rolls[0];
+                $_SESSION['con'] = $six_rolls[1];
+                $_SESSION['dex'] = $six_rolls[2];
+                $_SESSION['wis'] = $six_rolls[3];
+                $_SESSION['cha'] = $six_rolls[4];
+                $_SESSION['str'] = $six_rolls[5];
             }
             elseif ($classname == "cleric") {
-                $this->updateWis($six_rolls[0]);
-                $this->updateCon($six_rolls[1]);
-                $this->updateStr($six_rolls[2]);
-                $this->updateCha($six_rolls[3]);
-                $this->updateIntel($six_rolls[4]);
-                $this->updateDex($six_rolls[5]);
+                $_SESSION['wis'] = $six_rolls[0];
+                $_SESSION['con'] = $six_rolls[1];
+                $_SESSION['str'] = $six_rolls[2];
+                $_SESSION['cha'] = $six_rolls[3];
+                $_SESSION['int'] $six_rolls[4];
+                $_SESSION['dex'] = $six_rolls[5];
             }
             else {
                 var_dump("ERROR");

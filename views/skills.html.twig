@@ -1,9 +1,25 @@
 <html>
     <head>
         <title>Choose your skills</title>
-        <link rel='stylesheet' href='./css/main.css'> 
+        <link rel='stylesheet' href='./css/main.css'>
     </head>
     <body>
+
+
+        {% for background in backgrounds %}
+
+        <label for = '{{ skill.getId }}'>
+            <div class='skill_select'>
+                <input type='checkbox' name = 'skill_id' value = '{{ skill.getId }}'>
+                    <h3>{{ skill.getName }}</h3>
+                    <p>{{ skill.getDescription }}</p>
+
+            </div>
+        </label>
+        <hr>
+
+        {% endfor %}
+
 
         acrobatics
         animal handling

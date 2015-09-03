@@ -1,0 +1,21 @@
+        new Description
+        save Description
+        getInitiative and store to session
+            ^ set dex modifier to init session variable
+        getMaxHP and store to session
+            ^ use charclass and con to set maxhp session variable
+        getAC and store to session
+            ^ set session variable ac to 10 plus dex modifier
+        getSpeed and store to session
+            ^ get race and set speed accordingly
+        getProficiency and store to session
+            ^ set session variable proficiency to 2
+        get[skillname] and store to session
+            ^ get value from proficiency join table and add proficiency session variable to appropriate modifier
+        new Stat
+        save Stat
+        new Character
+        save Character
+        add Charclass to Character
+        add Background to Character
+        add Proficiency to Character

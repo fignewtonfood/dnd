@@ -39,7 +39,7 @@
         $_SESSION['hair_color'] => "",
         $_SESSION['skin_tone'] => "",
         $_SESSION['alignment'] => "",
-        $_SESSION['other_information'] => "",
+        $_SESSION['other_information'] => " ",
     );};
 
 
@@ -132,37 +132,39 @@
         $stats = statRoll();
         Stat::assignRolls($stats, $class, $race);
 
-        return $app['twig']->render('stats.html.twig', array('str' => $_SESSION['str'], 'dex'=> $_SESSION['dex'], 'con'=> $_SESSION['con'], 'wis'=> $_SESSION['wis'], 'int'=> $_SESSION['int'], 'cha'=> $_SESSION['cha']));
+        return $app['twig']->render('stats.html.twig', array('race' =>$_SESSION['race'], 'class' => $_SESSION['class'], 'str' => $_SESSION['str'], 'dex'=> $_SESSION['dex'], 'con'=> $_SESSION['con'], 'wis'=> $_SESSION['wis'], 'int'=> $_SESSION['int'], 'cha'=> $_SESSION['cha']));
     });
 
 
 //stats page
-    //carry race id, class id, background id, stats id to skills page
-    $app->post('/bio', function() use ($app)
+    //render stats page
+    $app->get('/stats', function() use ($app)
     {
-
-
-        $load_outs = loadOuts($_SESSION['class'], $_SESSION['background']);
-
-        return $app['twig']->render('bio.html.twig', array('load_outs' => $load_outs));
+        return $app['twig']->render('stats.html.twig', array('str' => $_SESSION['str'], 'dex'=> $_SESSION['dex'], 'con'=> $_SESSION['con'], 'wis'=> $_SESSION['wis'], 'int'=> $_SESSION['int'], 'cha'=> $_SESSION['cha']));
     });
 
 
 //loadout page
     //render loadout page
-    $app->get('/loadout', function() use ($app)
-    {
-        return $app['twig']->render('loudout.html.twig');
-    });
-
-    //save loadout choice to session
-    $app->post('/bio', function() use ($app)
+    $app->post('/loadout', function() use ($app)
     {
 
 
-        $_SESSION['loadout'] = $_POST['loadout'];
+        $load_outs = loadOuts($_SESSION['class'], $_SESSION['background']);
 
-        return $app['twig']->render('bio.html.twig');
+        $max1 = $loadout_outs[0][1];
+        $max2 = $loadout_outs[0][2];
+        $max3 = $loadout_outs[0][3];
+        $max4 = $loadout_outs[0][4];
+
+        $util1 = $loadout_outs[1][1];
+        $util2 = $loadout_outs[1][2];
+        $util3 = $loadout_outs[1][3];
+        $util4 = $loadout_outs[1][4];
+
+        var_dump($util4);
+
+        return $app['twig']->render('loadout.html.twig', array('loadouts' => $load_outs));
     });
 
 
@@ -172,6 +174,16 @@
     {
         return $app['twig']->render('bio.html.twig');
     });
+
+    //save loadout choice to session
+    $app->post('/bio', function() use ($app)
+    {
+
+        $_SESSION['loadout'] = $_POST['loadout'];
+
+        return $app['twig']->render('bio.html.twig');
+    });
+
 
 //summary page
     //render summary page
@@ -183,18 +195,48 @@
     //post description info to summary page
     $app->post('/summary', function() use ($app)
     {
-        $_SESSION['name'] = $_POST['name_id'];
-        $_SESSION['age'] = $_POST['age_id'];
-        $_SESSION['gender'] = $_POST['gender_id'];
-        $_SESSION['height'] = $_POST['height_id'];
-        $_SESSION['weight'] = $_POST['weight_id'];
-        $_SESSION['eye_color'] = $_POST['eye_color_id'];
-        $_SESSION['hair_color'] = $_POST['hair_color_id'];
-        $_SESSION['skin_tone'] = $_POST['skin_tone_id'];
-        $_SESSION['alignment'] = $_POST['alignment_id'];
-        $_SESSION['other'] = $_POST['other_id'];
+        $_SESSION['name'] = $_POST['name'];
+        $_SESSION['age'] = $_POST['age'];
+        $_SESSION['gender'] = $_POST['gender'];
+        $_SESSION['height'] = $_POST['height'];
+        $_SESSION['weight'] = $_POST['weight'];
+        $_SESSION['eye_color'] = $_POST['eye_color'];
+        $_SESSION['hair_color'] = $_POST['hair_color'];
+        $_SESSION['skin_tone'] = $_POST['skin_tone'];
+        $_SESSION['alignment'] = $_POST['alignment'];
+        $_SESSION['other'] = $_POST['other_information'];
 
-        return $app['twig']->render('summary.html.twig');
+        return $app['twig']->render('summary.html.twig', array (
+
+                'race' => $_SESSION['race'],
+
+                'class' => $_SESSION['class'],
+
+                'background' => $_SESSION['background'],
+
+                'str' => $_SESSION['str'],
+                'dex' => $_SESSION['dex'],
+                'con' => $_SESSION['con'],
+                'wis' => $_SESSION['wis'],
+                'int' => $_SESSION['int'],
+                'cha' => $_SESSION['cha'],
+
+                'loadout' => $_SESSION['loadout'],
+
+                'name' => $_SESSION['name'],
+                'age' => $_SESSION['age'],
+                'gender' => $_SESSION['gender'],
+                'height' => $_SESSION['height'],
+                'weight' => $_SESSION['weight'],
+                'eye_color' => $_SESSION['eye_color'],
+                'hair_color' => $_SESSION['hair_color'],
+                'skin_tone' => $_SESSION['skin_tone'],
+                'alignment' => $_SESSION['alignment'],
+                'other_information' => $_SESSION['other_information'],
+
+                'races' => Race::getAll(),
+                'classes' => CharClass::getAll(),
+                'backgrounds' => Background::getAll()));
     });
 
 

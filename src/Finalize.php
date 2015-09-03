@@ -243,5 +243,7 @@ require_once __DIR__."/../src/Character.php";
             return $character;
 
         }
+    }
+}
 
 ?>

@@ -11,7 +11,6 @@
         <h4>Age: {{age}}</h4>
         <h4>Gender: {{gender}}</h4>
         <h4>Height: {{height}}</h4>
-        <h4>Weight: {{weight}}</h4>
         <br>
 
         <h4>Eye Color: {{eye_color}}</h4>
@@ -40,8 +39,18 @@
         <br>
 
 
-        <h4>Other Information: {{other_information}}</h4>
+        <h4>Other Information: {{other}}</h4>
         <br>
+
+
+        <form action='/print' method='get'>
+            <button type="submit">Print</button>
+        </form>
+
+        <form action='/new_race' method='get'>
+            <button type="submit">Save and Create a New Character</button>
+        </form>
+
 
 
         <!-- https://css-tricks.com/css3-progress-bars/ -->

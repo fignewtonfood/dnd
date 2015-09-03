@@ -13,7 +13,7 @@
         {% endembed %}
 
     <div class='container'>
-        <form action = '/bio' method='post'>
+        <form action = '/summary' method='post'>
 
             <table class="table">
                 <tbody>
@@ -36,10 +36,6 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>
-                            <label for ='name'>Weight:</label><br>
-                            <input type='text' id = 'height' name = 'height' required>
-                        </td>
                         <td>
                             <label for ='name'>Eye Color:</label><br>
                             <input type='text' id = 'eye_color' name = 'eye_color' required>
@@ -132,19 +128,20 @@
                 </tbody>
             </table>
             <p>Describe your character!!</p>
-            <textarea name='other_information' rows = '10' cols = '80'></textarea>
+            <textarea name='other' rows = '10' cols = '80'></textarea>
 
             <!-- <input type='text' id = 'other_information' name = 'other_information'> -->
             <br>
 
-            <button type='submit'>Print</button>
+
+            <button type='submit'>Review Your Character -></button>
+
+
+            <form action='/Skills' method='get'>
+                <button type="submit">Return to Skill Loadout</button>
+            </form>
 
             <br>
-
-            <!-- https://css-tricks.com/css3-progress-bars/ -->
-            <!-- <div class="progress">
-                <span style='width: 84%'></span>
-            </div> -->
 
         </form>
     </div>

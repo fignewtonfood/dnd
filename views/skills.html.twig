@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>Choose your skills</title>
+        <link href='https://fonts.googleapis.com/css?family=Overlock+SC' rel='stylesheet' type='text/css'>
+        <link rel='stylesheet' href='./css/main.css'>
+    </head>
+    <body>
+
+        <form action='/bio' method='post'>
+
+
+            <label for = 'skill'>
+
+                <input type='radio' name = 'skill' value = 1>
+                <h3>Maxed:</h3>
+                <p>{{ maxarray[0] }}</p>
+                <p>{{ maxarray[1] }}</p>
+                <p>{{ maxarray[2] }}</p>
+                <p>{{ maxarray[3] }}</p>
+                <br>
+                <br>
+
+
+                <input type='radio' name = 'skill' value = 2>
+                <h3>Utility:</h3>
+                <p>{{ utilarray[0] }}</p>
+                <p>{{ utilarray[1] }}</p>
+                <p>{{ utilarray[2] }}</p>
+                <p>{{ utilarray[3] }}</p>
+
+            </label>
+
+
+            <button type="submit">Complete your Character</button>
+        </form>
+
+
+
+        <form action='/stats' method='get'>
+            <button type="submit">Return to Stat Roll</button>
+        </form>
+    </body>
+</html>

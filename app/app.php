@@ -116,21 +116,20 @@
     {
         $_SESSION['background'] = $_POST['background_id'];
 
-
         $race_id = $_SESSION['race'];
         $race_find = Race::find($race_id);
         $race = $race_find->getName();
 
         $class_id = $_SESSION['class'];
         $class_find = CharClass::find($class_id);
-        $classname = getName($class_find);
+        $class = $class_find->getName();
 
 
         $stats = statRoll();
-        $assigned_stats = assignRolls($six_rolls, $classname, $race);
+        Stat::assignRolls($stats, $class, $race);
 
 
-        return $app['twig']->render('stats.html.twig', array('stat' => Stat::getAll()));
+        return $app['twig']->render('stats.html.twig');
     });
 
 
@@ -161,6 +160,12 @@
 //summary page
     //render summary page
     $app->get('/summary', function() use ($app)
+    {
+        return $app['twig']->render('summary.html.twig');
+    });
+
+    //post description info to summary page
+    $app->post('/summary', function() use ($app)
     {
         $_SESSION['name'] = $_POST['name_id'];
         $_SESSION['age'] = $_POST['age_id'];

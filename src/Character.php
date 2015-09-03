@@ -113,15 +113,15 @@
 
 //Save a character and class at the same time to join table
         function addCharClass($class) {
-            $GLOBALS['DB']->exec("INSERT INTO characters_classes (character_id, class_id) VALUES ({$this->getId()}, {$class->getId()});");
+            $GLOBALS['DB']->exec("INSERT INTO characters_classes (character_id, class_id) VALUES ({$this->getId()}, {$class});");
         }
 
         function addBackground($background) {
-            $GLOBALS['DB']->exec("INSERT INTO backgrounds_characters (character_id, background_id) VALUES ({$this->getId()}, {$background->getId()});");
+            $GLOBALS['DB']->exec("INSERT INTO backgrounds_characters (character_id, background_id) VALUES ({$this->getId()}, {$background});");
         }
 
         function addSkill($skill) {
-            $GLOBALS['DB']->exec("INSERT INTO proficiencies (character_id, skill_id) VALUES ({$this->getId()}, {$skill->getId()});");
+            $GLOBALS['DB']->exec("INSERT INTO proficiencies (character_id, skill_id) VALUES ({$this->getId()}, {$skill});");
         }
 
         static function getAll() {

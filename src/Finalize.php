@@ -52,27 +52,73 @@
             $initiative = $dex_mod;
 
 
-            // MAKES A CLASS VARIABLE, MAXHP, AC :
+            // MAKES A CLASS VARIABLE, MAXHP, AC, BACKGROUND ID :
 
             if ($_SESSION['class'] == 1) {
                 $class = "cleric";
                 $class_hp = 8;
+                $class_id = 1;
             } elseif ($_SESSION['class'] == 2) {
                 $class = "fighter";
                 $class_hp = 10;
+                $class_id = 2;
             } elseif ($_SESSION['class'] == 3) {
                 $class = "rogue";
                 $class_hp = 8;
+                $class_id = 3;
             } elseif ($_SESSION['class'] == 4) {
                 $class = "wizard";
                 $class_hp = 6;
+                $class_id = 4;
             }
 
             $max_hp = $con_mod + $class_hp;
 
             $ac = 10 + $dex_mod;
 
-            $proficiency_array = [$_SESSION['skill'];
+            $background_id = $_SESSION['background'];
+
+            $proficiency_array = $_SESSION['skill'];
+            $skill_ids = array();
+            foreach ($proficiency_array as $proficiency) {
+                if ($proficiency == "Acrobatics") {
+                    $skill_id = 1;
+                } elseif ($proficiency == "Animal Handling") {
+                    $skill_id = 2;
+                } elseif ($proficiency == "Arcana") {
+                    $skill_id = 3;
+                } elseif ($proficiency == "Athletics") {
+                    $skill_id = 4;
+                } elseif ($proficiency == "Deception") {
+                    $skill_id = 5;
+                } elseif ($proficiency == "History") {
+                    $skill_id = 6;
+                } elseif ($proficiency == "Insight") {
+                    $skill_id = 7;
+                } elseif ($proficiency == "Intimidation") {
+                    $skill_id = 8;
+                } elseif ($proficiency == "Investigation") {
+                    $skill_id = 9;
+                } elseif ($proficiency == "Medicine") {
+                    $skill_id = 10;
+                } elseif ($proficiency == "Nature") {
+                    $skill_id = 11;
+                } elseif ($proficiency == "Perception") {
+                    $skill_id = 12;
+                } elseif ($proficiency == "Performance") {
+                    $skill_id = 13;
+                } elseif ($proficiency == "Persuasion") {
+                    $skill_id = 14;
+                } elseif ($proficiency == "Religion") {
+                    $skill_id = 15;
+                } elseif ($proficiency == "Sleight of Hand") {
+                    $skill_id = 16;
+                } elseif ($proficiency == "Stealth") {
+                    $skill_id = 17;
+                } elseif ($proficiency == "Survival") {
+                    $skill_id = 18;
+                }
+                array_push($skill_ids, $skill_id);
 
 
             // MAKES A RACE VARIABLE, SPEED :
@@ -142,9 +188,12 @@
             $character = new Character($description_id, $race_id, $stat_id);
             $character->save();
 
-            $character->addCharClass($charclass);
-            $character->addBackground($background);
-            $character->addProficiency($proficiency);
+            $character->addCharClass($class_id);
+            $character->addBackground($background_id);
+
+            foreach ($skill_ids as $id) {
+                $character->addSkill($id);
+            }
 
             return $character;
 

@@ -121,6 +121,9 @@ require_once __DIR__."/../src/Character.php";
 
             $ac = 10 + $dex_mod;
 
+
+            $proficiency_array = $_SESSION['skill'];
+
             $background_id = $_SESSION['background'];
 
             $proficiency_array = $_SESSION['skill'];
@@ -164,6 +167,7 @@ require_once __DIR__."/../src/Character.php";
                     $skill_id = 18;
                 }
                 array_push($skill_ids, $skill_id);
+
 
 
             // MAKES A RACE VARIABLE, SPEED :
@@ -243,5 +247,7 @@ require_once __DIR__."/../src/Character.php";
             return $character;
 
         }
+      }
+    }
 
 ?>

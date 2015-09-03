@@ -2,12 +2,54 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title></title>
+        <title> Character Sheet </title>
+
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="css/sheet.css">
+
     </head>
     <body>
 
-        
+    <div>
+        <h1>Character Name: <em>{{ character.getName }}</em></h1>
+        <span>Class &amp; level: <em>{{ character.getClass }} - {{ character.getLevel }}</em></span>
+        <span>Background: <em>{{ character.getBackground }}</em></span>
+        <span>Player Name: <em>{{ character.getPlayerName }}</em></span>
+        <span>Race: <em>{{ character.getRace }}</em></span>
+        <span>Alignment:<em>{{ character.getAlignment }}</em></span>
+        <span>Experience Points: <em>{{ character.getExperiencePoints }}</em></span>
+    </div>
 
+    <div>
+        <h2>Stats</h2>
+        <span>Strength: <em>{{ character.getStrength }}</em></span>
+        <span>Dexterity: <em>{{ character.getDexterity }}</em></span>
+        <span>Constitution: <em>{{ character.getConstitution }}</em></span>
+        <span>Intelligence: <em>{{ character.getIntelligence }}</em></span>
+        <span>Wisdom:<em>{{ character.getWisdom }}</em></span>
+        <span>Charisa: <em>{{ character.getCharisa }}</em></span>
+    </div>
+
+    <h3>Inspiration: <span></span><h3>
+    <h3>Proficiency Bonus: <span> {{ character.getProficiencyBonus}} </span><h3>
+
+
+
+
+
+<!--
+        <p>{{ character.getAge }}</p>
+        <p>{{ character.getGender }}</p>
+        <p>{{ character.getHeight }}</p>
+        <p>{{ character.getWeight }}</p>
+        <p>{{ character.getEyeColor }}</p>
+        <p>{{ character.getHairColor }}</p>
+        <p>{{ character.getSkinTone }}</p>
+        <p>{{ character.getAlignment }}</p>
+        <p>{{ character.getMotivations }}</p>
+        <p>{{ character.getFlaws }}</p>
+        <p>{{ character.getOtherInformation }}</p>
+-->
 
 
 

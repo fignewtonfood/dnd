@@ -234,14 +234,20 @@
         $found_race = Race::find($_SESSION['race']);
         $found_race->getName();
 
+        $found_class = CharClass::find($_SESSION['class']);
+        $found_class->getName();
+
+        $found_background = Background::find($_SESSION['background']);
+        $found_background->getName();
+
 
         return $app['twig']->render('summary.html.twig', array (
 
                 'race' => $found_race,
 
-                'class' => $_SESSION['class'],
+                'class' => $found_class,
 
-                'background' => $_SESSION['background'],
+                'background' => $found_background,
 
                 'str' => $_SESSION['str'],
                 'dex' => $_SESSION['dex'],
@@ -250,7 +256,7 @@
                 'int' => $_SESSION['int'],
                 'cha' => $_SESSION['cha'],
 
-                'loadout' => $_SESSION['loadout'],
+                'skills' => $_SESSION['skill'],
 
                 'name' => $_SESSION['name'],
                 'age' => $_SESSION['age'],

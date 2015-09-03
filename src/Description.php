@@ -102,12 +102,13 @@
         }
 
         function save() {
-            $GLOBALS['DB']->exec("INSERT INTO descriptions (gender, age,
+            $GLOBALS['DB']->exec("INSERT INTO descriptions (name, gender, age,
             alignment, height, eye_color, hair_color, skin_tone, other)
-            VALUES ('{$this->getGender()}', '{$this->getAge()}',
-            '{$this->getAlignment()}', '{$this->getHeight()}',
-            '{$this->getEyeColor()}', '{$this->getHairColor()}',
-            '{$this->getSkinTone()}',  '{$this->getOther()}');");
+            VALUES ('{$this->getName()}', '{$this->getGender()}',
+                '{$this->getAge()}',
+                '{$this->getAlignment()}', '{$this->getHeight()}',
+                '{$this->getEyeColor()}', '{$this->getHairColor()}',
+                '{$this->getSkinTone()}',  '{$this->getOther()}');");
             $this->id = $GLOBALS["DB"]->lastInsertId();
         }
 
@@ -116,6 +117,7 @@
             $all = array();
             foreach($raw_info as $details) {
                 $id = $details["id"];
+                $name = $details["name"];
                 $gender = $details["gender"];
                 $age = $details["age"];
                 $alignment = $details["alignment"];
@@ -124,7 +126,7 @@
                 $hair_color = $details["hair_color"];
                 $skin_tone = $details["skin_tone"];
                 $other = $details["other"];
-                $full_description = new Description($gender, $age,
+                $full_description = new Description($name, $gender, $age,
                 $alignment, $height, $eye_color, $hair_color, $skin_tone,
                 $other, $id);
                 array_push($all, $full_description);

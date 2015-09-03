@@ -140,6 +140,7 @@
 
         static function deleteAll() {
             $GLOBALS['DB']->exec("DELETE FROM characters;");
+            $GLOBALS['DB']->exec("DELETE FROM proficiencies;");
         }
 
         static function find($search_id){
@@ -154,6 +155,7 @@
             return $found_character;
         }
     }
+
     function saveProficiencies($loadout_id, $character_id)
     {
         switch($loadout_id)
@@ -255,9 +257,21 @@
                 $skills = [3, 9, 16, 17];
                 break;
         }
+        var_dump($skills);
         foreach($skills as $skill)
         {
-            $GLOBALS['DB']->exec("INSERT INTO proficiencies (skill_id) VALUES ($skill);");
+            $GLOBALS['DB']->exec("INSERT INTO proficiencies (skill_id, character_id) VALUES ($skill, $character_id);");
         }
     }
+
+    function getProficiencies($character_id) {
+        $returned_proficiencies = $GLOBALS['DB']->query("SELECT * FROM proficiencies WHERE character_id = $character_id ;");
+        $proficiencies = array();
+        foreach($returned_proficiencies as $proficiency) {
+            $skill_id = $proficiency['skill_id'];
+            array_push($proficiencies, $skill_id);
+        }
+        return $proficiencies;
+    }
+
 ?>

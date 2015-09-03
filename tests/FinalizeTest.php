@@ -18,73 +18,45 @@
     $DB = new PDO($server, $username, $password);
 
 
-    class FinalizeTest extends PHPUnit_Framework_TestCase
-    {
+    class FinalizeTest extends PHPUnit_Framework_TestCase {
 
+        function test_finalize() {
 
-        function testSetSaveRace($new_save_race)
-        {
-            $this->save_race = $new_save_race;
-        }
+            session_start();
+            if (empty($_SESSION['temporary_character'])) {
+                $_SESSION['temporary_character'] = array(
+                    $_SESSION['race'] => 2,
+                    $_SESSION['class'] => 2,
+                    $_SESSION['background'] => 2,
+                    $_SESSION['skill'] => ["Acrobatics", "Animal Handling",
+                        "Stealth", "Intimidation"],
+                    $_SESSION['str'] => 12,
+                    $_SESSION['dex'] => 12,
+                    $_SESSION['con'] => 12,
+                    $_SESSION['wis'] => 12,
+                    $_SESSION['int'] => 12,
+                    $_SESSION['cha'] => 12,
+                    $_SESSION['name'] => "Jack",
+                    $_SESSION['age'] => "21",
+                    $_SESSION['gender'] => "male",
+                    $_SESSION['height'] => "3 feet",
+                    $_SESSION['weight'] => "190 lbs",
+                    $_SESSION['eye_color'] => "brown",
+                    $_SESSION['hair_color'] => "brown",
+                    $_SESSION['skin_tone'] => "brown",
+                    $_SESSION['alignment'] => "chaotic neutral",
+                    $_SESSION['other_information'] => "This character is a BAMF.",
+                );
+            };
 
-        function testSetSaveClass($new_save_class)
-        {
-            $this->save_class = $new_save_class;
-        }
+            $character = Finalize::run();
 
-        function testSetSaveBackground($new_save_background)
-        {
-            $this->save_background = $new_save_background;
-        }
+            $result = 2;
+            $race = $character->getRaceId();
 
-        function testSetSaveStats()
-        {
-            $this->save_stats = $new_save_stats;
-        }
-
-        function testSetSaveDescription($new_save_description)
-        {
-            $this->save_description = $new_save_description;
-        }
-
-        function getSaveRace()
-        {
-            return $this->save_race;
-        }
-
-        function getSaveClass()
-        {
-            return $this->save_class;
-        }
-
-        function getSaveBackground()
-        {
-            return $this->save_background;
-        }
-
-        function getSaveStats()
-        {
-            return $this->save_stats;
-        }
-
-        function getSaveDescription()
-        {
-            return $this->save_description;
-        }
-
-        function save()
-        {
+            $this->assertEquals($race, $result);
 
         }
 
-        function deleteAll()
-        {
-
-        }
-
-        function getAll()
-        {
-
-        }
     }
  ?>

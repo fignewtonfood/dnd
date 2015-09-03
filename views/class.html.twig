@@ -17,6 +17,7 @@
             <form action = '/background' method='post'>
 
                 {% for class in classes %}
+            <div class = "col-sm-6">
                 <label for = '{{ class.getId }}'>
                     <div class='class_select'>
                         <input type='radio' name = 'class_id' value = '{{ class.getId }}' required>
@@ -24,19 +25,20 @@
                             <p>{{ class.getDescription }}</p>
                     </div>
                 </label>
-                <hr>
+            </div>
                 {% endfor %}
 
                 <button type='submit'>Choose your background -></button>
 
             </form>
+            <br>
 
 
             <form action='/race' method='get'>
                 <button type="submit">Return to Race Select</button>
             </form>
 
-            
+
         </section>
         {% embed "progress.html.twig" %}
         {% endembed %}

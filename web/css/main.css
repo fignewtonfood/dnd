@@ -17,6 +17,10 @@ div {
 	font-family: 'Overlock SC', cursive;
 }
 
+.padding{
+	padding-bottom:5em;
+}
+
 body {
 	background:  #f1e0c5;
 	color: #000;

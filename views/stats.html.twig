@@ -18,38 +18,47 @@
         {# stats are rolled and automaticly assigns a value to each stat.
         keep stat values hidden until user hits a button.
         the button reveals the hidden stat, which mimics the act of rolling dice, despite the stats being predetermined. #}
+                <div class="col-sm-12">
+                    <div class="col-sm-4">
+                        <h3>Strength: </h3>
+                        <h1>{{ str }}</h1>
+                            <em>Bodily power</em>
+                        <br>
+                    </div>
+                    <div class="col-sm-4">
+                        <h3>Dexterity: </h3>
+                        <h1>{{ dex }}</h1>
+                            <em>Agility, reflexes, balance</em>
+                        <br>
+                    </div>
+                    <div class="col-sm-4">
+                        <h3>Constitution: </h3>
+                        <h1>{{ con }}</h1>
+                            <em>Health and stamina</em>
+                        <br>
+                    </div>
+                </div>
+                <div class="col-sm-12 padding">
+                    <div class="col-sm-4">
+                        <h3>Intelligence: </h3>
+                        <h1>{{ int }}</h1>
+                            <em>Recall and reasoning</em>
+                        <br>
+                    </div>
+                    <div class="col-sm-4">
+                        <h3>Wisdom: </h3>
+                        <h1>{{ wis }}</h1>
+                            <em>Perceptiveness and intution</em>
+                        <br>
+                    </div>
+                    <div class="col-sm-4">
+                        <h3>Charisma: </h3>
+                        <h1>{{ cha }}</h1>
+                            <em>Interpersonal interactions</em>
+                        <br>
+                    </div>
+                </div>
 
-                <h3>Strength:</h3>
-                    <p>{{ str }}</p>
-                    <em>Bodily power</em>
-                <br>
-
-                <h3>Dexterity:</h3>
-                    <p>{{ dex }}</p>
-                    <em>Agility, reflexes, balance</em>
-                <br>
-
-                <h3>Constitution:</h3>
-                    <p>{{ con }}</p>
-                    <em>Health and stamina</em>
-                <br>
-
-                <h3>Intelligence:</h3>
-                    <p>{{ int }}</p>
-                    <em>Recall and reasoning</em>
-                <br>
-
-                <h3>Wisdom:</h3>
-                    <p>{{ wis }}</p>
-                    <em>Perceptiveness and intution</em>
-                <br>
-
-                <h3>Charisma:</h3>
-                    <p>{{ cha }}</p>
-                    <em>Interpersonal interactions</em>
-                <br>
-
-                <p> </p><br>
                 <button type="submit">Choose your skills -></button>
             </form>
             <p> </p><br>

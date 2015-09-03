@@ -8,6 +8,7 @@
     require_once __DIR__."/../src/Skill.php";
     require_once __DIR__."/../src/Description.php";
     require_once __DIR__."/../src/Character.php";
+    require_once __DIR__."/../src/Initial.php";
 
 
     session_start();
@@ -63,6 +64,7 @@
 
 //landing page
     //renders homepage
+    Initial::addData();
     $app->get('/', function() use ($app)
     {
         Initial::addData();

@@ -787,28 +787,28 @@
                 $_SESSION['con'] ++;
             }
             elseif ($race == "lightfoot halfling") {
-                $_SESSION['dex'] + 2;
+                $_SESSION['dex'] = $_SESSION['dex'] + 2;
                 $_SESSION['cha'] ++;
             }
             elseif ($race == "stout halfling") {
-                $_SESSION['dex'] + 2;
+                $_SESSION['dex'] = $_SESSION['dex'] + 2;
                 $_SESSION['con'] ++;
             }
             elseif ($race == "high elf") {
-                $_SESSION['dex'] + 2;
+                $_SESSION['dex'] = $_SESSION['dex'] + 2;
                 $_SESSION['int'] ++;
             }
             elseif ($race == "wood elf") {
-                $_SESSION['dex'] + 2;
+                $_SESSION['dex'] = $_SESSION['dex'] + 2;
                 $_SESSION['wis'] ++;
             }
             elseif ($race == "hill dwarf") {
-                $_SESSION['con'] + 2;
+                $_SESSION['con'] = $_SESSION['con'] + 2;
                 $_SESSION['wis'] ++;
             }
             elseif ($race == "mountain dwarf") {
-                $_SESSION['con'] + 2;
-                $_SESSION['str'] + 2;
+                $_SESSION['con'] = $_SESSION['con'] + 2;
+                $_SESSION['str'] = $_SESSION['str'] + 2;
             }
             else {
             }
@@ -861,13 +861,13 @@
                 array_push($numbers, $number);
                 $counter++;
             }
-            asort($numbers);
+            sort($numbers);
             unset($numbers[0]);
             $number_sum = array_sum($numbers);
             array_push($stats, $number_sum);
             $statcounter++;
         }
-        arsort($stats);
+        rsort($stats);
         return $stats;
 
     }

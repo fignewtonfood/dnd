@@ -12,7 +12,7 @@
 
         // RUN ON FINAL PAGE :
 
-        function finalize() {
+        function run() {
 
 
             // DESCRIPTION :

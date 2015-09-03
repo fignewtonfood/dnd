@@ -1,6 +1,6 @@
 <?php
 
-    require_once "Character.php";
+    // require_once __DIR__."src/Character.php";
 
     class Background {
 

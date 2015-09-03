@@ -90,9 +90,11 @@
 
         function test_getId() {
             //Arrange
+
             $name = "Fighter";
             $description = "stuff";
             $id = 1;
+            
             $test_class = new Background($name, $description, $id);
             $test_class->save();
 

@@ -6,13 +6,13 @@
     <body>
 
 
-        {% for background in backgrounds %}
+        {% for loadout in loud_outs %}
 
         <label for = '{{ skill.getId }}'>
             <div class='skill_select'>
                 <input type='checkbox' name = 'skill_id' value = '{{ skill.getId }}'>
-                    <h3>{{ skill.getName }}</h3>
-                    <p>{{ skill.getDescription }}</p>
+                    <h3>Maxed:</h3>
+                    <p>{{ loadout[0] }}</p>
 
             </div>
         </label>

@@ -1,15 +1,60 @@
 <?php
-    class Finalize() {
 
-        require_once __DIR__."/../src/Race.php";
-        require_once __DIR__."/../src/CharClass.php";
-        require_once __DIR__."/../src/Background.php";
-        require_once __DIR__."/../src/Stat.php";
-        require_once __DIR__."/../src/Skill.php";
-        require_once __DIR__."/../src/Description.php";
-        require_once __DIR__."/../src/Character.php";
+require_once __DIR__."/../src/Race.php";
+require_once __DIR__."/../src/CharClass.php";
+require_once __DIR__."/../src/Background.php";
+require_once __DIR__."/../src/Stat.php";
+require_once __DIR__."/../src/Skill.php";
+require_once __DIR__."/../src/Description.php";
+require_once __DIR__."/../src/Character.php";
+
+    class Finalize
+    {
+        private $save_race;
+        private $save_class;
+        private $save_background;
+        private $save_stats;
+        private $save_description;
 
 
+        function __construct($save_race, $save_class, $save_background, $save_stats, $save_description)
+        {
+            $this->save_race = $save_race;
+            $this->save_class = $save_class;
+            $this->save_background = $save_background;
+            $this->save_stats = $save_stats;
+            $this->save_description = $save_description;
+        }
+
+        function setSaveRace($new_save_race)
+        {
+            $this->save_race = $new_save_race;
+        }
+
+        function setSaveClass($new_save_class)
+        {
+            $this->save_class = $new_save_class;
+        }
+
+        function setSaveBackground($new_save_background)
+        {
+            $this->save_background = $new_save_background;
+        }
+
+        function setSaveStats()
+        {
+            $this->save_stats = $new_save_stats;
+        }
+
+        function setSaveDescription($new_save_description)
+        {
+            $this->save_description = $new_save_description;
+        }
+
+        function getSaveRace()
+        {
+            return $this->save_race;
+        }
         // RUN ON FINAL PAGE :
 
         function run() {

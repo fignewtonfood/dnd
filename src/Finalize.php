@@ -2,13 +2,13 @@
     class Finalize
      {
 
-        require_once __DIR__."/../src/Race.php";
-        require_once __DIR__."/../src/CharClass.php";
-        require_once __DIR__."/../src/Background.php";
-        require_once __DIR__."/../src/Stat.php";
-        require_once __DIR__."/../src/Skill.php";
-        require_once __DIR__."/../src/Description.php";
-        require_once __DIR__."/../src/Character.php";
+        // require_once __DIR__."/../src/Race.php";
+        // require_once __DIR__."/../src/CharClass.php";
+        // require_once __DIR__."/../src/Background.php";
+        // require_once __DIR__."/../src/Stat.php";
+        // require_once __DIR__."/../src/Skill.php";
+        // require_once __DIR__."/../src/Description.php";
+        // require_once __DIR__."/../src/Character.php";
 
 
         // RUN ON FINAL PAGE :
@@ -204,5 +204,6 @@
 
         }
       }
+    }
 
 ?>

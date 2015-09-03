@@ -13,7 +13,7 @@
 
         // RUN ON FINAL PAGE :
 
-        function run() {
+        static function run() {
 
 
             // DESCRIPTION :

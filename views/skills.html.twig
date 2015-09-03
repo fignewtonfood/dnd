@@ -1,25 +1,33 @@
 <html>
     <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>Choose your skills</title>
         <link href='https://fonts.googleapis.com/css?family=Overlock+SC' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
         <link rel='stylesheet' href='./css/main.css'>
     </head>
     <body>
+        {% embed "header.html.twig" %}
+        {% endembed %}
 
+        <section class = 'main group'>
         <form action='/bio' method='post'>
 
 
+            <div class = "col-sm-12">
             <label for = 'skill'>
 
+                <div class = "col-sm-6">
                 <input type='radio' name = 'skill' value = 1>
                 <h3>Maxed:</h3>
                 <p>{{ maxarray[0] }}</p>
                 <p>{{ maxarray[1] }}</p>
                 <p>{{ maxarray[2] }}</p>
                 <p>{{ maxarray[3] }}</p>
-                <br>
-                <br>
+            </div>
 
+                <div class = "col-sm-6">
 
                 <input type='radio' name = 'skill' value = 2>
                 <h3>Utility:</h3>
@@ -27,17 +35,28 @@
                 <p>{{ utilarray[1] }}</p>
                 <p>{{ utilarray[2] }}</p>
                 <p>{{ utilarray[3] }}</p>
-
+            </div>
             </label>
+        </div>
 
 
+<br>
             <button type="submit">Complete your Character</button>
         </form>
 
+<br>
 
 
         <form action='/stats' method='get'>
             <button type="submit">Return to Stat Roll</button>
         </form>
+    </section>
+
+    {% embed "progress.html.twig" %}
+    {% endembed %}
+
+    {% embed "footer.html.twig" %}
+    {% endembed %}
+
     </body>
 </html>

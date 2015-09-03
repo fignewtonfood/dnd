@@ -257,7 +257,6 @@
                 $skills = [3, 9, 16, 17];
                 break;
         }
-        var_dump($skills);
         foreach($skills as $skill)
         {
             $GLOBALS['DB']->exec("INSERT INTO proficiencies (skill_id, character_id) VALUES ($skill, $character_id);");

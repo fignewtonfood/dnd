@@ -773,7 +773,6 @@
                 $this->updateDex($six_rolls[5]);
             }
             else {
-                var_dump("ERROR");
             }
             $race = strtolower ($race);
             if ($race == "human") {
@@ -809,7 +808,6 @@
                 $this->updateStr($this->getStr() + 2);
             }
             else {
-                var_dump("ERROR");
             }
         }
 

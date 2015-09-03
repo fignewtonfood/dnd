@@ -1,6 +1,6 @@
 <?php
 
-    class Finalize()
+    class Finalize
     {
         private $save_race;
         private $save_class;

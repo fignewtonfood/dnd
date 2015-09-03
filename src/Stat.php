@@ -863,13 +863,13 @@
                 array_push($numbers, $number);
                 $counter++;
             }
-            asort($numbers);
+            sort($numbers);
             unset($numbers[0]);
             $number_sum = array_sum($numbers);
             array_push($stats, $number_sum);
             $statcounter++;
         }
-        arsort($stats);
+        rsort($stats);
         return $stats;
 
     }

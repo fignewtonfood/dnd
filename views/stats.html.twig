@@ -8,11 +8,14 @@
 
 
 
-    <form action = '/bio' method='post'>
+    <form action = '/loadout' method='get'>
 
 {# stats are rolled and automaticly assigns a value to each stat.
 keep stat values hidden until user hits a button.
 the button reveals the hidden stat, which mimics the act of rolling dice, despite the stats being predetermined. #}
+
+        {{race}}
+        {{class}}
 
         <h3>Strength:</h3>
             <p>{{ str }}</p>

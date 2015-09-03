@@ -132,11 +132,18 @@
         $stats = statRoll();
         Stat::assignRolls($stats, $class, $race);
 
-        return $app['twig']->render('stats.html.twig', array('str' => $_SESSION['str'], 'dex'=> $_SESSION['dex'], 'con'=> $_SESSION['con'], 'wis'=> $_SESSION['wis'], 'int'=> $_SESSION['int'], 'cha'=> $_SESSION['cha']));
+        return $app['twig']->render('stats.html.twig', array('race' =>$_SESSION['race'], 'class' => $_SESSION['class'], 'str' => $_SESSION['str'], 'dex'=> $_SESSION['dex'], 'con'=> $_SESSION['con'], 'wis'=> $_SESSION['wis'], 'int'=> $_SESSION['int'], 'cha'=> $_SESSION['cha']));
     });
 
 
 //stats page
+    //render stats page
+    $app->get('/stats', function() use ($app)
+    {
+        return $app['twig']->render('stats.html.twig', array('str' => $_SESSION['str'], 'dex'=> $_SESSION['dex'], 'con'=> $_SESSION['con'], 'wis'=> $_SESSION['wis'], 'int'=> $_SESSION['int'], 'cha'=> $_SESSION['cha']));
+    });
+
+
     //carry race id, class id, background id, stats id to skills page
     $app->post('/bio', function() use ($app)
     {
@@ -152,17 +159,9 @@
     //render loadout page
     $app->get('/loadout', function() use ($app)
     {
-        return $app['twig']->render('loudout.html.twig');
-    });
+        $load_outs = loadOuts($_SESSION['class'], $_SESSION['background']);
 
-    //save loadout choice to session
-    $app->post('/bio', function() use ($app)
-    {
-
-
-        $_SESSION['loadout'] = $_POST['loadout'];
-
-        return $app['twig']->render('bio.html.twig');
+        return $app['twig']->render('loadout.html.twig', array('load_outs' => $load_outs));
     });
 
 
@@ -172,6 +171,16 @@
     {
         return $app['twig']->render('bio.html.twig');
     });
+
+    //save loadout choice to session
+    $app->post('/bio', function() use ($app)
+    {
+
+        $_SESSION['loadout'] = $_POST['loadout'];
+
+        return $app['twig']->render('bio.html.twig');
+    });
+
 
 //summary page
     //render summary page

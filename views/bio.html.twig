@@ -9,69 +9,6 @@
     </head>
     <body>
 
-    <div class='container'>
-        <form action = '/summary' method='post'>
-
-            <div class='container-fluid'>
-                <div class='col-md-6'>
-                    <label for ='name'>Name:</label>
-                    <input type='text' id = 'name' name = 'name' required autofocus>
-                    <br>
-                    <br>
-
-
-                    <label for ='name'>Age:</label>
-                    <input type='int' id = 'age' name = 'age' required>
-                    <br>
-                    <br>
-
-
-                    <label for ='name'>Gender:</label>
-                    <input type='text' id = 'gender' name = 'gender' required>
-                    <br>
-                    <br>
-
-
-                    <label for ='name'>Height:</label>
-                    <input type='text' id = 'height' name = 'height' required>
-                    <br>
-                    <br>
-
-                    <label for ='name'>Weight:</label>
-                    <input type='text' id = 'weight' name = 'weight' required>
-                    <br>
-                    <br>
-
-
-                    <label for ='name'>Eye Color:</label>
-                    <input type='text' id = 'eye_color' name = 'eye_color' required>
-                    <br>
-                    <br>
-
-
-                    <label for ='name'>Hair Color:</label>
-                    <input type='text' id = 'hair_color' name = 'hair_color' required>
-                    <br>
-                    <br>
-
-
-                    <label for ='name'>Skin Tone:</label>
-                    <input type='text' id = 'skin_tone' name = 'skin_tone' required>
-                    <br>
-                    <br>
-                </div>
-            </div>
-
-            <div class="container-fluid">
-                <div class='row' id='grid'>
-                    <div class="col-md-4">
-                        <label for = ''>
-                            <input type='radio' name = 'alignment' value = 'lawful_good'>
-                                <h3>Lawful Good</h3>
-                                <p>***Flavor text***</p>
-                        </label>
-                    </div>
-
         {% embed "header.html.twig" %}
         {% endembed %}
 
@@ -195,16 +132,12 @@
                 </tbody>
             </table>
             <p>Describe your character!!</p>
-            <textarea name='other_information' rows = '10' cols = '80'></textarea>
+            <textarea name='other' rows = '10' cols = '80'></textarea>
 
             <!-- <input type='text' id = 'other_information' name = 'other_information'> -->
             <br>
 
             <button type='submit'>Print</button>
-
-
-            <label for ='name'>Other information:</label>
-            <input type='text' id = 'other' name = 'other' value = ' '>
 
 
             <button type='submit'>Review Your Character -></button>

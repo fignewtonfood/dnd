@@ -1,13 +1,14 @@
 <?php
-    class Finalize() {
 
-        require_once __DIR__."/../src/Race.php";
-        require_once __DIR__."/../src/CharClass.php";
-        require_once __DIR__."/../src/Background.php";
-        require_once __DIR__."/../src/Stat.php";
-        require_once __DIR__."/../src/Skill.php";
-        require_once __DIR__."/../src/Description.php";
-        require_once __DIR__."/../src/Character.php";
+    require_once "Race.php";
+    require_once "CharClass.php";
+    require_once "Background.php";
+    require_once "Stat.php";
+    require_once "Skill.php";
+    require_once "Description.php";
+    require_once "Character.php";
+
+    class Finalize {
 
 
         // RUN ON FINAL PAGE :
@@ -119,6 +120,7 @@
                     $skill_id = 18;
                 }
                 array_push($skill_ids, $skill_id);
+            }
 
 
             // MAKES A RACE VARIABLE, SPEED :
@@ -198,5 +200,5 @@
             return $character;
 
         }
-
+    }
 ?>

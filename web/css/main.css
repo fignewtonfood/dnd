@@ -8,7 +8,7 @@ html {
 }
 
 body {
-	background:  #f8e1b4;
+	background:  #f1e0c5;
 	color: #000;
 	font-family: Tahoma, Verdana, sans-serif;
 	margin: 0 auto;
@@ -25,6 +25,14 @@ body {
    #91c5a9 -> medium green
    #f8e1b4 -> warm yellow
    #f98a5f -> medium red
+   ***maui barf
+
+   #bb0f00 -> deep red
+   #6e0000 -> brown
+   #6d2908 -> slightly warmer brown
+   #1ba3e1 -> blue
+   #02d0ac -> medium green
+
    #f5f2f0 -> light gray
 
 */
@@ -51,24 +59,25 @@ body {
 
 
 header {
-    background: #442d65;
-	border-bottom: 1px solid #775ba3;
+    background: #6d2908;
+	border-bottom: 2px solid #bb0f00;
 	padding: 100px 0 50px 0;
 	margin-bottom: 40px;
 }
 
 .main__description {
     margin: 2rem 0 3rem 0rem;
+	color: #6d2908;
 }
 
 .main__callToAction {
     padding: 20px;
     border-radius: 1px;
-    background: #f98a5f;
+    background: #bb0f00;
     box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 3px 6px rgba(0, 0, 0, .23);
     font-weight: 500;
     text-decoration: none;
-    color: #b73807;
+    color: #f98a5f;
     float: right;
 }
 
@@ -100,13 +109,13 @@ header {
 }
 
 .site__footer {
-	background: #91c5a9;
-	border-top: 1px solid  #775ba3;
+	background: #f8e1b4;
+	border-top: 1px solid  #6d2908;
 }
 
 .footer__content {
 	padding: 20px;
-	color: #775ba3;
+	color: #6d2908;
 }
 
 /* typography =============== */
@@ -126,9 +135,9 @@ header {
 }
 
 .main__title {
-	color: #442d65;
+	color: #6e0000;
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-	font-weight: 100;
+	font-weight: 200;
     font-size: 2.8rem;
 }
 

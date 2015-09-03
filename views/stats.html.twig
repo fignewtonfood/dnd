@@ -1,69 +1,66 @@
 <html>
     <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>Roll your stats</title>
         <link href='https://fonts.googleapis.com/css?family=Overlock+SC' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
         <link rel='stylesheet' href='./css/main.css'>
     </head>
     <body>
 
+        {% embed "header.html.twig" %}
+        {% endembed %}
 
+        <section class = "main group">
+            <form action = '/bio' method='post'>
 
+        {# stats are rolled and automaticly assigns a value to each stat.
+        keep stat values hidden until user hits a button.
+        the button reveals the hidden stat, which mimics the act of rolling dice, despite the stats being predetermined. #}
 
-    <form action = '/loadout' method='post'>
+                <h3>Strength:</h3>
+                    <p>{{ str }}</p>
+                    <em>Bodily power</em>
+                <br>
 
-{# stats are rolled and automaticly assigns a value to each stat.
-keep stat values hidden until user hits a button.
-the button reveals the hidden stat, which mimics the act of rolling dice, despite the stats being predetermined. #}
+                <h3>Dexterity:</h3>
+                    <p>{{ dex }}</p>
+                    <em>Agility, reflexes, balance</em>
+                <br>
 
-        {{race}}
-        {{class}}
+                <h3>Constitution:</h3>
+                    <p>{{ con }}</p>
+                    <em>Health and stamina</em>
+                <br>
 
-        <h3>Strength:</h3>
-            <p>{{ str }}</p>
-            <p>***Flavor text***</p>
-        <br>
+                <h3>Intelligence:</h3>
+                    <p>{{ int }}</p>
+                    <em>Recall and reasoning</em>
+                <br>
 
-        <h3>Dexterity:</h3>
-            <p>{{ dex }}</p>
-            <p>***Flavor text***</p>
-        <br>
+                <h3>Wisdom:</h3>
+                    <p>{{ wis }}</p>
+                    <em>Perceptiveness and intution</em>
+                <br>
 
+                <h3>Charisma:</h3>
+                    <p>{{ cha }}</p>
+                    <em>Interpersonal interactions</em>
+                <br>
 
-        <h3>Constitution:</h3>
-            <p>{{ con }}</p>
-            <p>***Flavor text***</p>
-        <br>
+                <p> </p><br>
+                <button type="submit">Choose your skills -></button>
+            </form>
+            <p> </p><br>
+            <form action='/background' method='get'>
+                <button type="submit">Return to Background Select</button>
+            </form>
+        </section>
+        {% embed "progress.html.twig" %}
+        {% endembed %}
 
-
-        <h3>Intelligence:</h3>
-            <p>{{ int }}</p>
-            <p>***Flavor text***</p>
-        <br>
-
-
-        <h3>Wisdom:</h3>
-            <p>{{ wis }}</p>
-            <p>***Flavor text***</p>
-        <br>
-
-
-        <h3>Charisma:</h3>
-            <p>{{ cha }}</p>
-            <p>***Flavor text***</p>
-        <br>
-
-
-        <button type="submit">Choose your skills -></button>
-    </form>
-
-        <form action='/background' method='get'>
-            <button type="submit">Return to Background Select</button>
-        </form>
-
-        <!-- https://css-tricks.com/css3-progress-bars/ -->
-        <div class="progress">
-            <span style='width: 34%'></span>
-        </div>
-
+        {% embed "footer.html.twig" %}
+        {% endembed %}
     </body>
 </html>

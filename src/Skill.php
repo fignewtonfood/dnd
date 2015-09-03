@@ -148,160 +148,160 @@
         switch($loadout)
         {
             case 1:
-                $maxed = ["Insight",
+                $maxed = [1, "Insight",
                         "Medicine",
                         "Persuasion",
                         "Religion"];
-                $utility = ["Insight",
+                $utility = [2, "Insight",
                         "Medicine",
                         "Persuasion",
                         "Religion"];
                 break;
             case 2:
-                $maxed = ["History",
+                $maxed = [3, "History",
                         "Insight",
                         "medicine",
                         "Persuasion"];
-                $utility = ["History",
+                $utility = [4, "History",
                         "Medicine",
                         "Persuasion",
                         "Religion"];
             case 3:
-                $maxed = ["Athletics",
+                $maxed = [5, "Athletics",
                         "Insight",
                         "Intimidation",
                         "Medicine"];
-                $utility = ["Athletics",
+                $utility = [6, "Athletics",
                         "Intimidation",
                         "Persuasion",
                         "Religion"];
                 break;
             case 4:
-                $maxed = ["Insight",
+                $maxed = [7, "Insight",
                         "Medicine",
                         "Sleight of Hand",
                         "Stealth"];
-                $utility = ["Persuasion",
+                $utility = [8, "Persuasion",
                         "Religion",
                         "Sleight of Hand",
                         "Stealth"];
                 break;
             case 5;
-                $maxed = ["Acrobatics",
+                $maxed = [9, "Acrobatics",
                         "Athletics",
                         "Medicine",
                         "Religion"];
-                $utility = ["Animal Handling",
+                $utility = [10, "Animal Handling",
                         "Medicine",
                         "Religion",
                         "Survival"];
                 break;
             case 6:
-                $maxed = ["Acrobatics",
+                $maxed = [11, "Acrobatics",
                         "Athletics",
                         "History",
                         "Persuasion"];
-                $utility = ["Animal Handling",
+                $utility = [12, "Animal Handling",
                         "History",
                         "Persuasion",
                         "Survival"];
                 break;
             case 7:
-                $maxed = ["Acrobatics",
+                $maxed = [13, "Acrobatics",
                         "Athletics",
                         "Intimidation",
                         "Stealth"];
-                $utility = ["Animal Handling",
+                $utility = [14, "Animal Handling",
                         "Athletics",
                         "Intimidation",
                         "Survival"];
                 break;
             case 8:
-                $maxed = ["Acrobatics",
+                $maxed = [15, "Acrobatics",
                         "Athletics",
                         "Sleight of Hand",
                         "Stealth"];
-                $utility = ["Animal Handling",
+                $utility = [16, "Animal Handling",
                         "Sleight of Hand",
                         "Stealth",
                         "Survival"];
                 break;
             case 9:
-                $maxed = ["Acrobatics",
+                $maxed = [17, "Acrobatics",
                         "Medicine",
                         "Investigation",
                         "Religion", "Selight of Hand", "Stealth"];
-                $utility = ["Deception",
+                $utility = [18, "Deception",
                         "Investigation",
                         "medicine",
                         "Performance", "Religion", "Stealth"];
                 break;
             case 10:
-                $maxed = ["Acrobatics",
+                $maxed = [19, "Acrobatics",
                         "History",
                         "Investigation",
                         "Persuasion", "Sleight of Hand", "Stealth"];
-                $utility = ["Deception",
+                $utility = [20, "Deception",
                         "History",
                         "Investigation",
                         "Performance", "Persuasion", "Stealth"];
                 break;
             case 11:
-                $maxed = ["Acrobatics",
+                $maxed = [21, "Acrobatics",
                         "Athletics",
                         "Investigation",
                         "Intimidation", "Sleight of Hand", "Stealth"];
-                $utility = ["Acrobatics",
+                $utility = [22, "Acrobatics",
                         "Deception",
                         "Investigation",
                         "Intimidation", "Performance", "Stealth"];
                 break;
             case 12:
-                $maxed = ["Acrobatics",
+                $maxed = [23, "Acrobatics",
                         "Deception",
                         "Investigation",
                         "Perception", "Sleight of Hand", "Stealth"];
-                $utility = ["Acrobatics",
+                $utility = [24, "Acrobatics",
                         "Deception",
                         "Investigation",
                         "Performance", "Sleight of Hand", "Stealth"];
                 break;
             case 13:
-                $maxed = ["Arcana",
+                $maxed = [25, "Arcana",
                         "History",
                         "Medicine",
                         "Religion"];
-                $utility = ["Arcana",
+                $utility = [26, "Arcana",
                         "Investigation",
                         "Medicine",
                         "Religion"];
                 break;
             case 14:
-                $maxed = ["Arcana",
+                $maxed = [27, "Arcana",
                         "History",
                         "Persuasion",
                         "Religion"];
-                $utility = ["Arcana",
+                $utility = [28, "Arcana",
                         "History",
                         "Investigation",
                         "Persuasion"];
                 break;
             case 15:
-                $maxed = ["Arcana",
+                $maxed = [29, "Arcana",
                         "Athletics",
                         "History",
                         "Intimidation"];
-                $utility = ["Arcana",
+                $utility = [30, "Arcana",
                         "Athletics",
                         "Intimidation",
                         "Investigation"];
                 break;
             case 16:
-                $maxed = ["Arcana",
+                $maxed = [31, "Arcana",
                         "Religion",
                         "Sleight of Hand",
                         "Stealth"];
-                $utility = ["Arcana",
+                $utility = [32, "Arcana",
                         "Investigation",
                         "Sleight of Hand",
                         "Stealth"];

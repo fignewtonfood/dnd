@@ -112,16 +112,16 @@
         }
 
 //Save a character and class at the same time to join table
-        function addCharClass($class) {
-            $GLOBALS['DB']->exec("INSERT INTO characters_classes (character_id, class_id) VALUES ({$this->getId()}, {$class->getId()});");
+        function addCharClass($class_id) {
+            $GLOBALS['DB']->exec("INSERT INTO characters_classes (character_id, class_id) VALUES ({$this->getId()}, {$class_id});");
         }
 
-        function addBackground($background) {
-            $GLOBALS['DB']->exec("INSERT INTO backgrounds_characters (character_id, background_id) VALUES ({$this->getId()}, {$background->getId()});");
+        function addBackground($background_id) {
+            $GLOBALS['DB']->exec("INSERT INTO backgrounds_characters (character_id, background_id) VALUES ({$this->getId()}, {$background_id});");
         }
 
-        function addSkill($skill) {
-            $GLOBALS['DB']->exec("INSERT INTO proficiencies (character_id, skill_id) VALUES ({$this->getId()}, {$skill->getId()});");
+        function addSkill($skill_id) {
+            $GLOBALS['DB']->exec("INSERT INTO proficiencies (character_id, skill_id) VALUES ({$this->getId()}, {$skill_id});");
         }
 
         static function getAll() {
@@ -257,7 +257,6 @@
                 $skills = [3, 9, 16, 17];
                 break;
         }
-        var_dump($skills);
         foreach($skills as $skill)
         {
             $GLOBALS['DB']->exec("INSERT INTO proficiencies (skill_id, character_id) VALUES ($skill, $character_id);");

@@ -21,7 +21,7 @@
                 $_SESSION['gender'], $_SESSION['age'],
                 $_SESSION['alignment'], $_SESSION['height'],
                 $_SESSION['eye_color'], $_SESSION['hair_color'],
-                $_SESSION['skin_tone'], $_SESSION['other_information'],
+                $_SESSION['skin_tone'], $_SESSION['other'],
                 null);
 
             $description->save();

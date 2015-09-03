@@ -5,12 +5,7 @@
     </head>
     <body>
 
-        <p>race = {{race_id}}</p>
-        <br>
-        <p>class = {{class_id}}</p>
-        <br>
-        <p>background = {{background_id}}</p>
-        <br>
+
 
 
     <form action = '/bio' method='post'>
@@ -20,43 +15,46 @@ keep stat values hidden until user hits a button.
 the button reveals the hidden stat, which mimics the act of rolling dice, despite the stats being predetermined. #}
 
         <h3>Strength:</h3>
-        <input type='radio' name = 'background_id' value = '{{ background.getId }}'>
-            <p>{{ stat.getStr }}</p>
+            <p>{{ str }}</p>
             <p>***Flavor text***</p>
         <br>
 
         <h3>Dexterity:</h3>
-            <p>{{ stat.getDex }}</p>
+            <p>{{ dex }}</p>
             <p>***Flavor text***</p>
         <br>
 
 
         <h3>Constitution:</h3>
-            <p>{{ stat.getCon }}</p>
+            <p>{{ con }}</p>
             <p>***Flavor text***</p>
         <br>
 
 
         <h3>Intelligence:</h3>
-            <p>{{ stat.getInt }}</p>
+            <p>{{ int }}</p>
             <p>***Flavor text***</p>
         <br>
 
 
         <h3>Wisdom:</h3>
-            <p>{{ stat.getWis }}</p>
+            <p>{{ wis }}</p>
             <p>***Flavor text***</p>
         <br>
 
 
         <h3>Charisma:</h3>
-            <p>{{ stat.getCha }}</p>
+            <p>{{ cha }}</p>
             <p>***Flavor text***</p>
         <br>
 
 
-        <button type='submit'>Choose your skills -></button>
+        <button type="submit">Choose your skills -></button>
+    </form>
 
+        <form action='/background' method='get'>
+            <button type="submit">Return to Background Select</button>
+        </form>
 
         <!-- https://css-tricks.com/css3-progress-bars/ -->
         <div class="progress">

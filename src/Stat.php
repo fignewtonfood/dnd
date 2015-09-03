@@ -34,7 +34,12 @@
         private $survival;
 
 
-        function __construct($ac, $acrobatics, $animal_handling, $arcana, $athletics, $cha, $con, $deception, $dex, $history, $init, $insight, $intel, $intimidation, $investigation, $max_hp, $medicine, $nature, $perception, $performance, $persuasion, $proficiency, $religion, $speed, $sleight_of_hand, $stealth, $str, $survival, $wis,  $id = null)
+        function __construct($ac, $acrobatics, $animal_handling,
+            $arcana, $athletics, $cha, $con, $deception, $dex, $history,
+            $init, $insight, $intel, $intimidation, $investigation,
+            $max_hp, $medicine, $nature, $perception, $performance,
+            $persuasion, $proficiency, $religion, $speed, $sleight_of_hand,
+            $stealth, $str, $survival, $wis,  $id = null)
         {
             $this->id = $id;
             $this->str = $str;
@@ -516,7 +521,7 @@
         function updateAcrobatics($proficiency_array) {
             $mod = $this->getModifier($this->getDex());
             foreach ($proficiency_array as $proficiency) {
-                if ($proficiency == "acrobatics") {
+                if (strtolower($proficiency) == "acrobatics") {
                     $mod += $this->getProficiency();
                 }
             }
@@ -528,7 +533,7 @@
         function updateAnimalHandling($proficiency_array) {
             $mod = $this->getModifier($this->getWis());
             foreach ($proficiency_array as $proficiency) {
-                if ($proficiency == "animal handling") {
+                if (strtolower($proficiency) == "animal handling") {
                     $mod += $this->getProficiency();
                 }
             }
@@ -540,7 +545,7 @@
         function updateArcana($proficiency_array) {
             $mod = $this->getModifier($this->getInt());
             foreach ($proficiency_array as $proficiency) {
-                if ($proficiency == "arcana") {
+                if (strtolower($proficiency) == "arcana") {
                     $mod += $this->getProficiency();
                 }
             }
@@ -552,7 +557,7 @@
         function updateAthletics($proficiency_array) {
             $mod = $this->getModifier($this->getStr());
             foreach ($proficiency_array as $proficiency) {
-                if ($proficiency == "athletics") {
+                if (strtolower($proficiency) == "athletics") {
                     $mod += $this->getProficiency();
                 }
             }
@@ -564,7 +569,7 @@
         function updateDeception($proficiency_array) {
             $mod = $this->getModifier($this->getCha());
             foreach ($proficiency_array as $proficiency) {
-                if ($proficiency == "deception") {
+                if (strtolower($proficiency) == "deception") {
                     $mod += $this->getProficiency();
                 }
             }
@@ -576,7 +581,7 @@
         function updateHistory($proficiency_array) {
             $mod = $this->getModifier($this->getInt());
             foreach ($proficiency_array as $proficiency) {
-                if ($proficiency == "history") {
+                if (strtolower($proficiency) == "history") {
                     $mod += $this->getProficiency();
                 }
             }
@@ -588,7 +593,7 @@
         function updateInsight($proficiency_array) {
             $mod = $this->getModifier($this->getWis());
             foreach ($proficiency_array as $proficiency) {
-                if ($proficiency == "insight") {
+                if (strtolower($proficiency) == "insight") {
                     $mod += $this->getProficiency();
                 }
             }
@@ -600,7 +605,7 @@
         function updateIntimidation($proficiency_array) {
             $mod = $this->getModifier($this->getCha());
             foreach ($proficiency_array as $proficiency) {
-                if ($proficiency == "intimidation") {
+                if (strtolower($proficiency) == "intimidation") {
                     $mod += $this->getProficiency();
                 }
             }
@@ -612,7 +617,7 @@
         function updateInvestigation($proficiency_array) {
             $mod = $this->getModifier($this->getInt());
             foreach ($proficiency_array as $proficiency) {
-                if ($proficiency == "investigation") {
+                if (strtolower($proficiency) == "investigation") {
                     $mod += $this->getProficiency();
                 }
             }
@@ -624,7 +629,7 @@
         function updateMedicine($proficiency_array) {
             $mod = $this->getModifier($this->getWis());
             foreach ($proficiency_array as $proficiency) {
-                if ($proficiency == "medicine") {
+                if (strtolower($proficiency) == "medicine") {
                     $mod += $this->getProficiency();
                 }
             }
@@ -636,7 +641,7 @@
         function updateNature($proficiency_array) {
             $mod = $this->getModifier($this->getInt());
             foreach ($proficiency_array as $proficiency) {
-                if ($proficiency == "nature") {
+                if (strtolower($proficiency) == "nature") {
                     $mod += $this->getProficiency();
                 }
             }
@@ -648,7 +653,7 @@
         function updatePerception($proficiency_array) {
             $mod = $this->getModifier($this->getWis());
             foreach ($proficiency_array as $proficiency) {
-                if ($proficiency == "perception") {
+                if (strtolower($proficiency) == "perception") {
                     $mod += $this->getProficiency();
                 }
             }
@@ -660,7 +665,7 @@
         function updatePerformance($proficiency_array) {
             $mod = $this->getModifier($this->getCha());
             foreach ($proficiency_array as $proficiency) {
-                if ($proficiency == "performance") {
+                if (strtolower($proficiency) == "performance") {
                     $mod += $this->getProficiency();
                 }
             }
@@ -672,7 +677,7 @@
         function updatePersuasion($proficiency_array) {
             $mod = $this->getModifier($this->getCha());
             foreach ($proficiency_array as $proficiency) {
-                if ($proficiency == "persuasion") {
+                if (strtolower($proficiency) == "persuasion") {
                     $mod += $this->getProficiency();
                 }
             }
@@ -684,7 +689,7 @@
         function updateReligion($proficiency_array) {
             $mod = $this->getModifier($this->getInt());
             foreach ($proficiency_array as $proficiency) {
-                if ($proficiency == "religion") {
+                if (strtolower($proficiency) == "religion") {
                     $mod += $this->getProficiency();
                 }
             }
@@ -696,7 +701,7 @@
         function updateSleightOfHand($proficiency_array) {
             $mod = $this->getModifier($this->getDex());
             foreach ($proficiency_array as $proficiency) {
-                if ($proficiency == "sleight of hand") {
+                if (strtolower($proficiency) == "sleight of hand") {
                     $mod += $this->getProficiency();
                 }
             }
@@ -708,7 +713,7 @@
         function updateStealth($proficiency_array) {
             $mod = $this->getModifier($this->getDex());
             foreach ($proficiency_array as $proficiency) {
-                if ($proficiency == "stealth") {
+                if (strtolower($proficiency) == "stealth") {
                     $mod += $this->getProficiency();
                 }
             }
@@ -720,7 +725,7 @@
         function updateSurvival($proficiency_array) {
             $mod = $this->getModifier($this->getWis());
             foreach ($proficiency_array as $proficiency) {
-                if ($proficiency == "survival") {
+                if (strtolower($proficiency) == "survival") {
                     $mod += $this->getProficiency();
                 }
             }

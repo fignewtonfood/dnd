@@ -154,4 +154,110 @@
             return $found_character;
         }
     }
+    function saveProficiencies($loadout_id, $character_id)
+    {
+        switch($loadout_id)
+        {
+            case 1:
+                $skills = [7, 10, 14, 15];
+                break;
+            case 2:
+                $skills = [7, 10, 14, 15];
+                break;
+            case 3:
+                $skills = [6, 7, 10, 14];
+                break;
+            case 4:
+                $skills = [6, 10, 14, 15];
+                break;
+            case 5:
+                $skills = [4, 7, 8, 10];
+                break;
+            case 6:
+                $skills = [4, 8, 14, 15];
+                break;
+            case 7:
+                $skills = [7, 10, 16, 17];
+                break;
+            case 8:
+                $skills = [14, 15, 16, 17];
+                break;
+            case 9:
+                $skills = [1, 4, 10, 15];
+                break;
+            case 10:
+                $skills = [2, 10, 15, 18];
+                break;
+            case 11:
+                $skills = [1, 4, 6, 14];
+                break;
+            case 12:
+                $skills = [2, 6, 14, 18];
+                break;
+            case 13:
+                $skills = [1, 5, 8, 17];
+                break;
+            case 14:
+                $skills = [2, 4, 8, 18];
+                break;
+            case 15:
+                $skills = [1, 4, 16, 17];
+                break;
+            case 16:
+                $skills = [2, 16, 17, 18];
+                break;
+            case 17:
+                $skills = [1, 10, 9, 15, 16, 17];
+                break;
+            case 18:
+                $skills = [5, 9, 10, 13, 15, 17];
+                break;
+            case 19:
+                $skills = [1, 6, 9, 14, 16, 17];
+                break;
+            case 20:
+                $skills = [5, 6, 9, 13, 14, 17];
+                break;
+            case 21:
+                $skills = [1, 4, 9, 8, 16, 17];
+                break;
+            case 22:
+                $skills = [1, 5, 9, 8, 13, 17];
+                break;
+            case 23:
+                $skills = [1, 5, 9, 12, 16, 17];
+                break;
+            case 24:
+                $skills = [1, 5, 9, 13, 16, 17];
+                break;
+            case 25:
+                $skills = [3, 6, 10, 15];
+                break;
+            case 26:
+                $skills = [3, 9, 10, 15];
+                break;
+            case 27:
+                $skills = [3, 6, 14, 15];
+                break;
+            case 28:
+                $skills = [3, 6, 9, 14];
+                break;
+            case 29:
+                $skills = [3, 4, 8, 8];
+                break;
+            case 30:
+                $skills = [3, 4, 8, 9];
+                break;
+            case 31:
+                $skills = [3, 15, 16, 17];
+                break;
+            case 32:
+                $skills = [3, 9, 16, 17];
+                break;
+        }
+        foreach($skills as $skill)
+        {
+            $GLOBALS['DB']->exec("INSERT INTO proficiencies (skill_id) VALUES ($skill);");
+        }
+    }
 ?>

@@ -160,7 +160,7 @@
             case 2:
                 $maxed = ["History",
                         "Insight",
-                        "Medice",
+                        "medicine",
                         "Persuasion"];
                 $utility = ["History",
                         "Medicine",
@@ -233,7 +233,7 @@
                         "Religion", "Selight of Hand", "Stealth"];
                 $utility = ["Deception",
                         "Investigation",
-                        "Medice",
+                        "medicine",
                         "Performance", "Religion", "Stealth"];
                 break;
             case 10:

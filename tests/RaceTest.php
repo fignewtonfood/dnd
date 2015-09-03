@@ -44,11 +44,13 @@
             //Arrange
             $description = "Average Joe";
             $name = "Human";
-            $test_race = new Race($description, $name);
+            $id = 1;
+            $test_race = new Race($description, $name, $id);
             $test_race->save();
             $description2 = "Cool Dude";
+            $id2 = 2;
             $name2 = "Elf";
-            $test_race2 = new Race($description2, $name2);
+            $test_race2 = new Race($description2, $name2, $id2);
             $test_race2->save();
             //Act
             $result = Race::getAll();
@@ -78,11 +80,13 @@
             //Arrange
             $description = "Average Joe";
             $name = "Human";
-            $test_race = new Race($description, $name);
+            $id = 1;
+            $test_race = new Race($description, $name, $id);
             $test_race->save();
             $description2 = "Cool Dude";
             $name2 = "Elf";
-            $test_race2 = new Race($description2, $name2);
+            $id2 = 2;
+            $test_race2 = new Race($description2, $name2, $id2);
             $test_race2->save();
             //Act
             $result = Race::find($test_race->getId());
@@ -95,7 +99,8 @@
             //Arrange
             $description = "Average Joe";
             $name = "Human";
-            $test_race = new Race($description, $name);
+            $id = 1;
+            $test_race = new Race($description, $name, $id);
             //Act
             $test_race->save();
             //Assert

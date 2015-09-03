@@ -741,7 +741,7 @@
 
         // DICE ROLL ASSIGN FUNCTION:
 
-        function assignRolls($six_rolls, $classname, $race) {
+        static function assignRolls($six_rolls, $classname, $race) {
             $classname = strtolower ($classname);
             if ($classname == "fighter") {
                 $_SESSION['str'] = $six_rolls[0];
@@ -776,7 +776,6 @@
                 $_SESSION['dex'] = $six_rolls[5];
             }
             else {
-                var_dump("ERROR");
             }
             $race = strtolower ($race);
             if ($race == "human") {
@@ -812,7 +811,6 @@
                 $_SESSION['str'] = $_SESSION['str'] + 2;
             }
             else {
-                var_dump("ERROR");
             }
         }
 

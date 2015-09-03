@@ -41,20 +41,10 @@ require_once __DIR__."/../src/Character.php";
             $this->save_background = $new_save_background;
         }
 
-<<<<<<< HEAD
-        // require_once __DIR__."/../src/Race.php";
-        // require_once __DIR__."/../src/CharClass.php";
-        // require_once __DIR__."/../src/Background.php";
-        // require_once __DIR__."/../src/Stat.php";
-        // require_once __DIR__."/../src/Skill.php";
-        // require_once __DIR__."/../src/Description.php";
-        // require_once __DIR__."/../src/Character.php";
-=======
         function setSaveStats()
         {
             $this->save_stats = $new_save_stats;
         }
->>>>>>> master
 
         function setSaveDescription($new_save_description)
         {

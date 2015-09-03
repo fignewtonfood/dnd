@@ -1,5 +1,6 @@
 <?php
     require_once __DIR__."/../vendor/autoload.php";
+    require_once __DIR__."/../src/Initial.php";
     require_once __DIR__."/../src/Race.php";
     require_once __DIR__."/../src/CharClass.php";
     require_once __DIR__."/../src/Background.php";
@@ -43,7 +44,7 @@
     $app['debug'] = true;
 
 
-    $server = 'mysql:host=localhost:8889;dbname=dnd';
+    $server = 'mysql:host=localhost;dbname=dnd';
     $username = 'root';
     $password = 'root';
     $DB = new PDO($server, $username, $password);
@@ -62,6 +63,8 @@
     //renders homepage
     $app->get('/', function() use ($app)
     {
+        Initial::addData();
+
         return $app['twig']->render('home.html.twig', array('characters' => Character::getAll()));
     });
 
@@ -74,7 +77,7 @@
         return $app['twig']->render('race.html.twig', array('races' => Race::getAll()));
     });
 
-    //carry race id to class page
+    //post class id to cookies
     $app->post('/class', function() use ($app)
     {
         $_SESSION['race'] = $_POST['race_id'];
@@ -85,7 +88,13 @@
 
 
 //class page
-    //carry race id and class id to background page
+    //render class page
+    $app->get('/class', function() use ($app)
+    {
+        return $app['twig']->render('class.html.twig', array('classes' => CharClass::getAll()));
+    });
+
+    //post class id to cookies
     $app->post('/background', function() use ($app)
     {
         $_SESSION['class'] = $_POST['class_id'];
@@ -96,6 +105,12 @@
 
 
 //background page
+    //render background page
+    $app->get('/background', function() use ($app)
+    {
+        return $app['twig']->render('background.html.twig', array('backgrounds' => Background::getAll()));
+    });
+
     //carry race id, class id, background id to stats page
     $app->post('/stats', function() use ($app)
     {
@@ -104,7 +119,7 @@
 
         $race_id = $_SESSION['race'];
         $race_find = Race::find($race_id);
-        $race = getName($race_find);
+        $race = $race_find->getName();
 
         $class_id = $_SESSION['class'];
         $class_find = CharClass::find($class_id);
@@ -117,8 +132,6 @@
 
         return $app['twig']->render('stats.html.twig', array('stat' => Stat::getAll()));
     });
-
-
 
 
 //stats page

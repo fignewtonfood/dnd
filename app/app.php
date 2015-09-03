@@ -7,6 +7,7 @@
     require_once __DIR__."/../src/Skill.php";
     require_once __DIR__."/../src/Description.php";
     require_once __DIR__."/../src/Character.php";
+    require_once __DIR__."/../src/Initial.php";
 
 
     session_start();
@@ -43,7 +44,7 @@
     $app['debug'] = true;
 
 
-    $server = 'mysql:host=localhost:8889;dbname=dnd';
+    $server = 'mysql:host=localhost;dbname=dnd';
     $username = 'root';
     $password = 'root';
     $DB = new PDO($server, $username, $password);
@@ -60,6 +61,7 @@
 
 //landing page
     //renders homepage
+    Initial::addData();
     $app->get('/', function() use ($app)
     {
         return $app['twig']->render('home.html.twig', array('characters' => Character::getAll()));

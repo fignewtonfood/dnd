@@ -1,5 +1,6 @@
 <?php
     class Description {
+        private $name;
         private $id;
         private $gender;
         private $age;
@@ -10,7 +11,8 @@
         private $skin_tone;
         private $other;
 
-        function __construct($gender, $age, $alignment, $height, $eye_color, $hair_color, $skin_tone, $other, $id = null) {
+        function __construct($name, $gender, $age, $alignment, $height, $eye_color, $hair_color, $skin_tone, $other, $id = null) {
+            $this->name = $name;
             $this->id = $id;
             $this->gender = $gender;
             $this->age = $age;
@@ -23,6 +25,13 @@
         }
 
         // GETTERS AND SETTERS:
+        function getName() {
+            return $this->name;
+        }
+
+        function setName() {
+            $this->name = (string) $name;
+        }
 
         function getId() {
             return $this->id;
@@ -93,12 +102,13 @@
         }
 
         function save() {
-            $GLOBALS['DB']->exec("INSERT INTO descriptions (gender, age,
+            $GLOBALS['DB']->exec("INSERT INTO descriptions (name, gender, age,
             alignment, height, eye_color, hair_color, skin_tone, other)
-            VALUES ('{$this->getGender()}', '{$this->getAge()}',
-            '{$this->getAlignment()}', '{$this->getHeight()}',
-            '{$this->getEyeColor()}', '{$this->getHairColor()}',
-            '{$this->getSkinTone()}',  '{$this->getOther()}');");
+            VALUES ('{$this->getName()}', '{$this->getGender()}',
+                '{$this->getAge()}',
+                '{$this->getAlignment()}', '{$this->getHeight()}',
+                '{$this->getEyeColor()}', '{$this->getHairColor()}',
+                '{$this->getSkinTone()}',  '{$this->getOther()}');");
             $this->id = $GLOBALS["DB"]->lastInsertId();
         }
 
@@ -107,6 +117,7 @@
             $all = array();
             foreach($raw_info as $details) {
                 $id = $details["id"];
+                $name = $details["name"];
                 $gender = $details["gender"];
                 $age = $details["age"];
                 $alignment = $details["alignment"];
@@ -115,7 +126,7 @@
                 $hair_color = $details["hair_color"];
                 $skin_tone = $details["skin_tone"];
                 $other = $details["other"];
-                $full_description = new Description($gender, $age,
+                $full_description = new Description($name, $gender, $age,
                 $alignment, $height, $eye_color, $hair_color, $skin_tone,
                 $other, $id);
                 array_push($all, $full_description);

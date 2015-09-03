@@ -120,7 +120,8 @@
 
             $name = "Wizard";
             $description = "stuff";
-            $test_class = new CharClass($name, $description);
+            $id = 1;
+            $test_class = new CharClass($name, $description, $id);
             $test_class->save();
 
             //Act
@@ -140,11 +141,13 @@
             $test_character->save();
             $name = "Wizard";
             $description = "stuff";
-            $test_class = new CharClass($name, $description);
+            $id = 1;
+            $test_class = new CharClass($name, $description, $id);
             $test_class->save();
             $name2 = "Fighter";
             $description2 = "other stuff";
-            $test_class2 = new CharClass($name2, $description2);
+            $id2 = 2;
+            $test_class2 = new CharClass($name2, $description2, $id2);
             $test_class2->save();
 
             //Act
@@ -165,7 +168,8 @@
 
             $name = "Noble";
             $description = "stuff";
-            $test_background = new Background($name, $description);
+            $id = 1;
+            $test_background = new Background($name, $description, $id);
             $test_background->save();
 
             //Act
@@ -186,12 +190,14 @@
 
             $name = "Noble";
             $description = "stuff";
-            $test_background = new Background($name, $description);
+            $id = 1;
+            $test_background = new Background($name, $description, $id);
             $test_background->save();
 
             $name2 = "Urchin";
             $description2 = "other stuff";
-            $test_background2 = new Background($name2, $description2);
+            $id2 = 2;
+            $test_background2 = new Background($name2, $description2, $id2);
             $test_background2->save();
 
             //Act
@@ -212,7 +218,8 @@
 
             $name = "Acrobatics";
             $description = "stuff";
-            $test_skill = new Skill($name, $description);
+            $id = 1;
+            $test_skill = new Skill($name, $description, $id);
             $test_skill->save();
 
             //Act
@@ -233,11 +240,13 @@
 
             $name = "Acrobatics";
             $description = "stuff";
-            $test_skill = new Skill($name, $description);
+            $id = 1;
+            $test_skill = new Skill($name, $description, $id);
             $test_skill->save();
             $name2 = "Athletics";
             $description2 = "other stuff";
-            $test_skill2 = new Skill($name2, $description2);
+            $id2 = 2;
+            $test_skill2 = new Skill($name2, $description2,$id2);
             $test_skill2->save();
 
             //Act
@@ -254,7 +263,6 @@
 
             saveProficiencies($loadout_id, $character_id);
             $result = getProficiencies($character_id);
-            var_dump($result);
 
             $this->assertEquals([2, 10, 15, 18], $result);
         }

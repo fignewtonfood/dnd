@@ -1,16 +1,22 @@
 <html>
     <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>Choose your background</title>
+        <link href='https://fonts.googleapis.com/css?family=Overlock+SC' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
         <link rel='stylesheet' href='./css/main.css'>
     </head>
     <body>
-        <div class='container'>
+
+        {% embed "header.html.twig" %}
+        {% endembed %}
+
+        <section class='main group'>
+
             <form action = '/stats' method='post'>
 
-
                 {% for background in backgrounds %}
-
                 <label for = '{{ background.getId }}'>
                     <div class='background_select'>
                         <input type='radio' name = 'background_id' value = '{{ background.getId }}'>
@@ -20,19 +26,22 @@
                     </div>
                 </label>
                 <hr>
-
                 {% endfor %}
 
-
                 <button type='submit'>Roll your stats -></button>
-
-
-                <!-- https://css-tricks.com/css3-progress-bars/ -->
-                <div class="progress">
-                    <span style='width: 50%'></span>
-                </div>
-
+                <p> </p><br>
             </form>
-        </div>
+            <p> </p><br>
+            <form action='/class' method='get'>
+                <button type="submit">Return to Class Select</button>
+            </form>
+        </section>
+
+        {% embed "progress.html.twig" %}
+        {% endembed %}
+
+        {% embed "footer.html.twig" %}
+        {% endembed %}
+
     </body>
 </html>

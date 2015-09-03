@@ -1,5 +1,6 @@
 <?php
-    class Finalize() {
+    class Finalize
+     {
 
         require_once __DIR__."/../src/Race.php";
         require_once __DIR__."/../src/CharClass.php";
@@ -72,7 +73,7 @@
 
             $ac = 10 + $dex_mod;
 
-            $proficiency_array = [$_SESSION['skill'];
+            $proficiency_array = $_SESSION['skill'];
 
 
             // MAKES A RACE VARIABLE, SPEED :
@@ -149,5 +150,6 @@
             return $character;
 
         }
+      }
 
 ?>

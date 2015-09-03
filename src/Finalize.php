@@ -10,7 +10,6 @@
 
     class Finalize {
 
-
         // RUN ON FINAL PAGE :
 
         static function run() {
@@ -76,6 +75,9 @@
             $max_hp = $con_mod + $class_hp;
 
             $ac = 10 + $dex_mod;
+
+
+            $proficiency_array = $_SESSION['skill'];
 
             $background_id = $_SESSION['background'];
 
@@ -200,5 +202,6 @@
             return $character;
 
         }
+      }
     }
 ?>

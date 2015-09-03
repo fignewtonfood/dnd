@@ -39,7 +39,8 @@
             //Arrange
             $name = "Fighter";
             $description = "stuff";
-            $test_class = new CharClass($name, $description);
+            $id = 1;
+            $test_class = new CharClass($name, $description, $id);
 
             //Act
             $test_class->save();
@@ -53,11 +54,13 @@
             //Arrange
             $name = "Fighter";
             $description = "stuff";
-            $test_class = new CharClass($name, $description);
+            $id = 1;
+            $test_class = new CharClass($name, $description, $id);
             $test_class->save();
             $name2 = "Wizard";
             $description2 = "other stuff";
-            $test_class2 = new CharClass($name2, $description2);
+            $id2 = 2;
+            $test_class2 = new CharClass($name2, $description2, $id2);
             $test_class2->save();
 
             //Act
@@ -90,7 +93,8 @@
             //Arrange
             $name = "Fighter";
             $description = "stuff";
-            $test_class = new CharClass($name, $description);
+            $id = 1;
+            $test_class = new CharClass($name, $description, $id);
             $test_class->save();
 
             //Act
@@ -104,7 +108,8 @@
             //Arrange
             $name = "Fighter";
             $description = "stuff";
-            $test_class = new CharClass($name, $description);
+            $id = 1;
+            $test_class = new CharClass($name, $description, $id);
             $test_class->save();
             $name2 = "Wizard";
             $description2 = "other stuff";

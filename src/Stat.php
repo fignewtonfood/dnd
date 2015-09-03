@@ -498,28 +498,28 @@
         // SKILL COMPUTERS:
 
         function updateMaxHp() {
-            $mod = $this->getModifier($this->getModifier($this->getCon));
+            $mod = $this->getModifier($_SESSION['con']);
             $proficiencies = Stat::getProficiency();
             $GLOBALS['DB']->exec("UPDATE stats SET max_hp = {$mod} WHERE id = {$this->getId()};");
             $this->setMaxHp($mod);
         }
 
         function updateInit() {
-            $mod = $this->getModifier($this->getDex());
+            $mod = $this->getModifier($_SESSION['dex']);
             $GLOBALS["DB"]->exec("UPDATE stats SET init = {$mod} WHERE id =
                 {$this->getId()};");
             $this->setInit($mod);
         }
 
         function updateAc() {
-            $mod = $this->getModifier($this->getDex());
+            $mod = $this->getModifier($_SESSION['dex']);
             $GLOBALS["DB"]->exec("UPDATE stats SET ac = {$mod} WHERE id =
                 {$this->getId()};");
             $this->setAc($mod);
         }
 
         function updateAcrobatics($proficiency_array) {
-            $mod = $this->getModifier($this->getDex());
+            $mod = $this->getModifier($_SESSION['dex']);
             foreach ($proficiency_array as $proficiency) {
                 if (strtolower($proficiency) == "acrobatics") {
                     $mod += $this->getProficiency();
@@ -531,7 +531,7 @@
         }
 
         function updateAnimalHandling($proficiency_array) {
-            $mod = $this->getModifier($this->getWis());
+            $mod = $this->getModifier($_SESSION['wis']);
             foreach ($proficiency_array as $proficiency) {
                 if (strtolower($proficiency) == "animal handling") {
                     $mod += $this->getProficiency();
@@ -543,7 +543,7 @@
         }
 
         function updateArcana($proficiency_array) {
-            $mod = $this->getModifier($this->getInt());
+            $mod = $this->getModifier($_SESSION['int']);
             foreach ($proficiency_array as $proficiency) {
                 if (strtolower($proficiency) == "arcana") {
                     $mod += $this->getProficiency();
@@ -555,7 +555,7 @@
         }
 
         function updateAthletics($proficiency_array) {
-            $mod = $this->getModifier($this->getStr());
+            $mod = $this->getModifier($_SESSION['str']);
             foreach ($proficiency_array as $proficiency) {
                 if (strtolower($proficiency) == "athletics") {
                     $mod += $this->getProficiency();
@@ -567,7 +567,7 @@
         }
 
         function updateDeception($proficiency_array) {
-            $mod = $this->getModifier($this->getCha());
+            $mod = $this->getModifier($_SESSION['cha']);
             foreach ($proficiency_array as $proficiency) {
                 if (strtolower($proficiency) == "deception") {
                     $mod += $this->getProficiency();
@@ -579,7 +579,7 @@
         }
 
         function updateHistory($proficiency_array) {
-            $mod = $this->getModifier($this->getInt());
+            $mod = $this->getModifier($_SESSION['int']);
             foreach ($proficiency_array as $proficiency) {
                 if (strtolower($proficiency) == "history") {
                     $mod += $this->getProficiency();
@@ -591,7 +591,7 @@
         }
 
         function updateInsight($proficiency_array) {
-            $mod = $this->getModifier($this->getWis());
+            $mod = $this->getModifier($_SESSION['wis']);
             foreach ($proficiency_array as $proficiency) {
                 if (strtolower($proficiency) == "insight") {
                     $mod += $this->getProficiency();
@@ -603,7 +603,7 @@
         }
 
         function updateIntimidation($proficiency_array) {
-            $mod = $this->getModifier($this->getCha());
+            $mod = $this->getModifier($_SESSION['cha']);
             foreach ($proficiency_array as $proficiency) {
                 if (strtolower($proficiency) == "intimidation") {
                     $mod += $this->getProficiency();
@@ -615,7 +615,7 @@
         }
 
         function updateInvestigation($proficiency_array) {
-            $mod = $this->getModifier($this->getInt());
+            $mod = $this->getModifier($_SESSION['int']);
             foreach ($proficiency_array as $proficiency) {
                 if (strtolower($proficiency) == "investigation") {
                     $mod += $this->getProficiency();
@@ -627,7 +627,7 @@
         }
 
         function updateMedicine($proficiency_array) {
-            $mod = $this->getModifier($this->getWis());
+            $mod = $this->getModifier($_SESSION['wis']);
             foreach ($proficiency_array as $proficiency) {
                 if (strtolower($proficiency) == "medicine") {
                     $mod += $this->getProficiency();
@@ -639,7 +639,7 @@
         }
 
         function updateNature($proficiency_array) {
-            $mod = $this->getModifier($this->getInt());
+            $mod = $this->getModifier($_SESSION['int']);
             foreach ($proficiency_array as $proficiency) {
                 if (strtolower($proficiency) == "nature") {
                     $mod += $this->getProficiency();
@@ -651,7 +651,7 @@
         }
 
         function updatePerception($proficiency_array) {
-            $mod = $this->getModifier($this->getWis());
+            $mod = $this->getModifier($_SESSION['wis']);
             foreach ($proficiency_array as $proficiency) {
                 if (strtolower($proficiency) == "perception") {
                     $mod += $this->getProficiency();
@@ -663,7 +663,7 @@
         }
 
         function updatePerformance($proficiency_array) {
-            $mod = $this->getModifier($this->getCha());
+            $mod = $this->getModifier($_SESSION['cha']);
             foreach ($proficiency_array as $proficiency) {
                 if (strtolower($proficiency) == "performance") {
                     $mod += $this->getProficiency();
@@ -675,7 +675,7 @@
         }
 
         function updatePersuasion($proficiency_array) {
-            $mod = $this->getModifier($this->getCha());
+            $mod = $this->getModifier($_SESSION['cha']);
             foreach ($proficiency_array as $proficiency) {
                 if (strtolower($proficiency) == "persuasion") {
                     $mod += $this->getProficiency();
@@ -687,7 +687,7 @@
         }
 
         function updateReligion($proficiency_array) {
-            $mod = $this->getModifier($this->getInt());
+            $mod = $this->getModifier($_SESSION['int']);
             foreach ($proficiency_array as $proficiency) {
                 if (strtolower($proficiency) == "religion") {
                     $mod += $this->getProficiency();
@@ -699,7 +699,7 @@
         }
 
         function updateSleightOfHand($proficiency_array) {
-            $mod = $this->getModifier($this->getDex());
+            $mod = $this->getModifier($_SESSION['dex']);
             foreach ($proficiency_array as $proficiency) {
                 if (strtolower($proficiency) == "sleight of hand") {
                     $mod += $this->getProficiency();
@@ -711,7 +711,7 @@
         }
 
         function updateStealth($proficiency_array) {
-            $mod = $this->getModifier($this->getDex());
+            $mod = $this->getModifier($_SESSION['dex']);
             foreach ($proficiency_array as $proficiency) {
                 if (strtolower($proficiency) == "stealth") {
                     $mod += $this->getProficiency();
@@ -723,7 +723,7 @@
         }
 
         function updateSurvival($proficiency_array) {
-            $mod = $this->getModifier($this->getWis());
+            $mod = $this->getModifier($_SESSION['wis']);
             foreach ($proficiency_array as $proficiency) {
                 if (strtolower($proficiency) == "survival") {
                     $mod += $this->getProficiency();
@@ -755,12 +755,12 @@
                 $_SESSION['dex'] = $six_rolls[0];
                 $_SESSION['con'] = $six_rolls[1];
                 $_SESSION['cha'] = $six_rolls[2];
-                $_SESSION['int'] $six_rolls[3];
+                $_SESSION['int'] = $six_rolls[3];
                 $_SESSION['str'] = $six_rolls[4];
                 $_SESSION['wis'] = $six_rolls[5];
             }
             elseif ($classname == "wizard") {
-                $_SESSION['int'] $six_rolls[0];
+                $_SESSION['int'] = $six_rolls[0];
                 $_SESSION['con'] = $six_rolls[1];
                 $_SESSION['dex'] = $six_rolls[2];
                 $_SESSION['wis'] = $six_rolls[3];
@@ -772,7 +772,7 @@
                 $_SESSION['con'] = $six_rolls[1];
                 $_SESSION['str'] = $six_rolls[2];
                 $_SESSION['cha'] = $six_rolls[3];
-                $_SESSION['int'] $six_rolls[4];
+                $_SESSION['int'] = $six_rolls[4];
                 $_SESSION['dex'] = $six_rolls[5];
             }
             else {
@@ -780,36 +780,36 @@
             }
             $race = strtolower ($race);
             if ($race == "human") {
-                $this->updateStr($this->getStr() + 1);
-                $this->updateIntel($this->getIntel() + 1);
-                $this->updateDex($this->getDex() + 1);
-                $this->updateWis($this->getWis() + 1);
-                $this->updateCha($this->getCha() + 1);
-                $this->updateCon($this->getCon() + 1);
+                $this->updateStr($_SESSION['str'] ++);
+                $this->updateIntel($_SESSION['int'] ++);
+                $this->updateDex($_SESSION['dex'] ++);
+                $this->updateWis($_SESSION['wis'] ++);
+                $this->updateCha($_SESSION['cha'] ++);
+                $this->updateCon($_SESSION['con'] ++);
             }
             elseif ($race == "lightfoot halfling") {
-                $this->updateDex($this->getDex() + 2);
-                $this->updateCha($this->getCha() + 1);
+                $this->updateDex($_SESSION['dex'] + 2);
+                $this->updateCha($_SESSION['cha'] ++);
             }
             elseif ($race == "stout halfling") {
-                $this->updateDex($this->getDex() + 2);
-                $this->updateCon($this->getCon() + 1);
+                $this->updateDex($_SESSION['dex'] + 2);
+                $this->updateCon($_SESSION['con'] ++);
             }
             elseif ($race == "high elf") {
-                $this->updateDex($this->getDex() + 2);
-                $this->updateInt($this->getInt() + 1);
+                $this->updateDex($_SESSION['dex'] + 2);
+                $this->updateIntel($_SESSION['int'] ++);
             }
             elseif ($race == "wood elf") {
-                $this->updateDex($this->getDex() + 2);
-                $this->updateWis($this->getWis() + 1);
+                $this->updateDex($_SESSION['dex'] + 2);
+                $this->updateWis($_SESSION['wis'] ++);
             }
             elseif ($race == "hill dwarf") {
-                $this->updateCon($this->getCon() + 2);
-                $this->updateWis($this->getWis() + 1);
+                $this->updateCon($_SESSION['con'] + 2);
+                $this->updateWis($_SESSION['wis'] ++);
             }
             elseif ($race == "mountain dwarf") {
-                $this->updateCon($this->getCon() + 2);
-                $this->updateStr($this->getStr() + 2);
+                $this->updateCon($_SESSION['con'] + 2);
+                $this->updateStr($_SESSION['str'] + 2);
             }
             else {
                 var_dump("ERROR");

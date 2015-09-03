@@ -452,9 +452,7 @@
         }
 
 
-
-
-        // UPDATE STAT FUNCTIONS:
+        //UPDATE STAT FUNCTIONS:
         function updateStr($number) {
             $GLOBALS["DB"]->exec("UPDATE stats SET str = {$number} WHERE id =
                 {$this->getId()};");
@@ -741,12 +739,12 @@
         static function assignRolls($six_rolls, $classname, $race) {
             $classname = strtolower ($classname);
             if ($classname == "fighter") {
-                $this->updateStr($six_rolls[0]);
-                $this->updateCon($six_rolls[1]);
-                $this->updateDex($six_rolls[2]);
-                $this->updateCha($six_rolls[3]);
-                $this->updateWis($six_rolls[4]);
-                $this->updateIntel($six_rolls[5]);
+                $_SESSION['str'] = $six_rolls[0];
+                $_SESSION['con'] = $six_rolls[1];
+                $_SESSION['dex'] = $six_rolls[2];
+                $_SESSION['cha'] = $six_rolls[3];
+                $_SESSION['wis'] = $six_rolls[4];
+                $_SESSION['int'] = $six_rolls[5];
             }
             elseif ($classname == "rogue") {
                 $this->updateDex($six_rolls[0]);
@@ -832,8 +830,10 @@
                 $mod = 2;
             } elseif ($stat_number == 16 | $stat_number == 17) {
                 $mod = 3;
+            } elseif ($stat_number == 18 | $stat_number == 19) {
+                  $mod = 4;
             } else {
-                $mod = 4;
+                $mod = 5;
             }
             return $mod;
         }

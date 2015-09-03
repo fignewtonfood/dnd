@@ -29,12 +29,11 @@
         $_SESSION['age'] = "21";
         $_SESSION['gender'] = "male";
         $_SESSION['height'] = "3 feet";
-        $_SESSION['weight'] = "190 lbs";
         $_SESSION['eye_color'] = "brown";
         $_SESSION['hair_color'] = "brown";
         $_SESSION['skin_tone'] = "brown";
         $_SESSION['alignment'] = "chaotic neutral";
-        $_SESSION['other_information'] = "This character is a BAMF.";
+        $_SESSION['other'] = "This character is a BAMF.";
 
     $server = 'mysql:host=localhost;dbname=dnd_test';
     $username = 'root';

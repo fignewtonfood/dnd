@@ -6,18 +6,29 @@
 
 
 body {
-	background: #fff;
-	color: #000;
+	background: none;
+	color: black;
     font-family: Georgia,Times,Times New Roman,serif;
+	font-size: 10pt;
     margin: 0 auto;
-    padding: 2em;
+    padding: 10px 0 0 0;
 	width: 100%;
-	height: 100%;
+	height: 900px;
 }
+
+
+.page {
+    font-size: 12pt;
+    height: 900px;
+    page-break-after: always;
+    page-break-inside: avoid;
+}
+
+
 
 h1,h2,h4,h5,h6 {
 
-    margin-bottom: 1em;
+    margin-bottom: .5em;
 }
 
 h3 {
@@ -29,6 +40,8 @@ div {
     padding: 1em;
     border: 1px solid #000;
     margin-bottom: 1em;
+	margin: 0 0 1em 1em;
+	display: inline-block;
 }
 
 span {
@@ -53,19 +66,19 @@ h3 span {
 }
 
 .box {
-    width: 25em;
+    width: 20em;
     height: 6em;
     border: 1px solid #000;
 }
 
 .big-box {
-    width: 25em;
-    height: 12em;
+    width: 20em;
+    height: 8em;
     border: 1px solid #000;
 }
 
 .bigger-box {
-    width: 25em;
+    width: 20em;
     height: 20em;
     border: 1px solid #000;
 }
@@ -83,5 +96,5 @@ h3 span {
 
 .pull-left {
     float: left;
-    margin: 0 1em 0 1em;
+    margin: 0 0 1em 1em;
 }

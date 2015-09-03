@@ -1,6 +1,12 @@
 <?php
 
-    require_once "CharClass.php";
+require_once "Race.php";
+require_once "CharClass.php";
+require_once "Background.php";
+require_once "Stat.php";
+require_once "Skill.php";
+require_once "Description.php";
+require_once "Character.php";
 
     class Character {
 

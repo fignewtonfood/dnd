@@ -6,50 +6,35 @@
     </head>
     <body>
 
-
-        {% for loadout in loadouts %}
-
-        <label for = '{{ loadout_id }}'>
-            <div class='skill_select'>
-                <input type='checkbox' name = 'skill_id' value = {{ loadout.getId }}>
-                    <h3>Maxed:</h3>
-                    <p>{{ loadout[0] }}</p>
-
-            </div>
-        </label>
-        <hr>
-
-        {% endfor %}
+        <form action='/bio' method='post'>
 
 
-        acrobatics
-        animal handling
-        arcana
-        athletics
-        deception
-        history
-        insight
-        intimidation
-        investigation
-        medicine
-        nature
-        perception
-        perfomance
-        persuasion
-        relighion
-        slight of hand
-        stealth
-        survival
+            <label for = 'skill'>
+
+                <input type='radio' name = 'skill' value = 1>
+                <h3>Maxed:</h3>
+                <p>{{ maxarray[0] }}</p>
+                <p>{{ maxarray[1] }}</p>
+                <p>{{ maxarray[2] }}</p>
+                <p>{{ maxarray[3] }}</p>
+
+                <input type='radio' name = 'skill' value = 2>
+                <h3>Utility:</h3>
+                <p>{{ utilarray[0] }}</p>
+                <p>{{ utilarray[1] }}</p>
+                <p>{{ utilarray[2] }}</p>
+                <p>{{ utilarray[3] }}</p>
+
+            </label>
+
+
+            <button type="submit">Complete your Character</button>
+        </form>
+
 
 
         <form action='/stats' method='get'>
             <button type="submit">Return to Stat Roll</button>
         </form>
-
-        <!-- https://css-tricks.com/css3-progress-bars/ -->
-        <div class="progress">
-            <span style='width: 67%'></span>
-        </div>
-
     </body>
 </html>

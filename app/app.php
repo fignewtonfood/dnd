@@ -28,7 +28,7 @@
         $_SESSION['int'] => "",
         $_SESSION['cha'] => "",
 
-        $_SESSION['loadout'] => "",
+        $_SESSION['skill'] => "",
 
         $_SESSION['name'] => "",
         $_SESSION['age'] => "",
@@ -39,7 +39,7 @@
         $_SESSION['hair_color'] => "",
         $_SESSION['skin_tone'] => "",
         $_SESSION['alignment'] => "",
-        $_SESSION['other_information'] => " ",
+        $_SESSION['other'] => "",
     );};
 
 
@@ -150,21 +150,25 @@
     {
 
 
-        $load_outs = loadOuts($_SESSION['class'], $_SESSION['background']);
+        $loadouts = loadOuts($_SESSION['class'], $_SESSION['background']);
 
-        $max1 = $loadout_outs[0][1];
-        $max2 = $loadout_outs[0][2];
-        $max3 = $loadout_outs[0][3];
-        $max4 = $loadout_outs[0][4];
+        $max0 = $loadouts[0][0];
+        $max1 = $loadouts[0][1];
+        $max2 = $loadouts[0][2];
+        $max3 = $loadouts[0][3];
+        $max4 = $loadouts[0][4];
+        $max_array = [$max1, $max2, $max3, $max4];
 
-        $util1 = $loadout_outs[1][1];
-        $util2 = $loadout_outs[1][2];
-        $util3 = $loadout_outs[1][3];
-        $util4 = $loadout_outs[1][4];
 
-        var_dump($util4);
+        $util0 = $loadouts[1][0];
+        $util1 = $loadouts[1][1];
+        $util2 = $loadouts[1][2];
+        $util3 = $loadouts[1][3];
+        $util4 = $loadouts[1][4];
+        $util_array = [$util1, $util2, $util3, $util4];
 
-        return $app['twig']->render('loadout.html.twig', array('loadouts' => $load_outs));
+
+        return $app['twig']->render('loadout.html.twig', array('maxarray' => $max_array, 'utilarray' => $util_array));
     });
 
 
@@ -179,7 +183,27 @@
     $app->post('/bio', function() use ($app)
     {
 
-        $_SESSION['loadout'] = $_POST['loadout'];
+        $loadouts = loadOuts($_SESSION['class'], $_SESSION['background']);
+
+        $max0 = $loadouts[0][0];
+        $max1 = $loadouts[0][1];
+        $max2 = $loadouts[0][2];
+        $max3 = $loadouts[0][3];
+        $max4 = $loadouts[0][4];
+        $max_array = [$max1, $max2, $max3, $max4];
+
+        $util0 = $loadouts[1][0];
+        $util1 = $loadouts[1][1];
+        $util2 = $loadouts[1][2];
+        $util3 = $loadouts[1][3];
+        $util4 = $loadouts[1][4];
+        $util_array = [$util1, $util2, $util3, $util4];
+
+        if ($_POST['skill'] == 1) {
+            $_SESSION['skill'] = $max_array;
+        } elseif ($_POST['skill'] == 2) {
+            $_SESSION['skill'] = $util_array;
+        }
 
         return $app['twig']->render('bio.html.twig');
     });
@@ -204,7 +228,7 @@
         $_SESSION['hair_color'] = $_POST['hair_color'];
         $_SESSION['skin_tone'] = $_POST['skin_tone'];
         $_SESSION['alignment'] = $_POST['alignment'];
-        $_SESSION['other'] = $_POST['other_information'];
+        $_SESSION['other'] = $_POST['other'];
 
         return $app['twig']->render('summary.html.twig', array (
 
@@ -232,7 +256,7 @@
                 'hair_color' => $_SESSION['hair_color'],
                 'skin_tone' => $_SESSION['skin_tone'],
                 'alignment' => $_SESSION['alignment'],
-                'other_information' => $_SESSION['other_information'],
+                'other' => $_SESSION['other'],
 
                 'races' => Race::getAll(),
                 'classes' => CharClass::getAll(),

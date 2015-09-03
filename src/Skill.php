@@ -160,7 +160,7 @@
             case 2:
                 $maxed = [3, "History",
                         "Insight",
-                        "medicine",
+                        "Medicine",
                         "Persuasion"];
                 $utility = [4, "History",
                         "Medicine",

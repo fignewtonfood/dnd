@@ -2,17 +2,114 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title></title>
+        <title> Character Sheet </title>
+
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="css/sheet.css">
+
     </head>
     <body>
 
-        
+    <div>
+        <h1>Character Name: <em>{{ character.getName }}</em></h1>
+        <span>Class &amp; level: <em>{{ character.getClass }} - {{ character.getLevel }}</em></span>
+        <span>Background: <em>{{ character.getBackground }}</em></span>
+        <span>Player Name: <em>{{ character.getPlayerName }}</em></span>
+        <span>Race: <em>{{ character.getRace }}</em></span>
+        <span>Alignment:<em>{{ character.getAlignment }}</em></span>
+        <span>Experience Points: <em>{{ character.getExperiencePoints }}</em></span>
+    </div>
 
+    <div>
+        <span>Age: <em>{{ character.getAge }}</em></span>
+        <span>Height: <em>{{ character.getHeight }}</em></span>
+        <span>Weight: <em>{{ character.getWeight }}</em></span>
+        <span>Eyes: <em>{{ character.getEyes }}</em></span>
+        <span>Skin:<em>{{ character.getSkin}}</em></span>
+        <span>Hair: <em>{{ character.getHair }}</em></span>
+        <span>Other: <em>{{ character.getOther }}</em></span>
+    </div>
 
+    <div>
+        <h3>Inspiration: <span></span><h3><br />
+        <h3>Proficiency Bonus: <span> <!-- {{ character.getProficiencyBonus}} --> </span><h3><br />
+        <h3>Passive wisdom (Perception): <span></span><h3>
+    </div>
 
+    <div>
+        <h2>Stats</h2>
+        <span>Strength: <em>{{ character.getStrength }}</em></span>
+        <span>Dexterity: <em>{{ character.getDexterity }}</em></span>
+        <span>Constitution: <em>{{ character.getConstitution }}</em></span>
+        <span>Intelligence: <em>{{ character.getIntelligence }}</em></span>
+        <span>Wisdom:<em>{{ character.getWisdom }}</em></span>
+        <span>Charisa: <em>{{ character.getCharisa }}</em></span>
+    </div>
 
+    <div>
+        <h2>Skills</h2>
+        <span>{{ Character.getAcrobatics }} Acrobatics ( dex ) </span>
+        <span>{{ Character.getAnimalHandling }} Animal handling ( wis ) </span>
+        <span>{{ Character.getArcana }} Arcana ( int ) </span>
+        <span>{{ Character.getAthletics }} Athletics ( str ) </span>
+        <span>{{ Character.getDeception }} Deception ( cha ) </span>
+        <span>{{ Character.getHistory }} History ( int ) </span>
+        <span>{{ Character.getInsight }} Insight ( wis ) </span>
+        <span>{{ Character.getIntimidation }} Intimidation ( cha ) </span>
+        <span>{{ Character.getInvestigation }} Investigation ( int ) </span>
+        <span>{{ Character.getMedicine }} Medicine ( wis ) </span>
+        <span>{{ Character.getNature }} Nature ( int ) </span>
+        <span>{{ Character.getPerception }} Perception ( wis ) </span>
+        <span>{{ Character.getPerfomance }} Perfomance ( cha ) </span>
+        <span>{{ Character.getPersuasion }} Persuasion ( cha ) </span>
+        <span>{{ Character.getRelighion }} Relighion  ( int ) </span>
+        <span>{{ Character.getSlightOfHand }} Slight of hand  ( dex ) </span>
+        <span>{{ Character.getStealth }} Stealth ( dex ) </span>
+        <span>{{ Character.getSurvival }} Survival ( wis ) </span>
+    </div>
 
+    <div>
+        <h3>Armor Class: <span> <!-- {{ character.getAromorClass}} --> </span><h3><br />
+        <h3>Initiative: <span> <!-- {{ character.getInitiative}} --> </span><h3><br />
+        <h3>Speed: <span> <!-- {{ character.getSpeed}} --> </span><h3><br />
+    </div>
 
+    <div>
+        <h3 class="hp__max" >Hit Point Maximum: <span> <!-- {{ character.getMaxHP}} --> </span></h3><br />
+        <span class="box">Current Hit Points</span><br />
+        <span class="box">Temporary Hit Points</span>
+    </div>
+
+    <div>
+        <h2>Death Saves</h2>
+        <h3 class="saves">Successes: <span></span><span></span><span></span><h3><br />
+        <h3 class="saves">Failures:  <span></span><span></span><span></span><h3><br />
+    </div>
+
+    <div>
+        <span class="big-box">Attacks &amp; Spellcasting</span>
+    </div>
+
+    <div>
+        <span class="box">Personality Trats</span><br />
+        <span class="box">Ideals</span><br />
+        <span class="box">Bonds</span><br />
+        <span class="box">Flaws</span><br />
+        <span class="box">Other Proficiencies &amp; Languages</span>
+    </div>
+
+    <div>
+        <h3 class="hp-max" >Gold Pieces: <span> <!-- {{ character.getMaxHP}} --> </span></h3><br />
+        <span class="big-box">Equipment</span>
+    </div>
+
+    <div>
+        <span class="big-box">Features &amp; Traits</span>
+    </div>
+
+    <div>
+        <span class="bigger-box">Additional Other Information<br /><!-- {{ character.getOtherInfo}} --></span>
+    </div>
 
 
     </body>

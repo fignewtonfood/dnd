@@ -6,18 +6,41 @@
     </head>
     <body>
 
-        <h1>{{ character.getName }}</h1>
-        <p>{{ character.getAge }}</p>
-        <p>{{ character.getGender }}</p>
-        <p>{{ character.getHeight }}</p>
-        <p>{{ character.getWeight }}</p>
-        <p>{{ character.getEyeColor }}</p>
-        <p>{{ character.getHairColor }}</p>
-        <p>{{ character.getSkinTone }}</p>
-        <p>{{ character.getAlignment }}</p>
-        <p>{{ character.getMotivations }}</p>
-        <p>{{ character.getFlaws }}</p>
-        <p>{{ character.getOtherInformation }}</p>
+        <h1>Name: {{_SESSION['name']}}<h1>
+        <h4>Age: {{_SESSION['age']}}</h4>
+        <h4>Gender: {{_SESSION['gender']}}</h4>
+        <h4>Height: {{_SESSION['height']}}</h4>
+        <h4>Weight: {{_SESSION['weight']}}</h4>
+        <br>
+
+        <h4>Eye Color: {{_SESSION['eye_color']}}</h4>
+        <h4>Hair Color: {{_SESSION['hair_color']}}</h4>
+        <h4>Skin Tone: {{_SESSION['skin_tone']}}</h4>
+        <h4>{{_SESSION['alignment']}}</h4>
+        <br>
+
+        <h2>{{_SESSION['race']}}<h2>
+        <h2>{{_SESSION['class']}}<h2>
+        <br>
+
+        </h3>{{_SESSION['background']}}</h3>
+        <br>
+
+        <h4>{{_SESSION['str']}}</h4>
+        <h4>{{_SESSION['dex']}}</h4>
+        <h4>{{_SESSION['con']}}</h4>
+        <h4>{{_SESSION['wis']}}</h4>
+        <h4>{{_SESSION['int']}}</h4>
+        <h4>{{_SESSION['cha']}}</h4>
+        <br>
+
+        <h3>{{_SESSION['loadout']}}</h3>
+        <br>
+
+
+        <h4>{{_SESSION['other_information']}}</h4>
+        <br>
+
 
         <!-- https://css-tricks.com/css3-progress-bars/ -->
         <div class="progress">

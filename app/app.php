@@ -146,8 +146,9 @@
         $_SESSION['wis'] = $_POST['wis_id'];
         $_SESSION['cha'] = $_POST['cha_id'];
 
+        $load_outs = loadOuts($_SESSION['class'], $_SESSION['background']);
 
-        return $app['twig']->render('bio.html.twig');
+        return $app['twig']->render('bio.html.twig', array('load_outs' => $load_outs));
     });
 
 
@@ -162,7 +163,6 @@
     $app->post('/bio', function() use ($app)
     {
 
-        
 
         $_SESSION['loadout'] = $_POST['loadout'];
 

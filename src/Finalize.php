@@ -10,14 +10,6 @@
         require_once __DIR__."/../src/Character.php";
 
 
-        // $_SESSION['temporary_character'] = array(
-        //
-        // $_SESSION['race'] => "",
-        //
-        // $_SESSION['background'] => "",
-
-        // $_SESSION['name'] => "",
-
         // RUN ON FINAL PAGE :
 
         function finalize() {
@@ -25,10 +17,12 @@
 
             // DESCRIPTION :
 
-            $description = new Description($_SESSION['gender'],
-                $_SESSION['age'], $_SESSION['alignment'], $_SESSION['height'],
+            $description = new Description($_SESSION['name'],
+                $_SESSION['gender'], $_SESSION['age'],
+                $_SESSION['alignment'], $_SESSION['height'],
                 $_SESSION['eye_color'], $_SESSION['hair_color'],
-                $_SESSION['skin_tone'], $_SESSION['other_information'], null);
+                $_SESSION['skin_tone'], $_SESSION['other_information'],
+                null);
 
             $description->save();
 
@@ -55,7 +49,7 @@
             $cha = $_SESSION['cha'];
             $cha_mod = Stat::getModifier($cha);
 
-            $initiative = Stat::getModifier($_SESSION['dex']);
+            $initiative = $dex_mod;
 
 
             // MAKES A CLASS VARIABLE, MAXHP, AC :
@@ -77,6 +71,8 @@
             $max_hp = $con_mod + $class_hp;
 
             $ac = 10 + $dex_mod;
+
+            $proficiency_array = [$_SESSION['skill'];
 
 
             // MAKES A RACE VARIABLE, SPEED :
@@ -112,14 +108,11 @@
             }
 
 
-            // PROFICIENCY :
-
-            $proficiency_array = [$_SESSION['skill1'], $_SESSION['skill2'],
-                $_SESSION['skill2'], $_SESSION['skill2']];
+            // MAKE STAT CLASS :
 
             $stat = new Stat($ac, 1, 1, 1, 1, $cha, $con,  1, $dex, 1,
                 $initiative, 1, $int, 1, 1, $max_hp, 1, 1, 1, 1, 1, 1, 1,
-                $speed, 1, $stealth, $str, 1, $wis, null);
+                $speed, 1, 1, $str, 1, $wis);
             $stat->save();
 
             $stat->updateAcrobatics($proficiency_array);
@@ -146,143 +139,15 @@
 
             // CREATE CHARACTER, ADD JOINS :
 
-            $character = new Character($description_id, $race_id, $stat_id, $campaign_id, null);
+            $character = new Character($description_id, $race_id, $stat_id);
             $character->save();
 
             $character->addCharClass($charclass);
             $character->addBackground($background);
             $character->addProficiency($proficiency);
 
+            return $character;
 
         }
-
-
-    //     private $save_race;
-    //     private $save_class;
-    //     private $save_background;
-    //     private $save_stats;
-    //     private $save_description;
-    //
-    //
-    //     function __construct($save_race, $save_class, $save_background, $save_stats, $save_description)
-    //     {
-    //         $this->save_race = $save_race;
-    //         $this->save_class = $save_class;
-    //         $this->save_background = $save_background;
-    //         $this->save_stats = $save_stats;
-    //         $this->save_description = $save_description;
-    //     }
-    //
-    //     function setSaveRace($new_save_race)
-    //     {
-    //         $this->save_race = $new_save_race;
-    //     }
-    //
-    //     function setSaveClass($new_save_class)
-    //     {
-    //         $this->save_class = $new_save_class;
-    //     }
-    //
-    //     function setSaveBackground($new_save_background)
-    //     {
-    //         $this->save_background = $new_save_background;
-    //     }
-    //
-    //     function setSaveStats()
-    //     {
-    //         $this->save_stats = $new_save_stats;
-    //     }
-    //
-    //     function setSaveDescription($new_save_description)
-    //     {
-    //         $this->save_description = $new_save_description;
-    //     }
-    //
-    //     function getSaveRace()
-    //     {
-    //         return $this->save_race;
-    //     }
-    //
-    //     function getSaveClass()
-    //     {
-    //         return $this->save_class;
-    //     }
-    //
-    //     function getSaveBackground()
-    //     {
-    //         return $this->save_background;
-    //     }
-    //
-    //     function getSaveStats()
-    //     {
-    //         return $this->save_stats;
-    //     }
-    //
-    //     function getSaveDescription()
-    //     {
-    //         return $this->save_description;
-    //     }
-    //
-    //     function save()
-    //     {
-    //         $GLOBALS['DB']->exec("INSERT INTO races (description, name) VALUES ('{Race::getDescription()}', '{Race::getName()}');");
-    //         $this->id = $GLOBALS['DB']->lastInsertId();
-    //
-    //         $GLOBALS['DB']->exec("INSERT INTO classes (name, description) VALUES ('{$this->getName()}', '{$this->getDescription()}')");
-    //         $this->id = $GLOBALS['DB']->lastInsertId();
-    //
-    //         $GLOBALS['DB']->exec("INSERT INTO backgrounds (name, description) VALUES ('{$this->getName()}', '{$this->getDescription()}')");
-    //         $this->id = $GLOBALS['DB']->lastInsertId();
-    //
-    //         $GLOBALS['DB']->exec("INSERT INTO stats (ac, acrobatics,
-    //             animal_handling, arcana, athletics, cha, con, deception,
-    //             dex, history, init, insight, intel, intimidation,
-    //             investigation, max_hp, medicine, nature, perception,
-    //             performance, persuasion, proficiency, religion, speed,
-    //             sleight_of_hand, stealth, str, survival, wis) VALUES
-    //             ({$this->getAc()}, {$this->getAcrobatics()},
-    //             {$this->getAnimalHandling()}, {$this->getArcana()},
-    //             {$this->getAthletics()}, {$this->getCha()}, {$this->getCon()},
-    //             {$this->getDeception()}, {$this->getDex()},
-    //             {$this->getHistory()}, {$this->getInit()},
-    //             {$this->getInsight()}, {$this->getIntel()},
-    //             {$this->getIntimidation()}, {$this->getInvestigation()},
-    //             {$this->getMaxHp()}, {$this->getMedicine()},
-    //             {$this->getNature()}, {$this->getPerception()},
-    //             {$this->getPerformance()}, {$this->getPersuasion()},
-    //             {$this->getProficiency()}, {$this->getReligion()},
-    //             {$this->getSpeed()}, {$this->getSleightOfHand()},
-    //             {$this->getStealth()}, {$this->getStr()},
-    //             {$this->getSurvival()}, {$this->getWis()});");
-    //         $this->id = $GLOBALS['DB']->lastInsertId();
-    //
-    //         $GLOBALS['DB']->exec("INSERT INTO descriptions (gender, age,
-    //         alignment, height, eye_color, hair_color, skin_tone, other)
-    //         VALUES ('{$this->getGender()}', '{$this->getAge()}',
-    //         '{$this->getAlignment()}', '{$this->getHeight()}',
-    //         '{$this->getEyeColor()}', '{$this->getHairColor()}',
-    //         '{$this->getSkinTone()}',  '{$this->getOther()}');");
-    //         $this->id = $GLOBALS["DB"]->lastInsertId();
-    //
-    //         $GLOBALS['DB']->exec("INSERT INTO characters (description_id, race_id, stat_id) VALUES ({$this->getDescriptionId()}, {$this->getRaceId()}, {$this->getStatId()})");
-    //         $this->id = $GLOBALS['DB']->lastInsertId();
-    //     }
-    //
-    //     function deleteAll()
-    //     {
-    //
-    //     }
-    //
-    //     function getAll()
-    //     {
-    //         $raw_info = $GLOBALS["DB"]->query("SELECT * FROM races;");
-    //         $raw_info = $GLOBALS["DB"]->query("SELECT * FROM classes;");
-    //         $raw_info = $GLOBALS["DB"]->query("SELECT * FROM backgrounds;");
-    //         $raw_info = $GLOBALS["DB"]->query("SELECT * FROM stats;");
-    //         $raw_info = $GLOBALS["DB"]->query("SELECT * FROM characters;");
-    //     }
-    // }
-
-
 
 ?>

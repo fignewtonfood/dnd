@@ -34,7 +34,12 @@
         private $survival;
 
 
-        function __construct($ac, $acrobatics, $animal_handling, $arcana, $athletics, $cha, $con, $deception, $dex, $history, $init, $insight, $intel, $intimidation, $investigation, $max_hp, $medicine, $nature, $perception, $performance, $persuasion, $proficiency, $religion, $speed, $sleight_of_hand, $stealth, $str, $survival, $wis,  $id = null)
+        function __construct($ac, $acrobatics, $animal_handling,
+            $arcana, $athletics, $cha, $con, $deception, $dex, $history,
+            $init, $insight, $intel, $intimidation, $investigation,
+            $max_hp, $medicine, $nature, $perception, $performance,
+            $persuasion, $proficiency, $religion, $speed, $sleight_of_hand,
+            $stealth, $str, $survival, $wis,  $id = null)
         {
             $this->id = $id;
             $this->str = $str;

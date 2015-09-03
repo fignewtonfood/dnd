@@ -6,11 +6,11 @@
     <body>
 
 
-        {% for loadout in loud_outs %}
+        {% for loadout in loadouts %}
 
-        <label for = '{{ skill.getId }}'>
+        <label for = '{{ loadout_id }}'>
             <div class='skill_select'>
-                <input type='checkbox' name = 'skill_id' value = '{{ skill.getId }}'>
+                <input type='checkbox' name = 'skill_id' value = {{ loadout.getId }}>
                     <h3>Maxed:</h3>
                     <p>{{ loadout[0] }}</p>
 

@@ -39,7 +39,7 @@
         $_SESSION['hair_color'] => "",
         $_SESSION['skin_tone'] => "",
         $_SESSION['alignment'] => "",
-        $_SESSION['other_information'] => "",
+        $_SESSION['other_information'] => " ",
     );};
 
 
@@ -144,24 +144,15 @@
     });
 
 
-    //carry race id, class id, background id, stats id to skills page
-    $app->post('/bio', function() use ($app)
-    {
-
-
-        $load_outs = loadOuts($_SESSION['class'], $_SESSION['background']);
-
-        return $app['twig']->render('bio.html.twig', array('load_outs' => $load_outs));
-    });
-
-
 //loadout page
     //render loadout page
-    $app->get('/loadout', function() use ($app)
+    $app->post('/loadout', function() use ($app)
     {
+
+
         $load_outs = loadOuts($_SESSION['class'], $_SESSION['background']);
 
-        return $app['twig']->render('loadout.html.twig', array('load_outs' => $load_outs));
+        return $app['twig']->render('loadout.html.twig', array('loadouts' => $load_outs));
     });
 
 
@@ -192,18 +183,44 @@
     //post description info to summary page
     $app->post('/summary', function() use ($app)
     {
-        $_SESSION['name'] = $_POST['name_id'];
-        $_SESSION['age'] = $_POST['age_id'];
-        $_SESSION['gender'] = $_POST['gender_id'];
-        $_SESSION['height'] = $_POST['height_id'];
-        $_SESSION['weight'] = $_POST['weight_id'];
-        $_SESSION['eye_color'] = $_POST['eye_color_id'];
-        $_SESSION['hair_color'] = $_POST['hair_color_id'];
-        $_SESSION['skin_tone'] = $_POST['skin_tone_id'];
-        $_SESSION['alignment'] = $_POST['alignment_id'];
-        $_SESSION['other'] = $_POST['other_id'];
+        $_SESSION['name'] = $_POST['name'];
+        $_SESSION['age'] = $_POST['age'];
+        $_SESSION['gender'] = $_POST['gender'];
+        $_SESSION['height'] = $_POST['height'];
+        $_SESSION['weight'] = $_POST['weight'];
+        $_SESSION['eye_color'] = $_POST['eye_color'];
+        $_SESSION['hair_color'] = $_POST['hair_color'];
+        $_SESSION['skin_tone'] = $_POST['skin_tone'];
+        $_SESSION['alignment'] = $_POST['alignment'];
+        $_SESSION['other'] = $_POST['other_information'];
 
-        return $app['twig']->render('summary.html.twig');
+        return $app['twig']->render('summary.html.twig', array (
+
+                'race' => $_SESSION['race'],
+
+                'class' => $_SESSION['class'],
+
+                'background' => $_SESSION['background'],
+
+                'str' => $_SESSION['str'],
+                'dex' => $_SESSION['dex'],
+                'con' => $_SESSION['con'],
+                'wis' => $_SESSION['wis'],
+                'int' => $_SESSION['int'],
+                'cha' => $_SESSION['cha'],
+
+                'loadout' => $_SESSION['loadout'],
+
+                'name' => $_SESSION['name'],
+                'age' => $_SESSION['age'],
+                'gender' => $_SESSION['gender'],
+                'height' => $_SESSION['height'],
+                'weight' => $_SESSION['weight'],
+                'eye_color' => $_SESSION['eye_color'],
+                'hair_color' => $_SESSION['hair_color'],
+                'skin_tone' => $_SESSION['skin_tone'],
+                'alignment' => $_SESSION['alignment'],
+                'other_information' => $_SESSION['other_information']));
     });
 
 

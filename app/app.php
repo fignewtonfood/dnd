@@ -152,6 +152,18 @@
 
         $load_outs = loadOuts($_SESSION['class'], $_SESSION['background']);
 
+        $max1 = $loadout_outs[0][1];
+        $max2 = $loadout_outs[0][2];
+        $max3 = $loadout_outs[0][3];
+        $max4 = $loadout_outs[0][4];
+
+        $util1 = $loadout_outs[1][1];
+        $util2 = $loadout_outs[1][2];
+        $util3 = $loadout_outs[1][3];
+        $util4 = $loadout_outs[1][4];
+
+        var_dump($util4);
+
         return $app['twig']->render('loadout.html.twig', array('loadouts' => $load_outs));
     });
 
@@ -220,7 +232,11 @@
                 'hair_color' => $_SESSION['hair_color'],
                 'skin_tone' => $_SESSION['skin_tone'],
                 'alignment' => $_SESSION['alignment'],
-                'other_information' => $_SESSION['other_information']));
+                'other_information' => $_SESSION['other_information'],
+
+                'races' => Race::getAll(),
+                'classes' => CharClass::getAll(),
+                'backgrounds' => Background::getAll()));
     });
 
 

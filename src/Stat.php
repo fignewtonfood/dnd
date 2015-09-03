@@ -780,36 +780,36 @@
             }
             $race = strtolower ($race);
             if ($race == "human") {
-                $this->updateStr($_SESSION['str'] ++);
-                $this->updateIntel($_SESSION['int'] ++);
-                $this->updateDex($_SESSION['dex'] ++);
-                $this->updateWis($_SESSION['wis'] ++);
-                $this->updateCha($_SESSION['cha'] ++);
-                $this->updateCon($_SESSION['con'] ++);
+                $_SESSION['str'] ++;
+                $_SESSION['int'] ++;
+                $_SESSION['dex'] ++;
+                $_SESSION['wis'] ++;
+                $_SESSION['cha'] ++;
+                $_SESSION['con'] ++;
             }
             elseif ($race == "lightfoot halfling") {
-                $this->updateDex($_SESSION['dex'] + 2);
-                $this->updateCha($_SESSION['cha'] ++);
+                $_SESSION['dex'] = $_SESSION['dex'] + 2;
+                $_SESSION['cha'] ++;
             }
             elseif ($race == "stout halfling") {
-                $this->updateDex($_SESSION['dex'] + 2);
-                $this->updateCon($_SESSION['con'] ++);
+                $_SESSION['dex'] = $_SESSION['dex'] + 2;
+                $_SESSION['con'] ++;
             }
             elseif ($race == "high elf") {
-                $this->updateDex($_SESSION['dex'] + 2);
-                $this->updateIntel($_SESSION['int'] ++);
+                $_SESSION['dex'] = $_SESSION['dex'] + 2;
+                $_SESSION['int'] ++;
             }
             elseif ($race == "wood elf") {
-                $this->updateDex($_SESSION['dex'] + 2);
-                $this->updateWis($_SESSION['wis'] ++);
+                $_SESSION['dex'] = $_SESSION['dex'] + 2;
+                $_SESSION['wis'] ++;
             }
             elseif ($race == "hill dwarf") {
-                $this->updateCon($_SESSION['con'] + 2);
-                $this->updateWis($_SESSION['wis'] ++);
+                $_SESSION['con'] = $_SESSION['con'] + 2;
+                $_SESSION['wis'] ++;
             }
             elseif ($race == "mountain dwarf") {
-                $this->updateCon($_SESSION['con'] + 2);
-                $this->updateStr($_SESSION['str'] + 2);
+                $_SESSION['con'] = $_SESSION['con'] + 2;
+                $_SESSION['str'] = $_SESSION['str'] + 2;
             }
             else {
                 var_dump("ERROR");

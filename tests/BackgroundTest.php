@@ -39,7 +39,8 @@
             //Arrange
             $name = "Fighter";
             $description = "stuff";
-            $test_class = new Background($name, $description);
+            $id = 1;
+            $test_class = new Background($name, $description, $id);
 
             //Act
             $test_class->save();
@@ -53,16 +54,17 @@
             //Arrange
             $name = "Fighter";
             $description = "stuff";
-            $test_class = new Background($name, $description);
+            $id = 1;
+            $test_class = new Background($name, $description, $id);
             $test_class->save();
             $name2 = "Wizard";
             $description2 = "other stuff";
-            $test_class2 = new Background($name2, $description2);
+            $id2 = 2;
+            $test_class2 = new Background($name2, $description2, $id2);
             $test_class2->save();
 
             //Act
             $result = Background::getAll();
-
             //Assert
             $this->assertEquals([$test_class, $test_class2], $result);
         }
@@ -88,9 +90,11 @@
 
         function test_getId() {
             //Arrange
-            $id = 1;
+
             $name = "Fighter";
             $description = "stuff";
+            $id = 1;
+            
             $test_class = new Background($name, $description, $id);
             $test_class->save();
 
@@ -105,7 +109,8 @@
             //Arrange
             $name = "Fighter";
             $description = "stuff";
-            $test_class = new Background($name, $description);
+            $id = 1;
+            $test_class = new Background($name, $description, $id);
             $test_class->save();
             $name2 = "Wizard";
             $description2 = "other stuff";

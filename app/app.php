@@ -27,6 +27,8 @@
         $_SESSION['int'] => "",
         $_SESSION['cha'] => "",
 
+        $_SESSION['loadout'] => "",
+
         $_SESSION['name'] => "",
         $_SESSION['age'] => "",
         $_SESSION['gender'] => "",
@@ -148,6 +150,24 @@
         return $app['twig']->render('bio.html.twig');
     });
 
+
+//loadout page
+    //render loadout page
+    $app->get('/loadout', function() use ($app)
+    {
+        return $app['twig']->render('loudout.html.twig');
+    });
+
+    //save loadout choice to session
+    $app->post('/bio', function() use ($app)
+    {
+
+        
+
+        $_SESSION['loadout'] = $_POST['loadout'];
+
+        return $app['twig']->render('bio.html.twig');
+    });
 
 
 //bio page

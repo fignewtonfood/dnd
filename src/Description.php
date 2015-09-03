@@ -1,5 +1,6 @@
 <?php
     class Description {
+        private $name;
         private $id;
         private $gender;
         private $age;
@@ -10,7 +11,8 @@
         private $skin_tone;
         private $other;
 
-        function __construct($gender, $age, $alignment, $height, $eye_color, $hair_color, $skin_tone, $other, $id = null) {
+        function __construct($name, $gender, $age, $alignment, $height, $eye_color, $hair_color, $skin_tone, $other, $id = null) {
+            $this->name = $name;
             $this->id = $id;
             $this->gender = $gender;
             $this->age = $age;
@@ -23,6 +25,13 @@
         }
 
         // GETTERS AND SETTERS:
+        function getName() {
+            return $this->name;
+        }
+
+        function setName() {
+            $this->name = (string) $name;
+        }
 
         function getId() {
             return $this->id;

@@ -6,18 +6,41 @@
     </head>
     <body>
 
-        <h1>{{ character.getName }}</h1>
-        <p>{{ character.getAge }}</p>
-        <p>{{ character.getGender }}</p>
-        <p>{{ character.getHeight }}</p>
-        <p>{{ character.getWeight }}</p>
-        <p>{{ character.getEyeColor }}</p>
-        <p>{{ character.getHairColor }}</p>
-        <p>{{ character.getSkinTone }}</p>
-        <p>{{ character.getAlignment }}</p>
-        <p>{{ character.getMotivations }}</p>
-        <p>{{ character.getFlaws }}</p>
-        <p>{{ character.getOtherInformation }}</p>
+        {#<h1>Name: {{ app.request.session.get('name')}}<h1>
+        <h4>Age: {{ app.request.session.get('age')}}</h4>
+        <h4>Gender: {{ app.request.session.get('gender')}}</h4>
+        <h4>Height: {{ app.request.session.get('height')}}</h4>
+        <h4>Weight: {{ app.request.session.get('weight')}}</h4>
+        <br>
+
+        <h4>Eye Color: {{app.request.session.get('eye_color')}}</h4>
+        <h4>Hair Color: {{app.request.session.get('hair_color')}}</h4>
+        <h4>Skin Tone: {{app.request.session.get('skin_tone')}}</h4>
+        <h4>{{app.request.session.get('alignment')}}</h4>
+        <br>#}
+
+        <h2>{{app.request.session.get('race')}}<h2>
+        <h2>{{app.request.session.get('class')}}<h2>
+        <br>
+
+        {#</h3>{{app.request.session.get('background')}}</h3>
+        <br>
+
+        <h4>{{app.request.session.get('str')}}</h4>
+        <h4>{{app.request.session.get('dex')}}</h4>
+        <h4>{{app.request.session.get('con')}}</h4>
+        <h4>{{app.request.session.get('wis')}}</h4>
+        <h4>{{app.request.session.get('int')}}</h4>
+        <h4>{{app.request.session.get('cha')}}</h4>
+        <br>
+
+        <h3>{{app.request.session.get('loadout')}}</h3>
+        <br>
+
+
+        <h4>{{app.request.session.get('other_information')}}</h4>
+        <br>#}
+
 
         <!-- https://css-tricks.com/css3-progress-bars/ -->
         <div class="progress">

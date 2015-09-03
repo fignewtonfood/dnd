@@ -1,5 +1,6 @@
 <?php
     require_once __DIR__."/../vendor/autoload.php";
+    require_once __DIR__."/../src/Initial.php";
     require_once __DIR__."/../src/Race.php";
     require_once __DIR__."/../src/CharClass.php";
     require_once __DIR__."/../src/Background.php";
@@ -26,6 +27,8 @@
         $_SESSION['wis'] => "",
         $_SESSION['int'] => "",
         $_SESSION['cha'] => "",
+
+        $_SESSION['loadout'] => "",
 
         $_SESSION['name'] => "",
         $_SESSION['age'] => "",
@@ -64,6 +67,8 @@
     Initial::addData();
     $app->get('/', function() use ($app)
     {
+        Initial::addData();
+
         return $app['twig']->render('home.html.twig', array('characters' => Character::getAll()));
     });
 
@@ -76,18 +81,24 @@
         return $app['twig']->render('race.html.twig', array('races' => Race::getAll()));
     });
 
-    //carry race id to class page
+    //post class id to cookies
     $app->post('/class', function() use ($app)
     {
         $_SESSION['race'] = $_POST['race_id'];
 
-        return $app['twig']->render('class.html.twig', array('classes' => CharClass::getAll()));
+        return $app['twig']->render('class.html.twig', array('classes' => CharClass::getAll(), 'race' => $_SESSION['race']));
     });
 
 
 
 //class page
-    //carry race id and class id to background page
+    //render class page
+    $app->get('/class', function() use ($app)
+    {
+        return $app['twig']->render('class.html.twig', array('classes' => CharClass::getAll()));
+    });
+
+    //post class id to cookies
     $app->post('/background', function() use ($app)
     {
         $_SESSION['class'] = $_POST['class_id'];
@@ -98,46 +109,61 @@
 
 
 //background page
+    //render background page
+    $app->get('/background', function() use ($app)
+    {
+        return $app['twig']->render('background.html.twig', array('backgrounds' => Background::getAll()));
+    });
+
     //carry race id, class id, background id to stats page
     $app->post('/stats', function() use ($app)
     {
         $_SESSION['background'] = $_POST['background_id'];
 
-
         $race_id = $_SESSION['race'];
         $race_find = Race::find($race_id);
-        $race = getName($race_find);
+        $race = $race_find->getName();
 
         $class_id = $_SESSION['class'];
         $class_find = CharClass::find($class_id);
-        $classname = getName($class_find);
+        $class = $class_find->getName();
 
 
         $stats = statRoll();
-        $assigned_stats = assignRolls($six_rolls, $classname, $race);
+        Stat::assignRolls($stats, $class, $race);
 
-
-        return $app['twig']->render('stats.html.twig', array('stat' => Stat::getAll()));
+        return $app['twig']->render('stats.html.twig', array('str' => $_SESSION['str'], 'dex'=> $_SESSION['dex'], 'con'=> $_SESSION['con'], 'wis'=> $_SESSION['wis'], 'int'=> $_SESSION['int'], 'cha'=> $_SESSION['cha']));
     });
-
-
 
 
 //stats page
     //carry race id, class id, background id, stats id to skills page
     $app->post('/bio', function() use ($app)
     {
-        $_SESSION['str'] = $_POST['str_id'];
-        $_SESSION['dex'] = $_POST['dex_id'];
-        $_SESSION['con'] = $_POST['con_id'];
-        $_SESSION['int'] = $_POST['int_id'];
-        $_SESSION['wis'] = $_POST['wis_id'];
-        $_SESSION['cha'] = $_POST['cha_id'];
 
+
+        $load_outs = loadOuts($_SESSION['class'], $_SESSION['background']);
+
+        return $app['twig']->render('bio.html.twig', array('load_outs' => $load_outs));
+    });
+
+
+//loadout page
+    //render loadout page
+    $app->get('/loadout', function() use ($app)
+    {
+        return $app['twig']->render('loudout.html.twig');
+    });
+
+    //save loadout choice to session
+    $app->post('/bio', function() use ($app)
+    {
+
+
+        $_SESSION['loadout'] = $_POST['loadout'];
 
         return $app['twig']->render('bio.html.twig');
     });
-
 
 
 //bio page
@@ -150,6 +176,12 @@
 //summary page
     //render summary page
     $app->get('/summary', function() use ($app)
+    {
+        return $app['twig']->render('summary.html.twig');
+    });
+
+    //post description info to summary page
+    $app->post('/summary', function() use ($app)
     {
         $_SESSION['name'] = $_POST['name_id'];
         $_SESSION['age'] = $_POST['age_id'];

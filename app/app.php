@@ -8,7 +8,8 @@
     require_once __DIR__."/../src/Skill.php";
     require_once __DIR__."/../src/Description.php";
     require_once __DIR__."/../src/Character.php";
-    require_once __DIR__."/../src/Initial.php";
+    require_once __DIR__."/../src/Finalize.php";
+
 
 
     session_start();
@@ -34,7 +35,6 @@
         $_SESSION['age'] => "",
         $_SESSION['gender'] => "",
         $_SESSION['height'] => "",
-        $_SESSION['weight'] => "",
         $_SESSION['eye_color'] => "",
         $_SESSION['hair_color'] => "",
         $_SESSION['skin_tone'] => "",
@@ -146,7 +146,7 @@
 
 //loadout page
     //render loadout page
-    $app->post('/loadout', function() use ($app)
+    $app->post('/skills', function() use ($app)
     {
 
 
@@ -168,7 +168,7 @@
         $util_array = [$util1, $util2, $util3, $util4];
 
 
-        return $app['twig']->render('loadout.html.twig', array('maxarray' => $max_array, 'utilarray' => $util_array));
+        return $app['twig']->render('skills.html.twig', array('maxarray' => $max_array, 'utilarray' => $util_array));
     });
 
 
@@ -199,9 +199,11 @@
         $util4 = $loadouts[1][4];
         $util_array = [$util1, $util2, $util3, $util4];
 
-        if ($_POST['skill'] == 1) {
+        $skill_choice = $_POST['skill'];
+
+        if ($skill_choice == 1) {
             $_SESSION['skill'] = $max_array;
-        } elseif ($_POST['skill'] == 2) {
+        } elseif ($skill_choice == 2) {
             $_SESSION['skill'] = $util_array;
         }
 
@@ -223,16 +225,19 @@
         $_SESSION['age'] = $_POST['age'];
         $_SESSION['gender'] = $_POST['gender'];
         $_SESSION['height'] = $_POST['height'];
-        $_SESSION['weight'] = $_POST['weight'];
         $_SESSION['eye_color'] = $_POST['eye_color'];
         $_SESSION['hair_color'] = $_POST['hair_color'];
         $_SESSION['skin_tone'] = $_POST['skin_tone'];
         $_SESSION['alignment'] = $_POST['alignment'];
         $_SESSION['other'] = $_POST['other'];
 
+        $found_race = Race::find($_SESSION['race']);
+        $found_race->getName();
+
+
         return $app['twig']->render('summary.html.twig', array (
 
-                'race' => $_SESSION['race'],
+                'race' => $found_race,
 
                 'class' => $_SESSION['class'],
 
@@ -251,7 +256,6 @@
                 'age' => $_SESSION['age'],
                 'gender' => $_SESSION['gender'],
                 'height' => $_SESSION['height'],
-                'weight' => $_SESSION['weight'],
                 'eye_color' => $_SESSION['eye_color'],
                 'hair_color' => $_SESSION['hair_color'],
                 'skin_tone' => $_SESSION['skin_tone'],
@@ -263,6 +267,22 @@
                 'backgrounds' => Background::getAll()));
     });
 
+    //return to race page and save to database
+    $app->get('/summary', function() use ($app)
+    {
+        Finalize::run();
+
+        return $app['twig']->render('race.html.twig');
+    });
+
+//print page
+    //render print page
+    $app->get('/print', function() use ($app)
+    {
+        $character = Finalize::run();
+
+        return $app['twig']->render('print.html.twig', array("character" => $character));
+    });
 
 return $app;
 

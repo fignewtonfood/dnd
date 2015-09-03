@@ -150,6 +150,18 @@
             }
             return $found_character;
         }
+
+        // GETTERS FOR OUTSIDE CLASS PROPERTIES :
+
+        function getName() {
+            $id = $this->getDescriptionId();
+            $description = Description::find($id);
+            $name = $description->getName();
+            return $name;
+        }
+
+
+
     }
 
     function saveProficiencies($loadout_id, $character_id)
@@ -268,5 +280,4 @@
         }
         return $proficiencies;
     }
-
 ?>

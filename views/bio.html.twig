@@ -13,7 +13,7 @@
         {% endembed %}
 
     <div class='container'>
-        <form action = '/bio' method='post'>
+        <form action = '/summary' method='post'>
 
             <table class="table">
                 <tbody>
@@ -36,10 +36,6 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>
-                            <label for ='name'>Weight:</label><br>
-                            <input type='text' id = 'height' name = 'height' required>
-                        </td>
                         <td>
                             <label for ='name'>Eye Color:</label><br>
                             <input type='text' id = 'eye_color' name = 'eye_color' required>
@@ -137,13 +133,11 @@
             <!-- <input type='text' id = 'other_information' name = 'other_information'> -->
             <br>
 
-            <button type='submit'>Print</button>
-
 
             <button type='submit'>Review Your Character -></button>
 
 
-            <form action='/loadout' method='get'>
+            <form action='/Skills' method='get'>
                 <button type="submit">Return to Skill Loadout</button>
             </form>
 

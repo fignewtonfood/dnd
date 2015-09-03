@@ -14,17 +14,17 @@ src: url(sansation_light.woff);
 }*/
 
 div {
-	font-family: 'Lobster', cursive;
+	font-family: 'Overlock SC', cursive;
 }
 
 body {
 	background:  #f1e0c5;
 	color: #000;
-	font-family: Tahoma, Verdana, sans-serif;
+	/*font-family: Tahoma, Verdana, sans-serif;*/
 	margin: 0 auto;
 	width: 100%;
 	height: 100%;
-	font-family: 'Lobster', cursive;
+	font-family: 'Overlock SC', cursive;
 
 }
 
@@ -76,13 +76,13 @@ header {
 	border-bottom: 2px solid #bb0f00;
 	padding: 100px 0 50px 0;
 	margin-bottom: 40px;
-	font-family: 'Lobster', cursive;
+	font-family: 'Overlock SC', cursive;
 }
 
 .main__description {
     margin: 2rem 0 3rem 0rem;
 	color: #6d2908;
-	font-family: 'Lobster', cursive;
+	font-family: 'Overlock SC', cursive;
 }
 
 .main__callToAction {
@@ -144,7 +144,7 @@ header {
 	font-weight: 200;
     letter-spacing: .5rem;
 	max-width: 640px;
-	font-family: 'Lobster', cursive;
+	font-family: 'Overlock SC', cursive;
 }
 
 .site__title--kern {
@@ -156,19 +156,19 @@ header {
 	/*font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;*/
 	font-weight: 200;
     font-size: 2.8rem;
-	font-family: 'Lobster', cursive;
+	font-family: 'Overlock SC', cursive;
 }
 
 .main__article {
 	font-size: 1rem;
   	line-height: 24px;
-  	font-family: georgia, serif;
+	font-family: 'Overlock SC', cursive;
 }
 
 
 
 .race__item span, p{
-	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-family: 'Overlock SC', cursive;
 }
 
 /* content =================== */
@@ -231,7 +231,7 @@ ol.progress__bar[data-progtrckr-steps="9"] li { width: 11%; }
 .races {
 	padding: 0;
 	margin: 0;
-	font-family: inherit;
+	font-family: 'Overlock SC', cursive;
 }
 
 .race__item {

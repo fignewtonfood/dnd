@@ -21,6 +21,7 @@
 
         function test_save() {
             //Arrange
+            $name = "Mike";
             $gender = "male";
             $age = "25";
             $alignment = "LG";
@@ -29,7 +30,7 @@
             $hair_color = "brown";
             $skin_tone = "dark";
             $other = "stuff";
-            $test_description = new Description($gender, $age, $alignment, $height, $eye_color, $hair_color, $skin_tone, $other);
+            $test_description = new Description($name, $gender, $age, $alignment, $height, $eye_color, $hair_color, $skin_tone, $other);
 
             //Act
             $test_description->save();
@@ -41,6 +42,7 @@
 
         function test_getAll() {
             //Arrange
+            $name = "Mike";
             $gender = "male";
             $age = "25";
             $alignment = "LG";
@@ -49,9 +51,10 @@
             $hair_color = "brown";
             $skin_tone = "dark";
             $other = "stuff";
-            $test_description = new Description($gender, $age, $alignment, $height, $eye_color, $hair_color, $skin_tone, $other);
+            $test_description = new Description($name, $gender, $age, $alignment, $height, $eye_color, $hair_color, $skin_tone, $other);
             $test_description->save();
 
+            $name2 = "Michael";
             $gender2 = "female";
             $age2 = "30";
             $alignment2 = "CG";
@@ -60,7 +63,7 @@
             $hair_color2 = "black";
             $skin_tone2 = "copper";
             $other2 = "more stuff";
-            $test_description2 = new Description($gender2, $age2, $alignment2, $height2, $eye_color2, $hair_color2, $skin_tone2, $other2);
+            $test_description2 = new Description($name2, $gender2, $age2, $alignment2, $height2, $eye_color2, $hair_color2, $skin_tone2, $other2);
             $test_description2->save();
 
             //Act
@@ -72,6 +75,7 @@
 
         function test_deleteAll() {
             //Arrange
+            $name = "Mike";
             $gender = "male";
             $age = "25";
             $alignment = "LG";
@@ -80,9 +84,10 @@
             $hair_color = "brown";
             $skin_tone = "dark";
             $other = "stuff";
-            $test_description = new Description($gender, $age, $alignment, $height, $eye_color, $hair_color, $skin_tone, $other);
+            $test_description = new Description($name, $gender, $age, $alignment, $height, $eye_color, $hair_color, $skin_tone, $other);
             $test_description->save();
 
+            $name2 = "Michael";
             $gender2 = "female";
             $age2 = "30";
             $alignment2 = "CG";
@@ -91,7 +96,7 @@
             $hair_color2 = "black";
             $skin_tone2 = "copper";
             $other2 = "more stuff";
-            $test_description2 = new Description($gender2, $age2, $alignment2, $height2, $eye_color2, $hair_color2, $skin_tone2, $other2);
+            $test_description2 = new Description($name2, $gender2, $age2, $alignment2, $height2, $eye_color2, $hair_color2, $skin_tone2, $other2);
             $test_description2->save();
 
             //Act
@@ -104,6 +109,7 @@
 
         function test_getId() {
             //Arrange
+            $name = "Mike";
             $gender = "male";
             $age = "25";
             $alignment = "LG";
@@ -112,7 +118,7 @@
             $hair_color = "brown";
             $skin_tone = "dark";
             $other = "stuff";
-            $test_description = new Description($gender, $age, $alignment, $height, $eye_color, $hair_color, $skin_tone, $other);
+            $test_description = new Description($name, $gender, $age, $alignment, $height, $eye_color, $hair_color, $skin_tone, $other);
             $test_description->save();
 
             //Act
@@ -124,6 +130,7 @@
 
         function test_find() {
             //Arrange
+            $name = "Mike";
             $gender = "male";
             $age = "25";
             $alignment = "LG";
@@ -132,9 +139,10 @@
             $hair_color = "brown";
             $skin_tone = "dark";
             $other = "stuff";
-            $test_description = new Description($gender, $age, $alignment, $height, $eye_color, $hair_color, $skin_tone, $other);
+            $test_description = new Description($name, $gender, $age, $alignment, $height, $eye_color, $hair_color, $skin_tone, $other);
             $test_description->save();
 
+            $name2 = "Michael";
             $gender2 = "female";
             $age2 = "30";
             $alignment2 = "CG";
@@ -143,7 +151,7 @@
             $hair_color2 = "black";
             $skin_tone2 = "copper";
             $other2 = "more stuff";
-            $test_description2 = new Description($gender2, $age2, $alignment2, $height2, $eye_color2, $hair_color2, $skin_tone2, $other2);
+            $test_description2 = new Description($name2, $gender2, $age2, $alignment2, $height2, $eye_color2, $hair_color2, $skin_tone2, $other2);
             $test_description2->save();
 
             //Act

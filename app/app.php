@@ -287,7 +287,53 @@
     {
         $character = Finalize::run();
 
-        return $app['twig']->render('print.html.twig', array("character" => $character));
+
+        $found_race = Race::find($_SESSION['race']);
+        $found_race->getName();
+
+        $found_class = CharClass::find($_SESSION['class']);
+        $found_class->getName();
+
+        $found_background = Background::find($_SESSION['background']);
+        $found_background->getName();
+
+
+
+        return $app['twig']->render('print.html.twig', array("character" => $character,
+
+        'race' => $found_race,
+
+        'class' => $found_class,
+
+        'background' => $found_background,
+
+        'str' => $_SESSION['str'],
+        'dex' => $_SESSION['dex'],
+        'con' => $_SESSION['con'],
+        'wis' => $_SESSION['wis'],
+        'int' => $_SESSION['int'],
+        'cha' => $_SESSION['cha'],
+
+        'skills' => $_SESSION['skill'],
+
+        'name' => $_SESSION['name'],
+        'age' => $_SESSION['age'],
+        'gender' => $_SESSION['gender'],
+        'height' => $_SESSION['height'],
+        'eye_color' => $_SESSION['eye_color'],
+        'hair_color' => $_SESSION['hair_color'],
+        'skin_tone' => $_SESSION['skin_tone'],
+        'alignment' => $_SESSION['alignment'],
+        'other' => $_SESSION['other'],
+
+        'races' => Race::getAll(),
+        'classes' => CharClass::getAll(),
+        'backgrounds' => Background::getAll()));
+
+
+
+
+
     });
 
 return $app;

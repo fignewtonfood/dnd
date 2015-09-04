@@ -4,76 +4,75 @@
         <title> Character Sheet </title>
 
         <meta name="viewport" content="width=device-width">
-        <link rel="stylesheet" href="css/sheet.css">
+        <link rel="stylesheet" href="./css/sheet.css">
 
     </head>
     <body>
 
     <div>
         <h1>Character Name: <em>{{ character.getName }}</em></h1>
-        <span>Class &amp; level: <em>{{ character.getClass }} - {{ character.getLevel }}</em></span>
-        <span>Background: <em>{{ character.getBackground }}</em></span>
-        <span>Player Name: <em>{{ character.getPlayerName }}</em></span>
-        <span>Race: <em>{{ character.getRace }}</em></span>
-        <span>Alignment:<em>{{ character.getAlignment }}</em></span>
-        <span>Experience Points: <em>{{ character.getExperiencePoints }}</em></span>
+        <span>Class &amp; level: <em>{{ class.getName }} 1</em></span>
+        <span>Background: <em>{{ background.getName }}</em></span>
+        <span>Race: <em>{{ race.getName }}</em></span>
+        <span>Alignment:<em>{{ alignment }}</em></span>
+        <span>Experience Points: <em></em></span>
     </div>
 
     <div>
-        <span>Age: <em>{{ character.getAge }}</em></span>
-        <span>Height: <em>{{ character.getHeight }}</em></span>
-        <span>Eyes: <em>{{ character.getEyes }}</em></span>
-        <span>Skin:<em>{{ character.getSkin}}</em></span>
-        <span>Hair: <em>{{ character.getHair }}</em></span>
-        <span>Other: <em>{{ character.getOther }}</em></span>
+        <span>Age: <em>{{ age }}</em></span>
+        <span>Height: <em>{{ height }}</em></span>
+        <span>Eyes: <em>{{ eye_color }}</em></span>
+        <span>Skin:<em>{{ skin_tone }}</em></span>
+        <span>Hair: <em>{{ hair_color }}</em></span>
+        <span>Other: <em>{{ other }}</em></span>
     </div>
 
     <div>
         <h3>Inspiration: <span></span><h3><br />
-        <h3>Proficiency Bonus: <span> <!-- {{ character.getProficiencyBonus}} --> </span><h3><br />
+        <h3>Proficiency Bonus: <span> +2 </span><h3><br />
         <h3>Passive wisdom (Perception): <span></span><h3>
     </div>
 
     <div>
         <h2>Stats</h2>
-        <span>Strength: <em>{{ character.getStrength }}</em></span>
-        <span>Dexterity: <em>{{ character.getDexterity }}</em></span>
-        <span>Constitution: <em>{{ character.getConstitution }}</em></span>
-        <span>Intelligence: <em>{{ character.getIntelligence }}</em></span>
-        <span>Wisdom:<em>{{ character.getWisdom }}</em></span>
-        <span>Charisa: <em>{{ character.getCharisa }}</em></span>
+        <span>Strength: <em>{{ str }}</em></span>
+        <span>Dexterity: <em>{{ dex }}</em></span>
+        <span>Constitution: <em>{{ con }}</em></span>
+        <span>Intelligence: <em>{{ int }}</em></span>
+        <span>Wisdom:<em>{{ wis }}</em></span>
+        <span>Charisa: <em>{{ cha }}</em></span>
     </div>
 
     <div>
         <h2>Skills</h2>
-        <span>{{ Character.getAcrobatics }} Acrobatics ( dex ) </span>
-        <span>{{ Character.getAnimalHandling }} Animal handling ( wis ) </span>
-        <span>{{ Character.getArcana }} Arcana ( int ) </span>
-        <span>{{ Character.getAthletics }} Athletics ( str ) </span>
-        <span>{{ Character.getDeception }} Deception ( cha ) </span>
-        <span>{{ Character.getHistory }} History ( int ) </span>
-        <span>{{ Character.getInsight }} Insight ( wis ) </span>
-        <span>{{ Character.getIntimidation }} Intimidation ( cha ) </span>
-        <span>{{ Character.getInvestigation }} Investigation ( int ) </span>
-        <span>{{ Character.getMedicine }} Medicine ( wis ) </span>
-        <span>{{ Character.getNature }} Nature ( int ) </span>
-        <span>{{ Character.getPerception }} Perception ( wis ) </span>
-        <span>{{ Character.getPerfomance }} Perfomance ( cha ) </span>
-        <span>{{ Character.getPersuasion }} Persuasion ( cha ) </span>
-        <span>{{ Character.getRelighion }} Relighion  ( int ) </span>
-        <span>{{ Character.getSlightOfHand }} Slight of hand  ( dex ) </span>
-        <span>{{ Character.getStealth }} Stealth ( dex ) </span>
-        <span>{{ Character.getSurvival }} Survival ( wis ) </span>
+        <span>{{ character.getAcrobatics }} Acrobatics ( dex ) </span>
+        <span>{{ character.getAnimalHandling }} Animal handling ( wis ) </span>
+        <span>{{ character.getArcana }} Arcana ( int ) </span>
+        <span>{{ character.getAthletics }} Athletics ( str ) </span>
+        <span>{{ character.getDeception }} Deception ( cha ) </span>
+        <span>{{ character.getHistory }} History ( int ) </span>
+        <span>{{ character.getInsight }} Insight ( wis ) </span>
+        <span>{{ character.getIntimidation }} Intimidation ( cha ) </span>
+        <span>{{ character.getInvestigation }} Investigation ( int ) </span>
+        <span>{{ character.getMedicine }} Medicine ( wis ) </span>
+        <span>{{ character.getNature }} Nature ( int ) </span>
+        <span>{{ character.getPerception }} Perception ( wis ) </span>
+        <span>{{ character.getPerformance }} Perfomance ( cha ) </span>
+        <span>{{ character.getPersuasion }} Persuasion ( cha ) </span>
+        <span>{{ character.getReligion }} Relighion  ( int ) </span>
+        <span>{{ character.getSleightOfHand }} Slight of hand  ( dex ) </span>
+        <span>{{ character.getStealth }} Stealth ( dex ) </span>
+        <span>{{ character.getSurvival }} Survival ( wis ) </span>
     </div>
 
     <div>
-        <h3>Armor Class: <span> <!-- {{ character.getAromorClass}} --> </span><h3><br />
-        <h3>Initiative: <span> <!-- {{ character.getInitiative}} --> </span><h3><br />
-        <h3>Speed: <span> <!-- {{ character.getSpeed}} --> </span><h3><br />
+        <h3>Armor Class: <span>  {{ character.getAc}} </span><h3><br />
+        <h3>Initiative: <span>  {{ character.getInit}}  </span><h3><br />
+        <h3>Speed: <span>  {{ character.getSpeed}} </span><h3><br />
     </div>
 
     <div>
-        <h3 class="hp__max" >Hit Point Maximum: <span> <!-- {{ character.getMaxHP}} --> </span></h3><br />
+        <h3 class="hp__max" >Hit Point Maximum: <span>  {{ character.getMaxHP}} </span></h3><br />
         <span class="box">Current Hit Points</span><br />
         <span class="box">Temporary Hit Points</span>
     </div>
@@ -97,7 +96,8 @@
     </div>
 
     <div>
-        <h3 class="hp-max" >Gold Pieces: <span> <!-- {{ character.getMaxHP}} --> </span></h3><br />
+        <h3 class="hp-max" >Gold Pieces: <span>
+         </span></h3><br />
         <span class="big-box">Equipment</span>
     </div>
 
@@ -106,7 +106,7 @@
     </div>
 
     <div>
-        <span class="bigger-box">Additional Other Information<br /><!-- {{ character.getOtherInfo}} --></span>
+        <span class="bigger-box">Additional Other Information<br />{{ character.getOther}}</span>
     </div>
 
 

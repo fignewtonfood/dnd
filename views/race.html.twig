@@ -24,8 +24,9 @@
 
                 {% for race in races %}
                 <div class = "col-sm-6">
+
+                    <input id = '{{ race.getId }}' type='radio' name='race_id' value='{{ race.getId }}' required>
                     <label for='{{ race.getId }}' class='choice_radio' >
-                    <input type='radio' name='race_id' value='{{ race.getId }}' required>
                         <h3>{{ race.getName }}</h3>
                         <p>{{ race.getDescription }}</p>
                     </label>
@@ -37,10 +38,9 @@
                 <button type='submit'>Choose your class -></button>
 
         </section>
-<<<<<<< HEAD
+
         <br>
-=======
->>>>>>> master
+
 
             </form>
         </div>

@@ -18,13 +18,15 @@
 
                 {% for class in classes %}
             <div class = "col-sm-6">
-                <label for = '{{ class.getId }}'>
                     <div class='class_select'>
-                        <input type='radio' name = 'class_id' value = '{{ class.getId }}' required>
+                        <input id = '{{ class.getId }}' type='radio' name = 'class_id' value = '{{ class.getId }}' required>
+                        <label for = '{{ class.getId }}'>
+
                             <h3>{{ class.getName }}</h3>
                             <p>{{ class.getDescription }}</p>
+                        </label>
+
                     </div>
-                </label>
             </div>
                 {% endfor %}
 

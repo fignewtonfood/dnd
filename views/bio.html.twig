@@ -30,12 +30,13 @@
                             <label for ='name'>Gender:</label><br>
                             <input type='text' id = 'gender' name = 'gender' required>
                         </td>
+                    </tr>
+                    <tr>
                         <td>
                             <label for ='name'>Height:</label><br>
                             <input type='text' id = 'height' name = 'height' required>
                         </td>
-                    </tr>
-                    <tr>
+
                         <td>
                             <label for ='name'>Eye Color:</label><br>
                             <input type='text' id = 'eye_color' name = 'eye_color' required>
@@ -44,34 +45,33 @@
                             <label for ='name'>Hair Color:</label><br>
                             <input type='text' id = 'hair_color' name = 'hair_color' required>
                         </td>
-                        <td>
-                            <label for ='name'>Skin Tone:</label><br>
-                            <input type='text' id = 'skin_tone' name = 'skin_tone' required>
-                        </td>
                     </tr>
                 </tbody>
             </table>
+            <input type='hidden' id = 'skin_tone' name = 'skin_tone' value = 'na' required>
 
             <table class="table table-bordered">
                 <tbody>
                     <tr>
                         <td>
-                            <label for = ''>
-                                <input type='radio' name = 'alignment' value = 'lawful_good'>
+                            <input id = '1' type='radio' name = 'alignment' value = 'LG'>
+                            <label for = '1'>
+
                                     <h3>Lawful Good</h3>
                                     <p>Always do the right thing as dictated by society</p>
                             </label>
                         </td>
                         <td>
-                            <label for = ''>
-                                <input type='radio' name = 'alignment' value = 'neutral_good'>
+                                <input id = '2' type='radio' name = 'alignment' value = 'NG'>
+                                <label for = '2'>
                                     <h3>Neutral Good</h3>
                                     <p>Do the right thing as long as it fits your needs</p>
                             </label>
                         </td>
                         <td>
-                            <label for = ''>
-                                <input type='radio' name = 'alignment' value = 'chaotic_good'>
+                                <input id = '3' type='radio' name = 'alignment' value = 'CG'>
+                                <label for = '3'>
+
                                     <h3>Chaotic Good</h3>
                                     <p>Always do the right thing with no regard to what others think</p>
                             </label>
@@ -80,22 +80,25 @@
                     </tr>
                     <tr>
                         <td>
-                            <label for = ''>
-                                <input type='radio' name = 'alignment' value = 'lawful_neutral'>
+                                <input id = '4' type='radio' name = 'alignment' value = 'LN'>
+                                <label for = '4'>
+
                                     <h3>Lawful Neutral</h3>
                                     <p>Follow the law blindly</p>
                             </label>
                         </td>
                         <td>
-                            <label for = ''>
-                                <input type='radio' name = 'alignment' value = 'true_neutral'>
+                                <input id = '5' type='radio' name = 'alignment' value = 'NN'>
+                                <label for = '5'>
+
                                     <h3>True Neutral</h3>
                                     <p>Never takes sides and don't touch moral issues</p>
                             </label>
                         </td>
                         <td>
-                            <label for = ''>
-                                <input type='radio' name = 'alignment' value = 'neutral_evil'>
+                                <input id = '6' type='radio' name = 'alignment' value = 'NE'>
+                                <label for = '6'>
+
                                     <h3>Neutral Evil</h3>
                                     <p>Get away with anything they want with no regard for others</p>
                             </label>
@@ -104,22 +107,25 @@
                     </tr>
                     <tr>
                         <td>
-                            <label for = ''>
-                                <input type='radio' name = 'alignment' value = 'lawful_evil'>
+                                <input id = '7' type='radio' name = 'alignment' value = 'LE'>
+                                <label for = '7'>
+
                                     <h3>Lawful Evil</h3>
                                     <p>Take everything they can while staying within the law</p>
                             </label>
                         </td>
                         <td>
-                            <label for = ''>
-                                <input type='radio' name = 'alignment' value = 'chaotic_neutral'>
+                                <input id = '8' type='radio' name = 'alignment' value = 'CN'>
+                                <label for = '8'>
+
                                     <h3>Chaotic Neutral</h3>
                                     <p>Value personal freedom above all else</p>
                             </label>
                         </td>
                         <td>
-                            <label for = ''>
-                                <input type='radio' name = 'alignment' value = 'chaotic_evil'>
+                                <input id = '9' type='radio' name = 'alignment' value = 'CE'>
+                                <label for = '9'>
+
                                     <h3>Chaotic Evil</h3>
                                     <p>Hurt others indiscrimately</p>
                             </label>

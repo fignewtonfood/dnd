@@ -336,6 +336,62 @@
 
     });
 
+//recall old characters
+    // $app->get('/summary/{id}', function($id) use ($app)
+    // {
+    //     $_SESSION['name'] = $_POST['name'];
+    //     $_SESSION['age'] = $_POST['age'];
+    //     $_SESSION['gender'] = $_POST['gender'];
+    //     $_SESSION['height'] = $_POST['height'];
+    //     $_SESSION['eye_color'] = $_POST['eye_color'];
+    //     $_SESSION['hair_color'] = $_POST['hair_color'];
+    //     $_SESSION['skin_tone'] = $_POST['skin_tone'];
+    //     $_SESSION['alignment'] = $_POST['alignment'];
+    //     $_SESSION['other'] = $_POST['other'];
+    //
+    //     $found_race = Race::find($_SESSION['race']);
+    //     $found_race->getName();
+    //
+    //     $found_class = CharClass::find($_SESSION['class']);
+    //     $found_class->getName();
+    //
+    //     $found_background = Background::find($_SESSION['background']);
+    //     $found_background->getName();
+    //
+    //
+    //     return $app['twig']->render('summary.html.twig', array (
+    //
+    //             'race' => $found_race,
+    //
+    //             'class' => $found_class,
+    //
+    //             'background' => $found_background,
+    //
+    //             'str' => $_SESSION['str'],
+    //             'dex' => $_SESSION['dex'],
+    //             'con' => $_SESSION['con'],
+    //             'wis' => $_SESSION['wis'],
+    //             'int' => $_SESSION['int'],
+    //             'cha' => $_SESSION['cha'],
+    //
+    //             'skills' => $_SESSION['skill'],
+    //
+    //             'name' => $_SESSION['name'],
+    //             'age' => $_SESSION['age'],
+    //             'gender' => $_SESSION['gender'],
+    //             'height' => $_SESSION['height'],
+    //             'eye_color' => $_SESSION['eye_color'],
+    //             'hair_color' => $_SESSION['hair_color'],
+    //             'skin_tone' => $_SESSION['skin_tone'],
+    //             'alignment' => $_SESSION['alignment'],
+    //             'other' => $_SESSION['other'],
+    //
+    //             'races' => Race::getAll(),
+    //             'classes' => CharClass::getAll(),
+    //             'backgrounds' => Background::getAll()));
+    // });
+
+
 return $app;
 
 ?>

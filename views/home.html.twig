@@ -42,7 +42,7 @@
             <h3>Or choose from previously created characters:</h3>
                 {% for character in characters %}
                     <ul>
-                        <li>{{ character.getName }}</li>
+                        <li><a href="/summary/{{ character.getId }}">{{ character.getName }}</a></li>
                     </ul>
                 {% endfor %}
         {% endif %}

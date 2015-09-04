@@ -64,13 +64,21 @@
 
 //landing page
     //renders homepage
-    Initial::addData();
     $app->get('/', function() use ($app)
     {
         Initial::addData();
 
         return $app['twig']->render('home.html.twig', array('characters' => Character::getAll()));
     });
+
+    //route to specific character
+    // $app->get('/character_find', function() use ($app)
+    // {
+    //     Character::find($id);
+    //
+    //
+    //     return $app['twig']->render('summary.html.twig', array('characters' => Character::getAll()));
+    // });
 
 
 

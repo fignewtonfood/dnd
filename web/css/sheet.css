@@ -1,4 +1,4 @@
-*, *:before, *:after {
+@media screen, print{*, *:before, *:after {
 	box-sizing: border-box;
     margin: 0;
 }
@@ -97,4 +97,5 @@ h3 span {
 .pull-left {
     float: left;
     margin: 0 0 1em 1em;
+}
 }

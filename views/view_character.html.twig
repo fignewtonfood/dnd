@@ -1,0 +1,100 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Preview your character</title>
+        <link href='https://fonts.googleapis.com/css?family=Overlock+SC' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+        <link rel='stylesheet' href='./css/main.css'>
+    </head>
+    <body>
+        {% embed "header.html.twig" %}
+        {% endembed %}
+
+    <section class = "main group">
+        <div class = "col-sm-12">
+
+    <div class = "col-sm-6">
+        <h1>Name: {{name}}<h1>
+        <h2>Race: {{ race.getName }}</h2>
+        <h2>Class: {{ class.getName }}</h2>
+        <h2>Background: {{ background.getName }}</h2>
+    </div>
+    <div class = "col-sm-3">
+        <br>
+        <h4><span style ="font-size:75%">Alignment: </span><span style ="font-size:125%">{{alignment}}</span></h4>
+        <h4><span style ="font-size:75%">Eye Color: </span><span style ="font-size:125%">{{eye_color}}</span></h4>
+        <h4><span style ="font-size:75%">Hair Color: </span><span style ="font-size:125%">{{hair_color}}</span></h4>
+
+
+
+    </div>
+    <div class = "col-sm-3">
+
+        <br>
+        <h4><span style ="font-size:75%">Gender: </span><span style ="font-size:125%">{{gender}}</span></h4>
+        <h4><span style ="font-size:75%">Height: </span><span style ="font-size:125%">{{height}}</h4>
+        <h4><span style ="font-size:75%">Age: </span><span style ="font-size:125%">{{age}}</span></h4>
+
+
+
+    </div>
+</div>
+
+
+        <br>
+
+
+
+        <br>
+        <div class = "col-sm-12">
+
+    <div class = "col-sm-6">
+        <h4>Strength: <span style ="font-size:200%">{{str}}</h4>
+        <h4>Dexterity: <span style ="font-size:200%">{{dex}}</h4>
+        <h4>Constitution: <span style ="font-size:200%">{{con}}</h4>
+
+        </div>
+        <div class = "col-sm-6">
+
+        <h4>Wisdom: <span style ="font-size:200%">{{wis}}</h4>
+        <h4>Intelligence: <span style ="font-size:200%">{{int}}</h4>
+        <h4>Charisma: <span style ="font-size:200%">{{cha}}</h4>
+        <br>
+    </div>
+</div>
+<div class = "col-sm-12">
+        <h3>Proficient Skills:</h3>
+            {% for skill in skills %}
+            <div class = "col-sm-6">
+            <p> {{ skill }} </p>
+        </div>
+            {% endfor %}
+        <br>
+    </div>
+        <div class = "col-sm-12">
+        <h3>Character description: </h3>
+        <h4>{{other}}</h4>
+        <br>
+    </div>
+<br>
+
+        <form action='/print' method='get'>
+            <button type="submit">Print</button>
+        </form>
+        <br>
+
+        <form action='/new_race' method='get'>
+            <button type="submit">Save and Create a New Character</button>
+        </form>
+
+    </section>
+
+        {% embed "progress.html.twig" %}
+        {% endembed %}
+
+        {% embed "footer.html.twig" %}
+        {% endembed %}
+
+    </body>
+</html>

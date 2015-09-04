@@ -31,9 +31,11 @@ form input[type="radio"]:checked + label {
 label {
 	display: block;
 	appearance: button;
-	background: #DDDDDD;
+	background: #c0c0c0;
 	color: #111111;
 	text-align: center;
+	border: 3px solid #6d2908;
+	padding: 5px;
 }
 
 body {

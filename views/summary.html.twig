@@ -18,18 +18,26 @@
         <h1>Name: {{name}}<h1>
         <h2>Race: {{ race.getName }}</h2>
         <h2>Class: {{ class.getName }}</h2>
-        <h3>Background: {{ background.getName }}</h3>
+        <h2>Background: {{ background.getName }}</h2>
     </div>
-    <div class = "col-sm-6">
+    <div class = "col-sm-3">
         <br>
-        <h4>Age: {{age}}</h4>
-        <h4>Gender: {{gender}}</h4>
-        <h4>Height: {{height}}</h4>
-<br>
-        <h4>Eye Color: {{eye_color}}</h4>
-        <h4>Hair Color: {{hair_color}}</h4>
-        <h4>Skin Tone: {{skin_tone}}</h4>
-        <h4>Alignment: {{alignment}}</h4>
+        <h4><span style ="font-size:75%">Alignment: </span><span style ="font-size:125%">{{alignment}}</span></h4>
+        <h4><span style ="font-size:75%">Eye Color: </span><span style ="font-size:125%">{{eye_color}}</span></h4>
+        <h4><span style ="font-size:75%">Hair Color: </span><span style ="font-size:125%">{{hair_color}}</span></h4>
+
+
+
+    </div>
+    <div class = "col-sm-3">
+
+        <br>
+        <h4><span style ="font-size:75%">Gender: </span><span style ="font-size:125%">{{gender}}</span></h4>
+        <h4><span style ="font-size:75%">Height: </span><span style ="font-size:125%">{{height}}</h4>
+        <h4><span style ="font-size:75%">Age: </span><span style ="font-size:125%">{{age}}</span></h4>
+
+
+
     </div>
 </div>
 
@@ -65,7 +73,8 @@
         <br>
     </div>
         <div class = "col-sm-12">
-        <h4>Character description: {{other}}</h4>
+        <h3>Character description: </h3>
+        <h4>{{other}}</h4>
         <br>
     </div>
 <br>

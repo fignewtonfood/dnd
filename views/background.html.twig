@@ -18,14 +18,14 @@
 
                 {% for background in backgrounds %}
                 <div class = "col-sm-6">
-                <label for = '{{ background.getId }}'>
                     <div class='background_select'>
-                        <input type='radio' name = 'background_id' value = '{{ background.getId }}'>
+                        <input id = '{{ background.getId }}' type='radio' name = 'background_id' value = '{{ background.getId }}'>
+                        <label for = '{{ background.getId }}'>
+
                             <h3>{{ background.getName }}</h3>
                             <p>{{ background.getDescription }}</p>
-
+                        </label>
                     </div>
-                </label>
             </div>
                 {% endfor %}
 

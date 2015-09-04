@@ -21,6 +21,21 @@ div {
 	padding-bottom:5em;
 }
 
+input[type=radio], input[type=checkbox] {
+	display: none;
+}
+form input[type="radio"]:checked + label {
+	background-color: #6d2908;
+	color: white;
+}
+label {
+	display: block;
+	appearance: button;
+	background: #DDDDDD;
+	color: #111111;
+	text-align: center;
+}
+
 body {
 	background:  #f1e0c5;
 	color: #000;

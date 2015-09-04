@@ -25,6 +25,10 @@ span + .stats {
 	font-size: 30px;
 }
 
+.float-right {
+	float: right;
+}
+
 /* layout =================== */
 
 .site__title, nav, section, .footer__content {

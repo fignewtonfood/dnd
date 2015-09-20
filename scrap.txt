@@ -31,3 +31,45 @@ Religion (3)
 Sleight of Hand (2)
 Stealth (2)
 Survival (1)
+
+Background Skills (quick reference)
+-----
+Acrobatics
+Animal Handling
+Arcana
+Athletics (3)
+Deception (2)
+History (2)
+Insight (2)
+Intimidation
+Medicine
+Perception
+Performance
+Persuasion (2)
+Religion (2)
+Sleight of Hand (2)
+Stealth (2)
+Survival (2)
+
+Class skills
+-----
+1)        oPerformance (3)
+2)       ooSleight of Hand (4)
+3)         Nature (5)
+4)      x**Investigation (5)
+5)    oxx**Acrobatics (5)
+6)       o*Arcana (6)
+7)     oox*Stealth (6)
+8)     oox*Deception (6)
+9)      ox*Animal Handling (6)
+10)      o**Medicine (6)
+11)    oox*Survival (7)
+12)   oxx**Perception (7)
+13)   oox**Persuasion (7)
+14)  oox***History (7)
+15)   oxx**Intimidation (8)
+16)    oo**Religion (10)
+17) oooxx**Athletics (10)
+18)ooxx****Insight (12)
+
+**Technically deception and stealth are strictly equivalent, but I decided to make stealth more valuable

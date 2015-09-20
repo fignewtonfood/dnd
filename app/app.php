@@ -49,7 +49,7 @@
 
     $server = 'mysql:host=localhost;dbname=dnd';
     $username = 'root';
-    $password = 'root';
+    $password = '';
     $DB = new PDO($server, $username, $password);
 
 
